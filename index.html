@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ORUS — Visual Identity Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ore-black: #0E0E0D;
+    --concrete: #9C958A;
+    --molten: #E5531A;
+    --oxide: #7A3B2E;
+    --bone: #EDE7DB;
+    --line: rgba(237, 231, 219, 0.14);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ore-black);
+    color: var(--bone);
+    font-family: 'Manrope', sans-serif;
+    font-weight: 300;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* faint cave-grain texture */
+  body::before {
+    content: "";
+    position: fixed; inset: 0; pointer-events: none; z-index: 1; opacity: 0.04;
+    background-image: radial-gradient(var(--bone) 0.5px, transparent 0.5px);
+    background-size: 4px 4px;
+  }
+
+  .wrap { position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; padding: 0 28px; }
+
+  /* ---- type roles (single typeface, hierarchy via weight + tracking) ---- */
+  .kicker { font-weight: 600; text-transform: uppercase; letter-spacing: 0.4em; font-size: 0.7rem; color: var(--molten); }
+  h1, h2, h3 { font-weight: 800; text-transform: uppercase; letter-spacing: 0.02em; line-height: 1.0; }
+  .sub { font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; }
+  .detail { font-weight: 500; text-transform: uppercase; letter-spacing: 0.28em; font-size: 0.72rem; }
+  .spaced { letter-spacing: 0.5em; }
+
+  /* ---------- Hero ---------- */
+  header.hero {
+    position: relative; min-height: 94vh; display: flex; flex-direction: column;
+    justify-content: center; border-bottom: 1px solid var(--line); overflow: hidden;
+  }
+  /* light piercing darkness — the cave mouth at dawn */
+  header.hero::after {
+    content: ""; position: absolute; width: 760px; height: 760px; right: -240px; top: -160px;
+    background: radial-gradient(circle, rgba(229,83,26,0.40) 0%, rgba(229,83,26,0) 62%);
+    filter: blur(10px);
+  }
+  .hero-inner { position: relative; z-index: 3; }
+  .hero h1 {
+    font-weight: 800; font-size: clamp(3.4rem, 13vw, 10rem); letter-spacing: 0.18em;
+    margin: 0.18em 0 0.16em; padding-left: 0.18em;
+  }
+  .hero .tagline {
+    font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;
+    font-size: clamp(1rem, 2.4vw, 1.55rem); color: var(--concrete); max-width: 640px;
+  }
+  .hero .tagline em { color: var(--molten); font-style: normal; }
+  .hero .meta { margin-top: 36px; }
+
+  /* ---------- Section ---------- */
+  section { padding: 92px 0; border-bottom: 1px solid var(--line); }
+  .sec-head { display: flex; align-items: baseline; gap: 18px; margin-bottom: 12px; flex-wrap: wrap; }
+  .sec-num { font-weight: 700; color: var(--molten); font-size: 0.9rem; letter-spacing: 0.1em; }
+  section h2 { font-size: clamp(1.9rem, 5vw, 3.2rem); letter-spacing: 0.04em; }
+  .sec-intro { max-width: 740px; color: var(--concrete); margin: 18px 0 44px; font-size: 1.02rem; }
+  .sec-intro b { color: var(--bone); font-weight: 600; }
+
+  /* ---------- Concept strip ---------- */
+  .concept { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; margin-bottom: 8px; }
+  .concept .c { border: 1px solid var(--line); border-radius: 4px; padding: 22px 22px 24px; background: rgba(255,255,255,0.015); }
+  .concept .c .t { font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--molten); font-size: 0.78rem; margin-bottom: 10px; }
+  .concept .c p { font-size: 0.88rem; color: var(--concrete); line-height: 1.6; }
+
+  /* ---------- Color palette ---------- */
+  .swatches { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 18px; }
+  .swatch { border: 1px solid var(--line); border-radius: 4px; overflow: hidden; background: rgba(255,255,255,0.015); }
+  .swatch .chip { height: 150px; display: flex; align-items: flex-end; padding: 14px; }
+  .swatch .chip .role { font-weight: 600; font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; opacity: 0.9; }
+  .swatch .info { padding: 16px 16px 20px; }
+  .swatch .name { font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; font-size: 1.02rem; }
+  .swatch .hex { font-weight: 600; font-size: 0.82rem; color: var(--molten); margin: 4px 0 10px; cursor: pointer; display: inline-block; letter-spacing: 0.05em; }
+  .swatch .hex:hover { text-decoration: underline; }
+  .swatch .why { font-size: 0.85rem; color: var(--concrete); line-height: 1.55; }
+
+  /* ---------- Typography specimens ---------- */
+  .type-stack { display: grid; gap: 26px; }
+  .type-card { border: 1px solid var(--line); border-radius: 4px; padding: 28px 30px; background: rgba(255,255,255,0.015); }
+  .type-card .label { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+  .type-card .label .role { font-weight: 700; font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--molten); }
+  .type-card .label .font { font-weight: 500; font-size: 0.78rem; color: var(--concrete); letter-spacing: 0.05em; }
+  .specimen-head { font-weight: 800; text-transform: uppercase; font-size: clamp(2rem, 6vw, 3.4rem); line-height: 1.0; letter-spacing: 0.04em; }
+  .specimen-sub { font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; font-size: 1.4rem; }
+  .specimen-body { font-weight: 300; font-size: 1.04rem; color: var(--bone); max-width: 640px; }
+  .specimen-detail { font-weight: 500; text-transform: uppercase; letter-spacing: 0.28em; font-size: 0.85rem; color: var(--concrete); }
+  .rules { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 0.85rem; color: var(--concrete); }
+  .rules b { color: var(--bone); font-weight: 600; }
+
+  /* ---------- Logo concepts ---------- */
+  .logos { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; }
+  .logo-card { border: 1px solid var(--line); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; }
+  .logo-vis { height: 230px; display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at 70% 25%, #201d1a, #0a0a09 70%); position: relative; }
+  .logo-body { padding: 22px 24px 28px; }
+  .logo-body .type { font-weight: 700; font-size: 0.66rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--molten); }
+  .logo-body h3 { font-size: 1.3rem; margin: 8px 0 12px; letter-spacing: 0.04em; }
+  .logo-body p { font-size: 0.9rem; color: var(--concrete); line-height: 1.6; }
+
+  /* logo mockups */
+  .mark-spaced { font-weight: 800; font-size: 2.4rem; letter-spacing: 0.5em; color: var(--bone); padding-left: 0.5em; }
+  .mark-orus-split { font-weight: 800; font-size: 2.6rem; letter-spacing: 0.18em; color: var(--bone); display: flex; align-items: center; gap: 0.1em; }
+  .mark-orus-split .slash { color: var(--molten); font-weight: 300; margin: 0 0.12em; transform: scaleY(1.4); }
+  .mark-circle { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+  .circle-o { width: 96px; height: 96px; }
+  .circle-o circle.ring { fill: none; stroke: var(--bone); stroke-width: 3; }
+  .circle-o path.dawn { fill: none; stroke: var(--molten); stroke-width: 5; stroke-linecap: round; }
+  .mark-seal { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+  .seal { width: 132px; height: 132px; filter: drop-shadow(0 6px 18px rgba(0,0,0,0.45)); }
+  .mark-seal .word { font-weight: 700; font-size: 1.3rem; letter-spacing: 0.4em; color: var(--bone); padding-left: 0.4em; }
+
+  /* ---------- AI prompts ---------- */
+  .prompt { border: 1px solid var(--line); border-radius: 4px; margin-bottom: 20px; overflow: hidden; }
+  .prompt .ph { display: flex; justify-content: space-between; align-items: center; padding: 14px 18px; background: rgba(229,83,26,0.08); border-bottom: 1px solid var(--line); }
+  .prompt .ph .t { font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.92rem; }
+  .prompt .ph .copy { font-weight: 600; font-size: 0.66rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--molten); cursor: pointer; border: 1px solid var(--molten); padding: 6px 13px; border-radius: 3px; background: transparent; font-family: inherit; }
+  .prompt .ph .copy:hover { background: var(--molten); color: var(--ore-black); }
+  .prompt .pbody { padding: 20px 18px; font-size: 0.86rem; line-height: 1.7; color: var(--concrete); white-space: pre-wrap; }
+
+  /* ---------- Imagery guide ---------- */
+  .img-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: start; }
+  .do-dont { display: grid; gap: 18px; }
+  .dd-card { border: 1px solid var(--line); border-radius: 4px; padding: 22px 24px; }
+  .dd-card.do { border-left: 3px solid var(--molten); }
+  .dd-card.dont { border-left: 3px solid var(--oxide); }
+  .dd-card h4 { font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.82rem; color: var(--molten); margin-bottom: 12px; }
+  .dd-card.dont h4 { color: var(--concrete); }
+  .dd-card ul { list-style: none; }
+  .dd-card li { font-size: 0.88rem; color: var(--concrete); padding-left: 18px; position: relative; margin-bottom: 8px; line-height: 1.5; }
+  .dd-card li::before { content: "—"; position: absolute; left: 0; color: var(--molten); }
+  .dd-card.dont li::before { content: "×"; color: var(--oxide); }
+  .emotion-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+  .tag { font-weight: 500; font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; border: 1px solid var(--line); padding: 8px 14px; border-radius: 40px; color: var(--bone); }
+
+  .moodboard { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .mood { aspect-ratio: 3/4; border-radius: 4px; display: flex; align-items: flex-end; padding: 12px; font-weight: 500; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(237,231,219,0.85); }
+  .m1 { background: radial-gradient(circle at 70% 20%, #2a2724, #0c0c0b); }
+  .m2 { background: linear-gradient(160deg, var(--oxide), #1a1411); }
+  .m3 { background: radial-gradient(circle at 50% 0%, var(--molten), #2a0f04 70%); }
+  .m4 { background: linear-gradient(160deg, #3a3833, var(--concrete)); color: #1a1a17; }
+  .m5 { background: radial-gradient(circle at 80% 90%, #1c1b19, #000); }
+  .m6 { background: linear-gradient(160deg, #4a2418, var(--molten)); }
+
+  /* ---------- Footer ---------- */
+  footer { padding: 76px 0 92px; text-align: center; }
+  footer .lock { font-weight: 800; font-size: 2.2rem; letter-spacing: 0.5em; padding-left: 0.5em; }
+  footer .note { font-weight: 500; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--concrete); margin-top: 16px; }
+
+  @media (max-width: 720px) { .img-grid { grid-template-columns: 1fr; } }
+
+  #toast {
+    position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(120%);
+    background: var(--molten); color: var(--ore-black); font-weight: 600; font-size: 0.76rem;
+    letter-spacing: 0.1em; text-transform: uppercase; padding: 12px 22px; border-radius: 4px;
+    z-index: 50; transition: transform 0.3s ease;
+  }
+  #toast.show { transform: translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap hero-inner">
+    <div class="kicker">Visual Identity Guide — v2.0</div>
+    <h1>ORUS</h1>
+    <p class="tagline">Why choose <em>OR</em> when you can choose <em>US</em>?</p>
+    <div class="meta detail">Cave Bar · Singapore · Raw nature meets high design</div>
+  </div>
+</header>
+
+<!-- ============ THE NAME / CONCEPT ============ -->
+<section id="concept">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">00</span><h2>The Idea Behind the Mark</h2></div>
+    <p class="sec-intro">Every design decision below traces back to the meaning of the name. <b>ORUS</b> isn't a dictionary word — that mystique is the point.<br>It lives at the intersection of raw nature and high design, and the identity has to do the same.</p>
+    <div class="concept">
+      <div class="c"><div class="t">Ore</div><p>Raw, unrefined rock from the deepest veins of the earth — holding precious minerals. Raw potential and hidden treasure. The palette and textures are mined, not manufactured.</p></div>
+      <div class="c"><div class="t">Light in Darkness</div><p>The moment light pierces the dark — the mouth of a cave at dawn. This is why a single molten glow always cuts through the near-black.</p></div>
+      <div class="c"><div class="t">The Circle "O"</div><p>生命之圆 — the Circle of Life: wholeness, completeness, the eternal flowing rhythm. The "O" is treated as a perfect, courageous circle.</p></div>
+      <div class="c"><div class="t">OR / US</div><p>Read it again: <b>OR / US</b>. The flirty, social wordplay that resolves the weekend's "this or that" — descend into the cave and just be part of <em>us</em>.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COLOR ============ -->
+<section id="color">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">01</span><h2>Color Palette</h2></div>
+    <p class="sec-intro">A near-black cave interior, grounded in raw ore and concrete, with one molten beam of dawn light breaking through. The darkness makes the room intimate; the single warm light makes it romantic. Tap any hex to copy.</p>
+    <div class="swatches">
+
+      <div class="swatch">
+        <div class="chip" style="background:#0E0E0D;"><span class="role">Primary</span></div>
+        <div class="info">
+          <div class="name">Cave Black</div>
+          <div class="hex" data-hex="#0E0E0D">#0E0E0D</div>
+          <div class="why">A deep, matte near-black — the dark, intimate interior of the cave. It signals depth, mystery and permanence, pulling guests away from the bright, plastic surface of the city and down into something grounded.</div>
+        </div>
+      </div>
+
+      <div class="swatch">
+        <div class="chip" style="background:#9C958A;"><span class="role" style="color:#1a1a17;">Secondary</span></div>
+        <div class="info">
+          <div class="name">Raw Stone</div>
+          <div class="hex" data-hex="#9C958A">#9C958A</div>
+          <div class="why">A warm, dusty grey — raw rock and stone coasters. Tactile and honest, it humanises the black and reinforces the "raw nature" half of the brand without feeling cold or corporate.</div>
+        </div>
+      </div>
+
+      <div class="swatch">
+        <div class="chip" style="background:#E5531A;"><span class="role">Accent</span></div>
+        <div class="info">
+          <div class="name">Dawn Molten</div>
+          <div class="hex" data-hex="#E5531A">#E5531A</div>
+          <div class="why">The light piercing the darkness — the cave mouth at dawn. Warm and magnetic, it triggers appetite, intimacy and anticipation. Used as a single beam, it becomes the brand's most ownable signal.</div>
+        </div>
+      </div>
+
+      <div class="swatch">
+        <div class="chip" style="background:#7A3B2E;"><span class="role">Accent · Earth</span></div>
+        <div class="info">
+          <div class="name">Oxide Vein</div>
+          <div class="hex" data-hex="#7A3B2E">#7A3B2E</div>
+          <div class="why">An oxidised, mineral red-brown — the precious vein running through the ore. It grounds the bright accent, adds maturity and ruggedness, and ties the identity back to earth and hidden treasure.</div>
+        </div>
+      </div>
+
+      <div class="swatch">
+        <div class="chip" style="background:#EDE7DB;"><span class="role" style="color:#1a1a17;">Neutral</span></div>
+        <div class="info">
+          <div class="name">Bone</div>
+          <div class="hex" data-hex="#EDE7DB">#EDE7DB</div>
+          <div class="why">A soft, warm off-white for type and breathing room. Honest rather than clinical, it carries the widely-spaced wordmark cleanly against the dark and keeps the "high design" half polished.</div>
+        </div>
+      </div>
+
+    </div>
+    <p class="sec-intro" style="margin-top:36px;font-size:0.9rem;">
+      <b>Usage ratio:</b> ~72% Cave Black · ~16% Raw Stone &amp; Bone · ~8% Oxide Vein · ~4% Dawn Molten. The molten light is a single beam — never flood the room with it.
+    </p>
+  </div>
+</section>
+
+<!-- ============ TYPOGRAPHY ============ -->
+<section id="type">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">02</span><h2>Typography System</h2></div>
+    <p class="sec-intro">The concept deck is explicit: ORUS should read as <b>one bespoke, geometric sans-serif</b> with letters spaced widely apart to evoke vast space and breathing room. <b>Manrope</b> delivers exactly that — a clean, modern geometric sans — so it carries the entire system. Hierarchy comes from weight and tracking, not from switching fonts. Free on Google Fonts.</p>
+
+    <div class="type-stack">
+
+      <div class="type-card">
+        <div class="label"><span class="role">Display · Wordmark</span><span class="font">Manrope — 800 ExtraBold</span></div>
+        <div class="specimen-head spaced">O R U S</div>
+        <div class="rules">
+          <b>Use for:</b> The logo, hero statements, poster headlines. &nbsp;·&nbsp;
+          <b>Rules:</b> UPPERCASE. For the wordmark, very wide tracking (+0.5em) for "vast space." For headlines, +2–4%. Tight leading (1.0). Always add left padding equal to the tracking so it stays optically centered.
+        </div>
+      </div>
+
+      <div class="type-card">
+        <div class="label"><span class="role">Headings</span><span class="font">Manrope — 800</span></div>
+        <div class="specimen-head">Leave the OR behind</div>
+        <div class="rules">
+          <b>Use for:</b> Section titles, campaign headlines. &nbsp;·&nbsp;
+          <b>Rules:</b> UPPERCASE, tracking +2–4%. Let one headline dominate a view. Pair the molten accent on a single keyword (e.g. <span style="color:var(--molten);">US</span>).
+        </div>
+      </div>
+
+      <div class="type-card">
+        <div class="label"><span class="role">Subheadings · Labels</span><span class="font">Manrope — 700</span></div>
+        <div class="specimen-sub">FIND US IN THE DARK</div>
+        <div class="rules">
+          <b>Use for:</b> Menu sections, navigation, callouts, coaster text. &nbsp;·&nbsp;
+          <b>Rules:</b> UPPERCASE with generous tracking (+0.12em). The spacing keeps the geometric, architectural feel consistent with the wordmark.
+        </div>
+      </div>
+
+      <div class="type-card">
+        <div class="label"><span class="role">Body</span><span class="font">Manrope — 300 / 400 / 600</span></div>
+        <div class="specimen-body">Leave behind the endless choices, the corporate binaries, the "this or that" anxiety of daily life. Descend into the cave and just be part of us — the collective hiding out in the dark, with great music and great drinks.</div>
+        <div class="rules">
+          <b>Use for:</b> Body copy, web text, descriptions. &nbsp;·&nbsp;
+          <b>Rules:</b> Sentence case for a warm, level tone. Weight 300 default, 600 for inline emphasis. Line-height 1.6–1.75. Max line length ~70 characters.
+        </div>
+      </div>
+
+      <div class="type-card">
+        <div class="label"><span class="role">Detail · Fine Print</span><span class="font">Manrope — 500</span></div>
+        <div class="specimen-detail">OPEN 5 TILL LATE · OR / US · SINGAPORE</div>
+        <div class="rules">
+          <b>Use for:</b> Hours, tags, addresses, captions, the "OR / US" stamp. &nbsp;·&nbsp;
+          <b>Rules:</b> UPPERCASE, very wide tracking (+0.28em), small sizes. Keeps technical details feeling architectural and intentional within a single-typeface system.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ LOGO ============ -->
+<section id="logo">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">03</span><h2>Logo Design Concepts</h2></div>
+    <p class="sec-intro">Four directions drawn straight from the deck: the widely-spaced wordmark, the OR / US wordplay, the circle "O," and a refined ink-seal icon (expanded from your reference). All built in Manrope so the system stays bespoke and cohesive. CSS / SVG mockups show intent — final art should be refined by a designer.</p>
+
+    <div class="logos">
+
+      <div class="logo-card">
+        <div class="logo-vis"><div class="mark-spaced">O R U S</div></div>
+        <div class="logo-body">
+          <div class="type">Concept 01 · Wordmark</div>
+          <h3>The Spaced Mark</h3>
+          <p>The primary identity: "O R U S" in Manrope ExtraBold, uppercase, with very wide letter-spacing so each letter stands alone in vast, breathing space — "raw nature meets high design." Calm, architectural, and quietly confident. This is the everyday lockup for signage, the menu header and the building façade.</p>
+        </div>
+      </div>
+
+      <div class="logo-card">
+        <div class="logo-vis"><div class="mark-orus-split">OR<span class="slash">/</span>US</div></div>
+        <div class="logo-body">
+          <div class="type">Concept 02 · Wordplay Mark</div>
+          <h3>OR / US</h3>
+          <p>The social, flirty variant that splits the name with a molten slash: <b>OR / US</b>. Built for the conversation-starter moments — the stone coasters that read "OR…" on one face and "…US" on the other, date-night collateral, and social campaigns ("Why choose OR when you can choose US?"). A playful secondary lockup that lives alongside the calm primary.</p>
+        </div>
+      </div>
+
+      <div class="logo-card">
+        <div class="logo-vis">
+          <div class="mark-circle">
+            <svg class="circle-o" viewBox="0 0 100 100">
+              <circle class="ring" cx="50" cy="50" r="40" />
+              <path class="dawn" d="M 30 22 A 40 40 0 0 1 78 38" />
+            </svg>
+            <div class="word">ORUS</div>
+          </div>
+        </div>
+        <div class="logo-body">
+          <div class="type">Concept 03 · Icon + Wordmark</div>
+          <h3>The Circle of Life</h3>
+          <p>A standalone icon built from the "O" — a perfect circle (生命之圆: wholeness, the eternal rhythm) with a single molten arc of dawn light breaking across its rim, the mouth of the cave at sunrise. It detaches cleanly for app icons, stamps, neon and merch, and encodes courage, energy and "light piercing darkness" in one ownable symbol above the wordmark.</p>
+        </div>
+      </div>
+
+      <div class="logo-card">
+        <div class="logo-vis">
+          <div class="mark-seal">
+            <svg class="seal" viewBox="0 0 100 100">
+              <defs>
+                <clipPath id="sealClip"><circle cx="50" cy="50" r="46" /></clipPath>
+                <filter id="sealGrain" x="0" y="0" width="100%" height="100%">
+                  <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" />
+                  <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.7 0" />
+                </filter>
+              </defs>
+              <circle cx="50" cy="50" r="46" fill="#E5531A" />
+              <g fill="#7A3B2E">
+                <rect x="33" y="23" width="35" height="31" rx="13" transform="rotate(-10 50 38)" />
+                <rect x="28" y="60" width="35" height="12" rx="6" transform="rotate(-4 45 66)" />
+              </g>
+              <ellipse cx="53" cy="37" rx="6.5" ry="5" fill="#E5531A" transform="rotate(-10 53 37)" />
+              <rect width="100" height="100" filter="url(#sealGrain)" clip-path="url(#sealClip)" opacity="0.16" />
+            </svg>
+            <div class="word">ORUS</div>
+          </div>
+        </div>
+        <div class="logo-body">
+          <div class="type">Concept 04 · Ink-Seal Icon</div>
+          <h3>The Seal</h3>
+          <p>Expanded from your reference, refined to be deliberate rather than purely organic. The circle stays (the Circle of Life / coaster), but the hand-painted glyph is rebuilt from clean geometric forms: a rounded <b>ore stone</b> with a light-catching <b>aperture</b> (the cave mouth) resting on a solid <b>grounding bar</b> (the horizon — and the bar itself). It still reads as a hanko-style stamp, so it doubles as the physical coaster seal, but with controlled curves and a faint mineral grain instead of loose brushwork. Tonal molten-on-oxide keeps it warm and ownable.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ AI PROMPTS ============ -->
+<section id="prompts">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">04</span><h2>AI Image Prompts</h2></div>
+    <p class="sec-intro">Copy-paste ready for Midjourney, DALL·E or similar. Adjust <span style="color:var(--molten);">--ar</span> and version flags to your tool. Each maps to a concept above.</p>
+
+    <div class="prompt">
+      <div class="ph"><span class="t">Prompt 1 — Circle of Life Mark (Logo)</span><button class="copy">Copy</button></div>
+      <div class="pbody">Minimalist geometric logo for a cave bar called "ORUS", a single perfect circle as the letter O symbolising the circle of life, one molten-orange arc of light (#E5531A) breaking across the top rim like dawn at the mouth of a cave, matte near-black background (#0E0E0D), wide-spaced uppercase wordmark "O R U S" in clean geometric sans-serif beneath, lots of negative space, flat 2D vector, no gradients, raw nature meets high design, premium intimate bar branding, centered --ar 1:1 --style raw --v 6</div>
+    </div>
+
+    <div class="prompt">
+      <div class="ph"><span class="t">Prompt 2 — The Cave Interior (Atmosphere)</span><button class="copy">Copy</button></div>
+      <div class="pbody">Atmospheric photograph of a dark, intimate underground cave bar in Singapore, rough raw stone and ore walls glistening with mineral veins, very low lighting with a single warm molten-orange beam piercing the darkness like dawn at a cave mouth, a couple on a first date leaning close over stone coasters, cold cocktail glasses catching the light, deep shadows, cinematic chiaroscuro, 35mm film grain, high contrast, romantic and mysterious mood, tactile and honest, photographic realism --ar 3:2 --style raw --v 6</div>
+    </div>
+
+    <div class="prompt">
+      <div class="ph"><span class="t">Prompt 3 — OR / US Stone Coaster (Collateral)</span><button class="copy">Copy</button></div>
+      <div class="pbody">Product close-up of two rough natural stone coasters on a dark bar top, one engraved "OR…" and the other "…US" in clean wide-spaced uppercase geometric sans-serif, raw tactile stone texture with subtle mineral veins, a single molten-orange light source raking across from the side casting long shadows, matte near-black background, condensation droplets nearby, moody intimate cave lighting, macro detail, high-end craft branding, photographic realism --ar 4:5 --style raw --v 6</div>
+    </div>
+
+    <div class="prompt">
+      <div class="ph"><span class="t">Prompt 4 — The Seal Icon (Logo / Stamp)</span><button class="copy">Copy</button></div>
+      <div class="pbody">Minimalist geometric ink-seal logo inside a solid circle, abstract glyph reading as a rounded ore-stone shape with a small negative-space aperture above a single horizontal grounding bar, refined and deliberate (not loose or hand-painted), tonal palette of molten orange (#E5531A) circle with darker oxide-rust (#7A3B2E) glyph, subtle fine mineral grain texture like a stone coaster or Japanese hanko stamp, flat 2D vector, clean controlled curves, lots of negative space, premium bar branding, centered on matte near-black background --ar 1:1 --style raw --v 6</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IMAGERY ============ -->
+<section id="imagery">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">05</span><h2>Brand Imagery Guide</h2></div>
+    <p class="sec-intro">Imagery should feel like a secret you descended into — dark, intimate and romantic, with one warm light doing all the work. The mood: a tribe hiding out in the cave, away from the bright corporate surface.</p>
+
+    <div class="img-grid">
+      <div>
+        <div class="moodboard">
+          <div class="mood m1">cave / ore wall</div>
+          <div class="mood m2">oxide vein</div>
+          <div class="mood m3">dawn light</div>
+          <div class="mood m4">raw stone</div>
+          <div class="mood m5">dark intimate</div>
+          <div class="mood m6">molten glow</div>
+        </div>
+        <div class="emotion-tags">
+          <span class="tag">Intimate</span>
+          <span class="tag">Mysterious</span>
+          <span class="tag">Romantic</span>
+          <span class="tag">Raw</span>
+          <span class="tag">Grounded</span>
+          <span class="tag">Belonging</span>
+          <span class="tag">Anticipation</span>
+        </div>
+      </div>
+
+      <div class="do-dont">
+        <div class="dd-card do">
+          <h4>Style — Do</h4>
+          <ul>
+            <li>Dark, low-key photography with a single warm light piercing the shadow.</li>
+            <li>Grainy 35mm / analog film aesthetic — honest, tactile, never clinical.</li>
+            <li>Macro texture: raw ore, stone coasters, mineral veins, wet glass.</li>
+            <li>Candid, close, intimate human moments — couples, small tribes in the dark.</li>
+            <li>Deep negative space and the widely-spaced wordmark for "high design" calm.</li>
+          </ul>
+        </div>
+        <div class="dd-card dont">
+          <h4>Style — Don't</h4>
+          <ul>
+            <li>Bright, even, "premium cocktail lounge" or daylight lighting.</li>
+            <li>Staged lifestyle stock photography or fake smiles.</li>
+            <li>Over-saturated neon party clichés or rainbow club lighting.</li>
+            <li>Glossy, plastic, over-polished, digital-feeling surfaces.</li>
+            <li>Clip-art icons or busy layouts that crowd out the breathing room.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <p class="sec-intro" style="margin-top:40px;font-size:0.92rem;">
+      <b>Emotion to evoke:</b> the feeling of descending out of the bright, plastic, over-digitised city into something dark, permanent and real — then finding your people there. Mysterious but warm, raw but designed. If an image looks like a glossy ad, it's wrong. If it feels like a single beam of light catching a moment inside a cave, it's right.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="lock">ORUS</div>
+    <div class="note">Leave the OR behind · Find US</div>
+  </div>
+</footer>
+
+<div id="toast">Copied</div>
+
+<script>
+  const toast = document.getElementById('toast');
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(window.__t);
+    window.__t = setTimeout(() => toast.classList.remove('show'), 1400);
+  }
+  document.querySelectorAll('.hex').forEach(el => {
+    el.addEventListener('click', () => {
+      const hex = el.getAttribute('data-hex');
+      navigator.clipboard.writeText(hex).then(() => showToast(hex + ' copied'));
+    });
+  });
+  document.querySelectorAll('.prompt .copy').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const text = btn.closest('.prompt').querySelector('.pbody').innerText;
+      navigator.clipboard.writeText(text).then(() => showToast('Prompt copied'));
+    });
+  });
+</script>
+
+</body>
+</html>
