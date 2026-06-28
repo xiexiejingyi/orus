@@ -224,6 +224,26 @@
   .proj-gallery img:hover { filter: grayscale(0%) contrast(1.15); }
   @media (max-width: 900px) { .proj-gallery { grid-template-columns: repeat(2, 1fr); } .proj-gallery img { height: 190px; } }
   @media (max-width: 520px) { .proj-gallery { grid-template-columns: 1fr; } }
+  .coaster-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .coaster-gallery.two { grid-template-columns: repeat(2, 1fr); max-width: 680px; margin: 0 auto; }
+  .coaster-gallery.four { grid-template-columns: repeat(4, 1fr); }
+  @media (max-width: 900px) { .coaster-gallery.four { grid-template-columns: repeat(2, 1fr); } }
+  .menu-refs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 12px; }
+  .menu-refs.three { grid-template-columns: repeat(3, 1fr); }
+  .menu-refs figure { margin: 0; }
+  .menu-refs img { width: 100%; height: 420px; object-fit: cover; border-radius: 4px; display: block; filter: contrast(1.04); }
+  .menu-refs figcaption { margin-top: 9px; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--concrete); line-height: 1.4; }
+  @media (max-width: 900px) { .menu-refs.three { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px) { .menu-refs, .menu-refs.three { grid-template-columns: 1fr; } }
+  .coaster-gallery figure { margin: 0; }
+  .coaster-gallery img { width: 100%; height: 300px; object-fit: cover; border-radius: 4px; display: block; filter: contrast(1.05); }
+  .coaster-gallery figcaption { margin-top: 9px; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--concrete); }
+  .ref-label { margin-top: 20px; font-weight: 700; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--bone); }
+  .ref-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 12px; }
+  .ref-strip figure { margin: 0; }
+  .ref-strip img { width: 100%; height: 160px; object-fit: cover; border-radius: 4px; display: block; opacity: 0.82; filter: grayscale(8%); }
+  .ref-strip figcaption { margin-top: 7px; font-size: 0.58rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--concrete); line-height: 1.35; }
+  @media (max-width: 900px) { .coaster-gallery { grid-template-columns: 1fr; } }
 
   /* ---------- Uniform & Merch ---------- */
   .merch-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 40px; align-items: start; }
@@ -232,6 +252,15 @@
   .merch-shot > img { width: 100%; height: auto; display: block; filter: contrast(1.03) brightness(0.97); }
   .merch-mark { position: absolute; transform: translate(-50%, -50%); filter: drop-shadow(0 2px 7px rgba(0,0,0,0.55)); }
   .merch-mark svg { width: 100%; height: auto; display: block; }
+  .merch-card.wide { grid-column: 1 / -1; }
+  .tee-examples, .cap-examples { display: grid; gap: 2px; }
+  .tee-examples { grid-template-columns: repeat(4, 1fr); }
+  .tee-examples.five { grid-template-columns: repeat(5, 1fr); }
+  .cap-examples { grid-template-columns: repeat(5, 1fr); }
+  .tee-examples figure, .cap-examples figure { margin: 0; position: relative; line-height: 0; }
+  .tee-examples img, .cap-examples img { width: 100%; height: 320px; object-fit: cover; display: block; filter: contrast(1.03) brightness(0.97); }
+  .tee-examples figcaption, .cap-examples figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 8px 10px; font-size: 0.58rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #fff; line-height: 1.3; background: linear-gradient(to top, rgba(0,0,0,0.72), rgba(0,0,0,0)); }
+  @media (max-width: 720px) { .tee-examples, .cap-examples { grid-template-columns: repeat(2, 1fr); } }
   .merch-info { padding: 18px 20px 22px; }
   .merch-info .t { font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.78rem; color: var(--molten); margin-bottom: 7px; }
   .merch-info .d { font-size: 0.84rem; color: var(--concrete); line-height: 1.56; }
@@ -473,11 +502,168 @@
 <section id="logo">
   <div class="wrap">
     <div class="sec-head"><span class="sec-num">04</span><h2>Logo Design Concepts</h2></div>
-    <p class="sec-intro">Three directions, each shown as a <b>blueprint</b> — the build-up from first stroke to finished mark on the right, and the symbolism annotated on the anatomy diagram. All share the same bespoke geometry: a monumental stone block plus the two circular icons you favoured.</p>
+    <p class="sec-intro">Four directions, each shown as a <b>blueprint</b> — the build-up from first stroke to finished mark on the right, and the symbolism annotated on the anatomy diagram. They run from a rough-hewn wordmark to a monumental stone block and two circular icons.</p>
 
-    <!-- Concept 01 — The Monolith -->
+    <p class="sec-intro" style="margin-top:30px;font-size:1rem;"><b style="color:var(--molten);letter-spacing:0.04em;">CONCEPT 01 · THE CONTRAST WORDMARK</b><br>One idea — a rough-hewn, organic 'O' meeting clean geometric type — shown as two variations below.</p>
+
+    <!-- Concept 01.1 — The Contrast Mark -->
     <div class="blueprint">
-      <div class="bp-head"><span class="type">Concept 01 · Stacked Monogram</span><h3>The Monolith</h3></div>
+      <div class="bp-head"><span class="type">Concept 1.1 · Contrast Wordmark</span><h3>The Contrast Mark</h3></div>
+      <p class="bp-sub">The name, built on tension. The 'O' is rough-hewn, wobbly, and organic — like a raw stone found in the earth. The 'RUS' is clean, sharp, and geometric. This contrast between raw nature and high design perfectly captures the brand, accented by a single molten spark.</p>
+      <div class="bp-grid">
+        <div class="bp-anatomy">
+          <div class="bp-label">Anatomy & Symbolism</div>
+          <svg viewBox="0 0 400 240" role="img" aria-label="Annotated contrast ORUS wordmark">
+            <defs>
+              <filter id="roughEdge" x="-20%" y="-20%" width="140%" height="140%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="3" result="noise" />
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R" yChannelSelector="G" />
+              </filter>
+            </defs>
+            
+            <!-- Clean RUS -->
+            <text x="115" y="135" font-size="68" font-weight="800" letter-spacing="4" fill="#EDE7DB">RUS</text>
+            
+            <!-- Rough O -->
+            <path d="M 70,80 C 95,77 105,95 102,120 C 98,140 75,143 55,135 C 40,125 42,95 50,85 C 58,75 65,82 70,80 Z M 72,100 C 68,105 68,120 75,123 C 82,125 88,110 82,103 C 78,97 75,95 72,100 Z" fill="#EDE7DB" filter="url(#roughEdge)" />
+            
+            <!-- Molten Spark -->
+            <path d="M 108,82 C 113,80 116,84 114,89 C 111,94 104,93 103,87 C 101,82 104,83 108,82 Z" fill="#E5531A" filter="url(#roughEdge)" />
+
+            <!-- Annotations — tidy right column -->
+            <line x1="114" y1="85" x2="300" y2="68" stroke="#9C958A" stroke-width="1" opacity="0.4" /><circle cx="114" cy="85" r="2" fill="#E5531A" />
+            <text x="308" y="66" font-size="12" font-weight="700" fill="#EDE7DB" letter-spacing="1">MOLTEN SPARK</text>
+            <text x="308" y="81" font-size="11" fill="#9C958A">A single warm accent</text>
+
+            <line x1="205" y1="100" x2="300" y2="118" stroke="#9C958A" stroke-width="1" opacity="0.4" /><circle cx="205" cy="100" r="2" fill="#E5531A" />
+            <text x="308" y="116" font-size="12" font-weight="700" fill="#EDE7DB" letter-spacing="1">CLEAN GEOMETRY</text>
+            <text x="308" y="131" font-size="11" fill="#9C958A">High-design contrast</text>
+
+            <line x1="72" y1="128" x2="300" y2="168" stroke="#9C958A" stroke-width="1" opacity="0.4" /><circle cx="72" cy="128" r="2" fill="#E5531A" />
+            <text x="308" y="166" font-size="12" font-weight="700" fill="#EDE7DB" letter-spacing="1">ROUGH-HEWN 'O'</text>
+            <text x="308" y="181" font-size="11" fill="#9C958A">Organic, stone-like origin</text>
+          </svg>
+        </div>
+        <div class="bp-process">
+          <div class="bp-label">Design Process</div>
+          <div class="bp-steps">
+            <div class="bp-step">
+              <svg viewBox="0 0 100 100">
+                <g transform="translate(-12 6) scale(0.4)">
+                  <text x="40" y="135" font-size="68" font-weight="800" letter-spacing="4" fill="#EDE7DB">ORUS</text>
+                </g>
+              </svg>
+              <span class="cap"><span class="num">1</span> · Set clean wordmark</span>
+            </div>
+            <div class="bp-arrow">›</div>
+            <div class="bp-step">
+              <svg viewBox="0 0 100 100">
+                <defs><filter id="r1" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G"/></filter></defs>
+                <g transform="translate(-12 6) scale(0.4)">
+                  <text x="115" y="135" font-size="68" font-weight="800" letter-spacing="4" fill="#EDE7DB">RUS</text>
+                  <path d="M 70,80 C 95,77 105,95 102,120 C 98,140 75,143 55,135 C 40,125 42,95 50,85 C 58,75 65,82 70,80 Z M 72,100 C 68,105 68,120 75,123 C 82,125 88,110 82,103 C 78,97 75,95 72,100 Z" fill="#EDE7DB" filter="url(#r1)" />
+                </g>
+              </svg>
+              <span class="cap"><span class="num">2</span> · Isolate &amp; roughen 'O'</span>
+            </div>
+            <div class="bp-arrow">›</div>
+            <div class="bp-step">
+              <svg viewBox="0 0 100 100">
+                <defs><filter id="r2" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G"/></filter></defs>
+                <g transform="translate(-12 6) scale(0.4)">
+                  <text x="115" y="135" font-size="68" font-weight="800" letter-spacing="4" fill="#EDE7DB">RUS</text>
+                  <path d="M 70,80 C 95,77 105,95 102,120 C 98,140 75,143 55,135 C 40,125 42,95 50,85 C 58,75 65,82 70,80 Z M 72,100 C 68,105 68,120 75,123 C 82,125 88,110 82,103 C 78,97 75,95 72,100 Z" fill="#EDE7DB" filter="url(#r2)" />
+                  <path d="M 108,82 C 113,80 116,84 114,89 C 111,94 104,93 103,87 C 101,82 104,83 108,82 Z" fill="#E5531A" filter="url(#r2)" />
+                </g>
+              </svg>
+              <span class="cap"><span class="num">3</span> · Add molten spark</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Concept 01.2 — The Seam (variation) -->
+    <div class="blueprint">
+      <div class="bp-head"><span class="type">Concept 1.2 · Contrast Wordmark · Variation</span><h3>The Seam</h3></div>
+      <p class="bp-sub">The same rough-hewn 'O' against clean type — but here the molten accent grows into a slanted, raw seam dropped in after the R, splitting the mark into <b>OR · US</b>. The seam leans and breaks just like the 'O', so it reads hewn from the same rock. It literally writes the brand wordplay: leave the OR behind, find US.</p>
+      <div class="bp-grid">
+        <div class="bp-anatomy">
+          <div class="bp-label">Anatomy & Symbolism</div>
+          <svg viewBox="0 0 400 240" role="img" aria-label="Annotated OR US seam wordmark">
+            <defs>
+              <filter id="roughEdge2" x="-20%" y="-20%" width="140%" height="140%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="3" result="noise" />
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R" yChannelSelector="G" />
+              </filter>
+            </defs>
+
+            <!-- Rough O -->
+            <path d="M 70,80 C 95,77 105,95 102,120 C 98,140 75,143 55,135 C 40,125 42,95 50,85 C 58,75 65,82 70,80 Z M 72,100 C 68,105 68,120 75,123 C 82,125 88,110 82,103 C 78,97 75,95 72,100 Z" fill="#EDE7DB" filter="url(#roughEdge2)" />
+            <!-- Clean R -->
+            <text x="112" y="135" font-size="60" font-weight="800" fill="#EDE7DB">R</text>
+            <!-- Rough molten seam -->
+            <path d="M 174,82 C 168,99 160,116 150,138 C 149,140 154,141 156,139 C 166,118 174,101 180,84 C 181,82 175,80 174,82 Z" fill="#E5531A" filter="url(#roughEdge2)" />
+            <!-- Clean US -->
+            <text x="178" y="135" font-size="60" font-weight="800" letter-spacing="2" fill="#EDE7DB">US</text>
+
+            <!-- Annotations — tidy right column -->
+            <line x1="176" y1="85" x2="300" y2="68" stroke="#9C958A" stroke-width="1" opacity="0.4" /><circle cx="176" cy="85" r="2" fill="#E5531A" />
+            <text x="308" y="66" font-size="12" font-weight="700" fill="#EDE7DB" letter-spacing="1">MOLTEN SEAM</text>
+            <text x="308" y="81" font-size="11" fill="#9C958A">Slanted &amp; raw, like the 'O'</text>
+
+            <line x1="235" y1="105" x2="300" y2="118" stroke="#9C958A" stroke-width="1" opacity="0.4" /><circle cx="235" cy="105" r="2" fill="#E5531A" />
+            <text x="308" y="116" font-size="12" font-weight="700" fill="#EDE7DB" letter-spacing="1">OR · US SPLIT</text>
+            <text x="308" y="131" font-size="11" fill="#9C958A">Leave the OR, find US</text>
+
+            <line x1="72" y1="128" x2="300" y2="168" stroke="#9C958A" stroke-width="1" opacity="0.4" /><circle cx="72" cy="128" r="2" fill="#E5531A" />
+            <text x="308" y="166" font-size="12" font-weight="700" fill="#EDE7DB" letter-spacing="1">ROUGH-HEWN 'O'</text>
+            <text x="308" y="181" font-size="11" fill="#9C958A">Organic, stone-like origin</text>
+          </svg>
+        </div>
+        <div class="bp-process">
+          <div class="bp-label">Design Process</div>
+          <div class="bp-steps">
+            <div class="bp-step">
+              <svg viewBox="0 0 100 100">
+                <g transform="translate(-12 6) scale(0.4)">
+                  <text x="40" y="135" font-size="68" font-weight="800" letter-spacing="4" fill="#EDE7DB">ORUS</text>
+                </g>
+              </svg>
+              <span class="cap"><span class="num">1</span> · Set clean wordmark</span>
+            </div>
+            <div class="bp-arrow">›</div>
+            <div class="bp-step">
+              <svg viewBox="0 0 100 100">
+                <defs><filter id="r3" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G"/></filter></defs>
+                <g transform="translate(-12 6) scale(0.4)">
+                  <text x="115" y="135" font-size="68" font-weight="800" letter-spacing="4" fill="#EDE7DB">RUS</text>
+                  <path d="M 70,80 C 95,77 105,95 102,120 C 98,140 75,143 55,135 C 40,125 42,95 50,85 C 58,75 65,82 70,80 Z M 72,100 C 68,105 68,120 75,123 C 82,125 88,110 82,103 C 78,97 75,95 72,100 Z" fill="#EDE7DB" filter="url(#r3)" />
+                </g>
+              </svg>
+              <span class="cap"><span class="num">2</span> · Roughen the 'O'</span>
+            </div>
+            <div class="bp-arrow">›</div>
+            <div class="bp-step">
+              <svg viewBox="0 0 100 100">
+                <defs><filter id="r4" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G"/></filter></defs>
+                <g transform="translate(-12 6) scale(0.4)">
+                  <text x="112" y="135" font-size="60" font-weight="800" fill="#EDE7DB">R</text>
+                  <text x="178" y="135" font-size="60" font-weight="800" letter-spacing="2" fill="#EDE7DB">US</text>
+                  <path d="M 70,80 C 95,77 105,95 102,120 C 98,140 75,143 55,135 C 40,125 42,95 50,85 C 58,75 65,82 70,80 Z M 72,100 C 68,105 68,120 75,123 C 82,125 88,110 82,103 C 78,97 75,95 72,100 Z" fill="#EDE7DB" filter="url(#r4)" />
+                  <path d="M 174,82 C 168,99 160,116 150,138 C 149,140 154,141 156,139 C 166,118 174,101 180,84 C 181,82 175,80 174,82 Z" fill="#E5531A" filter="url(#r4)" />
+                </g>
+              </svg>
+              <span class="cap"><span class="num">3</span> · Drop the molten seam</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Concept 02 — The Monolith -->
+    <div class="blueprint">
+      <div class="bp-head"><span class="type">Concept 02 · Stacked Monogram</span><h3>The Monolith</h3></div>
       <p class="bp-sub">A heavy, carved-in-stone 2×2 block — the most permanent, grounded expression of the brand, encoding the full wordmark and the OR / US wordplay in one monument.</p>
       <div class="bp-grid">
         <div class="bp-anatomy">
@@ -522,9 +708,9 @@
       </div>
     </div>
 
-    <!-- Concept 02 — The Circle of Life -->
+    <!-- Concept 03 — The Circle of Life -->
     <div class="blueprint">
-      <div class="bp-head"><span class="type">Concept 02 · Icon + Wordmark</span><h3>The Circle of Life</h3></div>
+      <div class="bp-head"><span class="type">Concept 03 · Icon + Wordmark</span><h3>The Circle of Life</h3></div>
       <p class="bp-sub">A standalone icon built from the "O" — geometric perfection broken by a single arc of dawn light, the mouth of the cave at sunrise.</p>
       <div class="bp-grid">
         <div class="bp-anatomy">
@@ -566,9 +752,9 @@
       </div>
     </div>
 
-    <!-- Concept 03 — The Seal -->
+    <!-- Concept 04 — The Seal -->
     <div class="blueprint">
-      <div class="bp-head"><span class="type">Concept 03 · Ink-Seal Icon</span><h3>The Seal</h3></div>
+      <div class="bp-head"><span class="type">Concept 04 · Ink-Seal Icon</span><h3>The Seal</h3></div>
       <p class="bp-sub">A refined, geometric take on the traditional hanko stamp — built for physical texture as the brand's definitive coaster and stamp seal.</p>
       <div class="bp-grid">
         <div class="bp-anatomy">
@@ -685,13 +871,15 @@
         <img src="Imageries/db89e3a1abf5ea58e33854cdd9843aa6.jpg" alt="Brand Imagery">
       </div>
       <div class="gallery-col">
+        <img src="Imageries/d1c78f9978de60b3c59f2ba8b704b021.jpg" alt="Brand Imagery">
+        <img src="Imageries/0154acc5bd4582aa62f79042e18b3d4c.jpg" alt="Brand Imagery">
         <img src="Imageries/518e50d0b1f07bab441b30b4355db726.jpg" alt="Brand Imagery">
         <img src="Imageries/6ed500bc70b33a1981e50d7a2e360956.jpg" alt="Brand Imagery">
         <img src="Imageries/4e7e24ab66c8a3569b9fe5c106814b15.jpg" alt="Brand Imagery">
+        <img src="Imageries/e04ae960af98b58748d96900b2c41556.jpg" alt="Brand Imagery">
         <img src="Imageries/25f1ed9c937a510100d8c97db108471e.jpg" alt="Brand Imagery">
         <img src="Imageries/a193a00c855d27e0f37655201161cff7.jpg" alt="Brand Imagery">
         <img src="Imageries/8edfea947015e0e3742e7548be404a74.jpg" alt="Brand Imagery">
-        <img src="Imageries/4bb884799c875e5cd66facf6089e9e96.jpg" alt="Brand Imagery">
       </div>
       <div class="gallery-col">
         <img src="Imageries/66d1a1c45a6f0f16686367eced483446.jpg" alt="Brand Imagery">
@@ -741,10 +929,34 @@
         </div>
       </div>
 
-      <!-- Menu & coaster — work in progress + concepts -->
+      <!-- Coasters & glass charms — built-in wingman -->
+      <div class="coll-card wide proj">
+        <div class="stage">
+          <div class="coaster-gallery four">
+            <figure><img src="Coaster/ref_best_before_charms.png" alt="Reusable silicone glass charms with playful Best Before lines"><figcaption>Reusable silicone glass charms</figcaption></figure>
+            <figure><img src="Coaster/ref_quote_coasters.png" alt="Recyclable board coasters with bold one-line typography"><figcaption>Recyclable board coasters</figcaption></figure>
+            <figure><img src="Coaster/ref_flirt_oneliner.png" alt="Round coaster reading Life is short, flirt with me"><figcaption>Flirty one-liner</figcaption></figure>
+            <figure><img src="Coaster/ref_double_sided.png" alt="Double-sided printed board coasters with a playlist and line-art"><figcaption>Double-sided · playlist &amp; art</figcaption></figure>
+          </div>
+        </div>
+        <div class="meta">
+          <div class="t">Coasters &amp; Glass Charms — A Built-in Wingman</div>
+          <div class="d">In a dark, intimate cave room, ORUS is a prime spot for first dates — so the coaster does the flirting. It comes as a pair: one reads <b>"OR…"</b>, the other <b>"…US"</b>. A date glances down and the line writes itself — "another one here… <b>OR US</b> heading back?" The name becomes an instant, low-key conversation starter. Extend it with a playful <b>"BEST BEFORE…"</b> series — flirting, last call, dancing, commitment — that regulars want to collect.<br><br>Format leans <b>sustainable</b>, not stone: <b>reusable silicone glass charms</b> that live on the stem and go home with regulars, plus <b>recycled-board coasters</b> printed in soy ink. Cheap on price, low on waste, never cheap to the touch.</div>
+          <div class="coll-spec"><span>Reusable Silicone</span><span>Recycled Board</span><span>OR… / …US Pair</span><span>Best-Before Series</span></div>
+        </div>
+      </div>
+
+      <!-- Menu — work in progress + concepts -->
       <div class="coll-note">
-        <h4>Menu &amp; Coaster — Coming Soon</h4>
-        <p>The menu and coaster designs need a little more time. Both hinge on locking the <b>final logo</b> and the <b>programme</b> first. In the meantime, here are three directions for the menu — each disguises the drink list as something unexpected, while still shouting value and nudging people to order.</p>
+        <h4>Menu — Coming Soon</h4>
+        <p>The menu design needs a little more time — it hinges on locking the <b>final logo</b> and the <b>programme</b> first.  <b>On format</b>, we like a tactile, low-waste object — a small photo booklet that shows the drinks instead of describing them, layered recycled stock with torn raw edges, die-cut icons, or clean mono type anchored by a single ore-rock mark. <b> On content</b>, here are three directions — each disguises the drink list as something unexpected, while still shouting value and nudging people to order.</p>
+        <div class="ref-label">Format &amp; Material References</div>
+        <div class="menu-refs">
+          <figure><img src="Menu/menu_booklet.png" alt="Tactile photo booklet menu showing dishes as photographs"><figcaption>Photo booklet · show the drink, don't describe it</figcaption></figure>
+          <figure><img src="Menu/menu_layered.png" alt="Layered recycled-stock menu with torn edges and colour-coded sections"><figcaption>Layered recycled stock · torn edges, colour-coded</figcaption></figure>
+          <figure><img src="Menu/menu_diecut_icons.png" alt="Kraft fold-out menu with die-cut food icons"><figcaption>Die-cut icons · kraft fold-out</figcaption></figure>
+          <figure><img src="Menu/menu_mono_clean.png" alt="Clean black and white menu with an ore-rock illustration"><figcaption>Clean mono type · ore-rock mark</figcaption></figure>
+        </div>
         <div class="menu-concepts">
           <div class="mc">
             <div class="n">CONCEPT 01</div>
@@ -815,26 +1027,47 @@
     <div class="merch-grid">
 
       <!-- Back-print crew tee -->
-      <div class="merch-card">
+      <div class="merch-card wide">
+        <div class="tee-examples five">
+          <figure><img src="Merchs/tee/tee_social_lubricant.png" alt="Back-print tee with a witty line and small illustration"><figcaption>Witty line + small line-art</figcaption></figure>
+          <figure><img src="Merchs/tee/tee_roasted_toasted.png" alt="Back-print tee with arched type and collab lockup"><figcaption>Arched type + collab lockup</figcaption></figure>
+          <figure><img src="Merchs/tee/tee_night_market.png" alt="Back-print tee with circular night-market badge"><figcaption>Circular badge / local crest</figcaption></figure>
+          <figure><img src="Merchs/tee/tee_plantastic.png" alt="Back-print tee with a bold organic graphic in oxide-red"><figcaption>Bold oxide-red graphic</figcaption></figure>
+          <figure><img src="Merchs/tee/tee_mascot_duo.png" alt="Two back-print tees with a walking food mascot in oxide-red"><figcaption>Playful mascot · cream & red</figcaption></figure>
+        </div>
         <div class="merch-info">
           <div class="t">Back-Print Crew Tee</div>
-          <div class="d">Oversized tee in bone and oxide-red. The seal blown up as a bold back print — the piece people actually wear out of the cave.</div>
+          <div class="d">Oversized tee in bone and oxide-red. Reference examples for the back-print direction — playful one-liners, arched type, a circular crest, and a single bold graphic. ORUS prints would carry the seal and wordmark in this same tongue-in-cheek, local-print spirit.</div>
         </div>
       </div>
 
       <!-- Embroidered cap -->
-      <div class="merch-card">
+      <div class="merch-card wide">
+        <div class="cap-examples">
+          <figure><img src="Merchs/cap/cap_produce_tray.png" alt="Cap packaged in a produce tray like supermarket fruit"><figcaption>Produce-tray packaging</figcaption></figure>
+          <figure><img src="Merchs/cap/cap_front_logo.png" alt="Washed cap with small front embroidery"><figcaption>Small front embroidery</figcaption></figure>
+          <figure><img src="Merchs/cap/cap_net_pack.png" alt="Caps bagged in a produce net like fruit"><figcaption>Net-bag packaging</figcaption></figure>
+          <figure><img src="Merchs/cap/cap_colour_range.png" alt="Row of washed caps in a range of colours"><figcaption>Washed colour range</figcaption></figure>
+          <figure><img src="Merchs/cap/cap_script_embroidery.png" alt="Stack of caps with script embroidery in multiple colours"><figcaption>Script embroidery · colourways</figcaption></figure>
+        </div>
         <div class="merch-info">
           <div class="t">Embroidered Cap</div>
-          <div class="d">Low-profile washed cap with the seal embroidered on the front. Quiet branding, all texture — worn long after the night ends.</div>
+          <div class="d">Low-profile washed cap with the seal embroidered on the front. Reference examples for direction — small front mark, washed colourways, script options, plus playful market-style packaging (produce tray, net bag) that ties caps back to ORUS's wet-market, value spirit.</div>
         </div>
       </div>
 
       <!-- Hoodie -->
-      <div class="merch-card">
+      <div class="merch-card wide">
+        <div class="tee-examples five">
+          <figure><img src="Merchs/hoodie/hoodie_tonal_back.png" alt="Black hoodie with large tonal back-print typography"><figcaption>Tonal tone-on-tone back-print</figcaption></figure>
+          <figure><img src="Merchs/hoodie/hoodie_front_type.png" alt="Cream hoodie with playful question-style front type"><figcaption>Front type · one-liner</figcaption></figure>
+          <figure><img src="Merchs/hoodie/hoodie_hood_embroidery.png" alt="Navy hoodie with tonal embroidery on the hood"><figcaption>Tonal hood embroidery</figcaption></figure>
+          <figure><img src="Merchs/hoodie/hoodie_back_line.png" alt="Pink hoodie with bold red back-print one-liner"><figcaption>Bold back-print line</figcaption></figure>
+          <figure><img src="Merchs/hoodie/hoodie_back_crest.png" alt="Cream hoodie with circular back crest and big letter"><figcaption>Circular back crest</figcaption></figure>
+        </div>
         <div class="merch-info">
           <div class="t">Heavyweight Hoodie</div>
-          <div class="d">Boxy, heavy-loopback hoodie in ore-black. Tonal seal on the chest, wide-spaced ORUS across the back — the cold-night layer that walks home.</div>
+          <div class="d">Boxy, heavy-loopback hoodie in ore-black. Reference examples for direction — a cheeky front one-liner, tonal hood embroidery, a bold oxide-red back line, and a circular crest. ORUS hoodies would carry the seal on the chest and wide-spaced wordmark across the back in this same tone.</div>
         </div>
       </div>
 
