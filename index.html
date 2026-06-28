@@ -193,8 +193,69 @@
   .gallery-legend { display: flex; align-items: center; gap: 14px; margin: 36px 0 18px; }
   .gallery-legend span:not(.bar) { font-weight: 700; font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--concrete); white-space: nowrap; }
   .gallery-legend .bar { flex: 1; height: 3px; border-radius: 2px; }
-  .gallery-legend .bar:first-of-type { background: linear-gradient(90deg, #0E0E0D, #7A3B2E, #E5531A); }
-  .gallery-legend .bar:last-of-type { background: linear-gradient(90deg, #E5531A, #9C958A, #EDE7DB); }
+  .gallery-legend .bar:first-of-type { background: linear-gradient(90deg, #0E0E0D, #5a554d, #9C958A); }
+  .gallery-legend .bar:last-of-type { background: linear-gradient(90deg, #9C958A, #7A3B2E, #E5531A); }
+
+  /* ---------- Collateral & Touchpoints ---------- */
+  .collateral-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 40px; }
+  .coll-card { border: 1px solid var(--line); border-radius: 6px; background: rgba(255,255,255,0.015); overflow: hidden; display: flex; flex-direction: column; }
+  .coll-card .stage { aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center; padding: 26px; background: radial-gradient(circle at 50% 32%, #1b1a18 0%, #0b0b0a 78%); border-bottom: 1px solid var(--line); }
+  .coll-card .stage svg { width: 100%; height: 100%; display: block; }
+  .coll-card .meta { padding: 20px 22px 24px; }
+  .coll-card .meta .t { font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.78rem; color: var(--molten); margin-bottom: 8px; }
+  .coll-card .meta .d { font-size: 0.86rem; color: var(--concrete); line-height: 1.6; }
+  .coll-card.wide { grid-column: 1 / -1; }
+  .coll-card.wide .stage { aspect-ratio: 16 / 5; }
+  .coll-spec { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .coll-spec span { font-weight: 600; font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--concrete); border: 1px solid var(--line); border-radius: 100px; padding: 5px 11px; }
+  .coll-note { grid-column: 1 / -1; border: 1px solid var(--line); border-left: 3px solid var(--molten); border-radius: 6px; background: rgba(229,83,26,0.04); padding: 26px 28px 30px; }
+  .coll-note h4 { font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--molten); margin-bottom: 10px; }
+  .coll-note > p { color: var(--concrete); font-size: 0.94rem; max-width: 780px; line-height: 1.65; }
+  .coll-note > p b { color: var(--bone); font-weight: 600; }
+  .menu-concepts { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 24px; }
+  .menu-concepts .mc { border: 1px solid var(--line); border-radius: 5px; padding: 18px 18px 20px; background: rgba(255,255,255,0.015); }
+  .menu-concepts .mc .n { font-weight: 700; color: var(--molten); font-size: 0.7rem; letter-spacing: 0.18em; }
+  .menu-concepts .mc .h { font-weight: 800; text-transform: uppercase; letter-spacing: 0.03em; font-size: 1.02rem; margin: 6px 0 9px; }
+  .menu-concepts .mc p { font-size: 0.84rem; color: var(--concrete); line-height: 1.55; }
+  .menu-concepts .mc .ex { margin-top: 11px; font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--concrete); border-top: 1px solid var(--line); padding-top: 11px; }
+  .coll-card.proj .stage { aspect-ratio: auto; display: block; padding: 24px; }
+  .proj-gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .proj-gallery img { width: 100%; height: 230px; object-fit: cover; border-radius: 4px; display: block; filter: grayscale(15%) contrast(1.05); transition: filter 0.3s ease; }
+  .proj-gallery img:hover { filter: grayscale(0%) contrast(1.15); }
+  @media (max-width: 900px) { .proj-gallery { grid-template-columns: repeat(2, 1fr); } .proj-gallery img { height: 190px; } }
+  @media (max-width: 520px) { .proj-gallery { grid-template-columns: 1fr; } }
+
+  /* ---------- Uniform & Merch ---------- */
+  .merch-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 40px; align-items: start; }
+  .merch-card { border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: rgba(255,255,255,0.015); }
+  .merch-shot { position: relative; line-height: 0; }
+  .merch-shot > img { width: 100%; height: auto; display: block; filter: contrast(1.03) brightness(0.97); }
+  .merch-mark { position: absolute; transform: translate(-50%, -50%); filter: drop-shadow(0 2px 7px rgba(0,0,0,0.55)); }
+  .merch-mark svg { width: 100%; height: auto; display: block; }
+  .merch-info { padding: 18px 20px 22px; }
+  .merch-info .t { font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.78rem; color: var(--molten); margin-bottom: 7px; }
+  .merch-info .d { font-size: 0.84rem; color: var(--concrete); line-height: 1.56; }
+  .sub-head { display: flex; align-items: baseline; gap: 14px; margin: 52px 0 4px; flex-wrap: wrap; }
+  .sub-head .sub-num { font-weight: 700; color: var(--molten); font-size: 0.72rem; letter-spacing: 0.2em; }
+  .sub-head h3 { font-size: clamp(1.2rem, 3vw, 1.7rem); letter-spacing: 0.06em; }
+  .uniform-dir { margin-top: 30px; }
+  .uniform-dir .dir-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .uniform-dir .dir-n { font-weight: 700; color: var(--molten); font-size: 0.66rem; letter-spacing: 0.2em; border: 1px solid var(--line); border-radius: 100px; padding: 4px 11px; }
+  .uniform-dir .dir-t { font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; font-size: 1.12rem; }
+  .uniform-dir > p { color: var(--concrete); font-size: 0.9rem; max-width: 760px; margin: 10px 0 0; line-height: 1.6; }
+  .dir-shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 20px; }
+  .dir-shots.four { grid-template-columns: repeat(4, 1fr); }
+  .dir-shots.five { grid-template-columns: repeat(5, 1fr); }
+  .dir-shots figure { margin: 0; }
+  .dir-shots .zoom-frame { overflow: hidden; border-radius: 4px; height: 340px; }
+  .dir-shots img { width: 100%; height: 340px; object-fit: cover; border-radius: 4px; display: block; filter: grayscale(12%) contrast(1.05); transition: filter 0.3s ease, transform 0.4s ease; }
+  .dir-shots .zoom-frame img { border-radius: 0; }
+  .dir-shots img.detail { transform: scale(2.3); transform-origin: 50% 30%; }
+  .dir-shots img.detail:hover { transform: scale(2.6); }
+  .dir-shots img:hover { filter: grayscale(0%) contrast(1.15); }
+  @media (max-width: 720px) { .dir-shots .zoom-frame { height: 300px; } }
+  .dir-shots figcaption { margin-top: 9px; font-weight: 600; font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--concrete); }
+  @media (max-width: 720px) { .dir-shots { grid-template-columns: 1fr; } .dir-shots img { height: 300px; } }
 
   /* ---------- Footer ---------- */
   footer { padding: 76px 0 92px; text-align: center; }
@@ -422,12 +483,12 @@
         <div class="bp-anatomy">
           <div class="bp-label">Anatomy & Symbolism</div>
           <svg viewBox="0 0 400 240" role="img" aria-label="Annotated monolith mark">
-            <rect x="50" y="55" width="130" height="130" rx="6" fill="none" stroke="#EDE7DB" stroke-width="4" />
-            <line x1="58" y1="120" x2="172" y2="120" stroke="#E5531A" stroke-width="3" />
-            <text x="83" y="110" text-anchor="middle" font-size="40" font-weight="800" fill="#EDE7DB">O</text>
-            <text x="147" y="110" text-anchor="middle" font-size="40" font-weight="800" fill="#EDE7DB">R</text>
-            <text x="83" y="170" text-anchor="middle" font-size="40" font-weight="800" fill="#EDE7DB">U</text>
-            <text x="147" y="170" text-anchor="middle" font-size="40" font-weight="800" fill="#EDE7DB">S</text>
+            <rect x="50" y="55" width="130" height="130" rx="6" fill="none" stroke="#EDE7DB" stroke-width="6" />
+            <line x1="58" y1="120" x2="172" y2="120" stroke="#E5531A" stroke-width="6" />
+            <text x="83" y="105" text-anchor="middle" font-size="40" font-weight="800" fill="#EDE7DB">O</text>
+            <text x="147" y="105" text-anchor="middle" font-size="40" font-weight="800" fill="#EDE7DB">R</text>
+            <text x="83" y="165" text-anchor="middle" font-size="40" font-weight="800" fill="#EDE7DB">U</text>
+            <text x="147" y="165" text-anchor="middle" font-size="40" font-weight="800" fill="#EDE7DB">S</text>
             <line x1="180" y1="75" x2="252" y2="66" stroke="#9C958A" stroke-width="1" opacity="0.4" /><circle cx="180" cy="75" r="2" fill="#E5531A" />
             <text x="258" y="64" font-size="12" font-weight="700" fill="#EDE7DB" letter-spacing="1">2×2 STONE BLOCK</text>
             <text x="258" y="79" font-size="11" fill="#9C958A">Full wordmark, one form</text>
@@ -448,12 +509,12 @@
             </div>
             <div class="bp-arrow">›</div>
             <div class="bp-step">
-              <svg viewBox="0 0 100 100"><rect x="28" y="28" width="44" height="44" rx="4" fill="none" stroke="#EDE7DB" stroke-width="3" /><text x="39" y="46" text-anchor="middle" font-size="14" font-weight="800" fill="#EDE7DB">O</text><text x="61" y="46" text-anchor="middle" font-size="14" font-weight="800" fill="#EDE7DB">R</text><text x="39" y="68" text-anchor="middle" font-size="14" font-weight="800" fill="#EDE7DB">U</text><text x="61" y="68" text-anchor="middle" font-size="14" font-weight="800" fill="#EDE7DB">S</text></svg>
+              <svg viewBox="0 0 100 100"><rect x="28" y="28" width="44" height="44" rx="4" fill="none" stroke="#EDE7DB" stroke-width="3" /><text x="39" y="44" text-anchor="middle" font-size="14" font-weight="800" fill="#EDE7DB">O</text><text x="61" y="44" text-anchor="middle" font-size="14" font-weight="800" fill="#EDE7DB">R</text><text x="39" y="66" text-anchor="middle" font-size="14" font-weight="800" fill="#EDE7DB">U</text><text x="61" y="66" text-anchor="middle" font-size="14" font-weight="800" fill="#EDE7DB">S</text></svg>
               <span class="cap"><span class="num">2</span> · Set O R / U S</span>
             </div>
             <div class="bp-arrow">›</div>
             <div class="bp-step">
-              <svg viewBox="0 0 100 100"><rect x="28" y="28" width="44" height="44" rx="4" fill="none" stroke="#EDE7DB" stroke-width="3" /><line x1="32" y1="50" x2="68" y2="50" stroke="#E5531A" stroke-width="3" /><text x="39" y="46" text-anchor="middle" font-size="14" font-weight="800" fill="#EDE7DB">O</text><text x="61" y="46" text-anchor="middle" font-size="14" font-weight="800" fill="#EDE7DB">R</text><text x="39" y="68" text-anchor="middle" font-size="14" font-weight="800" fill="#EDE7DB">U</text><text x="61" y="68" text-anchor="middle" font-size="14" font-weight="800" fill="#EDE7DB">S</text></svg>
+              <svg viewBox="0 0 100 100"><rect x="28" y="28" width="44" height="44" rx="4" fill="none" stroke="#EDE7DB" stroke-width="3" /><line x1="32" y1="50" x2="68" y2="50" stroke="#E5531A" stroke-width="3" /><text x="39" y="44" text-anchor="middle" font-size="14" font-weight="800" fill="#EDE7DB">O</text><text x="61" y="44" text-anchor="middle" font-size="14" font-weight="800" fill="#EDE7DB">R</text><text x="39" y="66" text-anchor="middle" font-size="14" font-weight="800" fill="#EDE7DB">U</text><text x="61" y="66" text-anchor="middle" font-size="14" font-weight="800" fill="#EDE7DB">S</text></svg>
               <span class="cap"><span class="num">3</span> · Split the seam</span>
             </div>
           </div>
@@ -469,15 +530,15 @@
         <div class="bp-anatomy">
           <div class="bp-label">Anatomy & Symbolism</div>
           <svg viewBox="0 0 400 240" role="img" aria-label="Annotated circle of life mark">
-            <circle cx="150" cy="105" r="72" fill="none" stroke="#EDE7DB" stroke-width="8" />
-            <path d="M 156.3 33.3 A 72 72 0 0 1 215.3 74.6" fill="none" stroke="#E5531A" stroke-width="11" stroke-linecap="round" />
+            <circle cx="150" cy="105" r="72" fill="none" stroke="#EDE7DB" stroke-width="12" />
+            <path d="M 117.1 50.1 A 60 60 90 0 1 200.1 102.6" fill="none" stroke="#E5531A" stroke-width="12" stroke-linecap="round" />
             <text x="150" y="212" text-anchor="middle" font-size="22" font-weight="800" letter-spacing="8" fill="#EDE7DB">ORUS</text>
             <line x1="222" y1="105" x2="270" y2="105" stroke="#9C958A" stroke-width="1" opacity="0.4" /><circle cx="222" cy="105" r="2" fill="#E5531A" />
             <text x="276" y="103" font-size="12" font-weight="700" fill="#EDE7DB" letter-spacing="1">PERFECT RING</text>
             <text x="276" y="118" font-size="11" fill="#9C958A">Eternal wholeness</text>
-            <line x1="205" y1="50" x2="276" y2="44" stroke="#9C958A" stroke-width="1" opacity="0.4" /><circle cx="205" cy="50" r="2" fill="#E5531A" />
-            <text x="276" y="42" font-size="12" font-weight="700" fill="#EDE7DB" letter-spacing="1">DAWN ARC</text>
-            <text x="276" y="57" font-size="11" fill="#9C958A">Light pierces the dark</text>
+            <line x1="190" y1="60" x2="272" y2="52" stroke="#9C958A" stroke-width="1" opacity="0.4" /><circle cx="190" cy="60" r="2" fill="#E5531A" />
+            <text x="278" y="54" font-size="12" font-weight="700" fill="#EDE7DB" letter-spacing="1">DAWN ARC</text>
+            <text x="278" y="69" font-size="11" fill="#9C958A">Light pierces the dark</text>
             <line x1="216" y1="206" x2="284" y2="200" stroke="#9C958A" stroke-width="1" opacity="0.4" /><circle cx="216" cy="206" r="2" fill="#E5531A" />
             <text x="290" y="198" font-size="12" font-weight="700" fill="#EDE7DB" letter-spacing="1">WIDE-SPACED</text>
             <text x="290" y="213" font-size="11" fill="#9C958A">O R U S wordmark</text>
@@ -492,12 +553,12 @@
             </div>
             <div class="bp-arrow">›</div>
             <div class="bp-step">
-              <svg viewBox="0 0 100 100"><circle cx="50" cy="44" r="28" fill="none" stroke="#EDE7DB" stroke-width="5" /><path d="M 52.4 16.1 A 28 28 0 0 1 75.4 32.2" fill="none" stroke="#E5531A" stroke-width="6" stroke-linecap="round" /></svg>
-              <span class="cap"><span class="num">2</span> · Slant the arc 35°</span>
+              <svg viewBox="0 0 100 100"><circle cx="50" cy="44" r="28" fill="none" stroke="#EDE7DB" stroke-width="5" /><path d="M 37.2 22.6 A 23.3 23.3 90 0 1 69.5 43.1" fill="none" stroke="#E5531A" stroke-width="5" stroke-linecap="round" /></svg>
+              <span class="cap"><span class="num">2</span> · Slant the dawn arc</span>
             </div>
             <div class="bp-arrow">›</div>
             <div class="bp-step">
-              <svg viewBox="0 0 100 100"><circle cx="50" cy="40" r="26" fill="none" stroke="#EDE7DB" stroke-width="5" /><path d="M 52.3 12.1 A 26 26 0 0 1 73.6 27.0" fill="none" stroke="#E5531A" stroke-width="6" stroke-linecap="round" /><text x="50" y="86" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="2" fill="#EDE7DB">ORUS</text></svg>
+              <svg viewBox="0 0 100 100"><circle cx="50" cy="40" r="26" fill="none" stroke="#EDE7DB" stroke-width="5" /><path d="M 38.1 20.2 A 21.7 21.7 90 0 1 68.1 39.1" fill="none" stroke="#E5531A" stroke-width="5" stroke-linecap="round" /><text x="50" y="86" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="2" fill="#EDE7DB">ORUS</text></svg>
               <span class="cap"><span class="num">3</span> · Add wordmark</span>
             </div>
           </div>
@@ -575,11 +636,9 @@
         <div class="dd-card do">
           <h4>Style — Do</h4>
           <ul>
-            <li>Dark, low-key photography with a single warm light piercing the shadow.</li>
             <li>Grainy 35mm / analog film aesthetic — honest, tactile, never clinical.</li>
             <li>Macro texture: raw ore, stone coasters, mineral veins, wet glass.</li>
             <li>Candid, close, intimate human moments — couples, small tribes in the dark.</li>
-            <li>Deep negative space and the widely-spaced wordmark for "high design" calm.</li>
           </ul>
         </div>
       </div>
@@ -587,10 +646,8 @@
         <div class="dd-card dont">
           <h4>Style — Don't</h4>
           <ul>
-            <li>Bright, even, "premium cocktail lounge" or daylight lighting.</li>
             <li>Staged lifestyle stock photography or fake smiles.</li>
             <li>Over-saturated neon party clichés or rainbow club lighting.</li>
-            <li>Glossy, plastic, over-polished, digital-feeling surfaces.</li>
             <li>Clip-art icons or busy layouts that crowd out the breathing room.</li>
           </ul>
         </div>
@@ -608,43 +665,180 @@
     </div>
 
     <div class="gallery-legend">
-      <span>Cave Black</span>
+      <span>Monochrome &amp; Dark · top</span>
       <span class="bar"></span>
-      <span>Oxide &amp; Molten</span>
+      <span>Stone &amp; Shadow</span>
       <span class="bar"></span>
-      <span>Raw Stone &amp; Bone</span>
+      <span>Molten Red · bottom</span>
     </div>
 
     <div class="gallery-wrap">
       <div class="gallery-col">
         <img src="Imageries/6da644d220620097b5a8fcbacd183813.jpg" alt="Brand Imagery">
+        <img src="Imageries/9020d30129926f2214152b8ca1d58226.jpg" alt="Brand Imagery">
         <img src="Imageries/beca8d08d6f33efd938c3753883585aa.jpg" alt="Brand Imagery">
-        <img src="Imageries/488135f7dfd8c16fa814493ad77844b7.jpg" alt="Brand Imagery">
-        <img src="Imageries/152429710c4e3ac960baf9891d73082b.jpg" alt="Brand Imagery">
-        <img src="Imageries/4e7e24ab66c8a3569b9fe5c106814b15.jpg" alt="Brand Imagery">
-        <img src="Imageries/2e02fbad78443eeb610ecdd5f6b0a1a2.jpg" alt="Brand Imagery">
-      </div>
-      <div class="gallery-col">
-        <img src="Imageries/518e50d0b1f07bab441b30b4355db726.jpg" alt="Brand Imagery">
         <img src="Imageries/bd9ddef34deac9a2f940b95b52923c2e.jpg" alt="Brand Imagery">
-        <img src="Imageries/a193a00c855d27e0f37655201161cff7.jpg" alt="Brand Imagery">
-        <img src="Imageries/1b1c95e0b6b59a70b278af1516cc0789.jpg" alt="Brand Imagery">
-        <img src="Imageries/25f1ed9c937a510100d8c97db108471e.jpg" alt="Brand Imagery">
+        <img src="Imageries/2e02fbad78443eeb610ecdd5f6b0a1a2.jpg" alt="Brand Imagery">
+        <img src="Imageries/95328f5a0397504c5f978a70e1689cf0.jpg" alt="Brand Imagery">
+        <img src="Imageries/fcb871088dcb2becdb01f6f9cc937ecb.jpg" alt="Brand Imagery">
+        <img src="Imageries/936c93debbc41ce3497ad61f04708083.jpg" alt="Brand Imagery">
         <img src="Imageries/db89e3a1abf5ea58e33854cdd9843aa6.jpg" alt="Brand Imagery">
       </div>
       <div class="gallery-col">
+        <img src="Imageries/518e50d0b1f07bab441b30b4355db726.jpg" alt="Brand Imagery">
         <img src="Imageries/6ed500bc70b33a1981e50d7a2e360956.jpg" alt="Brand Imagery">
-        <img src="Imageries/95328f5a0397504c5f978a70e1689cf0.jpg" alt="Brand Imagery">
-        <img src="Imageries/4bb884799c875e5cd66facf6089e9e96.jpg" alt="Brand Imagery">
+        <img src="Imageries/4e7e24ab66c8a3569b9fe5c106814b15.jpg" alt="Brand Imagery">
+        <img src="Imageries/25f1ed9c937a510100d8c97db108471e.jpg" alt="Brand Imagery">
+        <img src="Imageries/a193a00c855d27e0f37655201161cff7.jpg" alt="Brand Imagery">
         <img src="Imageries/8edfea947015e0e3742e7548be404a74.jpg" alt="Brand Imagery">
+        <img src="Imageries/4bb884799c875e5cd66facf6089e9e96.jpg" alt="Brand Imagery">
+      </div>
+      <div class="gallery-col">
+        <img src="Imageries/66d1a1c45a6f0f16686367eced483446.jpg" alt="Brand Imagery">
+        <img src="Imageries/34d5624002684f26c3273c95c745e45a.jpg" alt="Brand Imagery">
+        <img src="Imageries/e7702df46f5660c1d90978828daf0f7f.jpg" alt="Brand Imagery">
         <img src="Imageries/805b1dad349f7d35403ab3319e0880d0.jpg" alt="Brand Imagery">
         <img src="Imageries/9e041493202530190839589761619412.jpg" alt="Brand Imagery">
+        <img src="Imageries/afecf1b2311547c96dbfd71c20545a95.jpg" alt="Brand Imagery">
+        <img src="Imageries/488135f7dfd8c16fa814493ad77844b7.jpg" alt="Brand Imagery">
+        <img src="Imageries/1b1c95e0b6b59a70b278af1516cc0789.jpg" alt="Brand Imagery">
+        <img src="Imageries/152429710c4e3ac960baf9891d73082b.jpg" alt="Brand Imagery">
       </div>
     </div>
 
     <p class="sec-intro" style="margin-top:40px;font-size:0.92rem;">
-      <b>Emotion to evoke:</b> the feeling of descending out of the bright, plastic, over-digitised city into something dark, permanent and real — then finding your people there. Mysterious but warm, raw but designed. If an image looks like a glossy ad, it's wrong. If it feels like a single beam of light catching a moment inside a cave, it's right.
+      <b>Emotion to evoke:</b> We set our price low but we do not have to look cheap. The feeling of descending out of the bright, plastic, over-digitised city into something dark, permanent and real — then finding your people there. Mysterious but warm, raw but designed. If an image looks like a glossy ad, it's wrong. If it feels like a single beam of light catching a moment inside a cave, it's right.
     </p>
+  </div>
+</section>
+
+<!-- ============ COLLATERAL & TOUCHPOINTS ============ -->
+<section id="collateral">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">06</span><h2>Collateral &amp; Touchpoints</h2></div>
+    <p class="sec-intro">Where the brand meets the space. Every physical touchpoint should feel tactile and deliberate — raw surfaces, deep shadow, one warm accent. Cheap on price, never cheap to the touch. Collateral designs are in progress; the direction below sets the tone.</p>
+
+    <div class="collateral-grid">
+
+      <!-- Projected light & visuals -->
+      <div class="coll-card wide proj">
+        <div class="stage">
+          <div class="proj-gallery">
+            <img src="In-store/00f409ade2196ea9204f18274b17611f.jpg" alt="Projected visuals on a bar wall">
+            <img src="In-store/d6c7442ec56faee33caa5604b7a995cf.jpg" alt="Film projected onto a lounge wall">
+            <img src="In-store/79c46201e20c661b0cd60eff927946c3.jpg" alt="Large projection on raw concrete">
+            <img src="In-store/7530eb97199762ce2e200d38daa85f72.jpg" alt="Forest visuals projected in an industrial space">
+            <img src="In-store/c8953cac6a5c2e1f72600da9a606382f.jpg" alt="Vintage film projected for an event">
+            <img src="In-store/b0ffeb1b951b6f82390de4d74d2212f7.jpg" alt="Cinematic projection above the bar">
+            <img src="In-store/36d5d2ed508f122794491079785aa772.jpg" alt="Projection on a quarry wall during an event buyout">
+            <img src="In-store/ad0d49e5f0a1992d5428b8acaee5d08c.jpg" alt="Projected visuals setting the mood in the space">
+          </div>
+        </div>
+        <div class="meta">
+          <div class="t">Projected Light &amp; Visuals</div>
+          <div class="d">After removing the back bars, try adding a single projector throwing light, film grain and texture across the stone — the cave mouth becomes whatever the night calls for. This keeps the space flexible: seasonal artwork, archival film, slow abstract loops, or a fully custom takeover. It is also the more <b>sustainable choice</b> — no reprints, no waste — and lets the venue be re-skinned instantly for private <b>event buyouts</b>.</div>
+          <div class="coll-spec"><span>Projection Mapping</span><span>Seasonal Visuals</span><span>Event Buyouts</span><span>Low-Waste</span></div>
+        </div>
+      </div>
+
+      <!-- Menu & coaster — work in progress + concepts -->
+      <div class="coll-note">
+        <h4>Menu &amp; Coaster — Coming Soon</h4>
+        <p>The menu and coaster designs need a little more time. Both hinge on locking the <b>final logo</b> and the <b>programme</b> first. In the meantime, here are three directions for the menu — each disguises the drink list as something unexpected, while still shouting value and nudging people to order.</p>
+        <div class="menu-concepts">
+          <div class="mc">
+            <div class="n">CONCEPT 01</div>
+            <div class="h">The Payslip</div>
+            <p>The drink list written in the language of office life — the drinks and categories <b>are named</b> after office jargon (e.g. a "KPI", an "AAR", the "Off-in-Lieu"), framed as a salary statement.<br><br>Speaks straight to the after-work crowd escaping the grind, with the punchline "NET — you keep the change."</p>
+            <div class="ex">Drink names / categories Ideas:<br>KPI · Off-in-Lieu · AAR · Monthly Review · OT Claim</div>
+          </div>
+          <div class="mc">
+            <div class="n">CONCEPT 02</div>
+            <div class="h">The Market Receipt</div>
+            <p>The drinks are built on chilled juices, fruit purées, tomato and matcha — real produce — so the menu reads like a fresh-market receipt.<br><br>The drinks and categories <b>are named</b> like just-picked goods (a "Fresh Today", the "Cold-Pressed" section), with bold prices shouting value the way a wet-market stall does. Relatable, honest, Singaporean.</p>
+            <div class="ex">Drink names / categories Ideas:<br>Fresh Today · Cold-Pressed · By the Kilo · Tomato Foam · Best Before Last Call</div>
+          </div>
+          <div class="mc">
+            <div class="n">CONCEPT 03</div>
+            <div class="h">The Nutrition Panel</div>
+            <p>Each drink gets its own mock nutrition / ingredients label, riffing on the cold juices, purée highballs, matcha and tomato foam.<br><br>The drinks and categories <b>are named</b> after label language (a "100% Fresh Purée", the "% Daily Fun" section), with clean carton typography, servings and a big calorie-style price. Tongue-in-cheek wellness — looks healthy, drinks like a party.</p>
+            <div class="ex">Drink names / categories:<br>100% Fresh Purée · Matcha · Serving: 1 · Tomato Foam · % Daily Fun</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ UNIFORM & MERCH ============ -->
+<section id="merch">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">07</span><h2>Uniform &amp; Merch</h2></div>
+    <p class="sec-intro">The team and the tribe wear the same mark. Two uniform directions are on the table — references below are high-fashion inspiration, to be re-cut in ORUS colours and branding.</p>
+
+    <div class="sub-head"><span class="sec-num">A</span><h3>Uniform — Two Directions</h3></div>
+
+    <!-- Direction 1: Denim on denim -->
+    <div class="uniform-dir">
+      <div class="dir-head"><span class="dir-n">DIRECTION 01</span><span class="dir-t">Denim on Denim</span></div>
+      <p>Head-to-toe indigo — a jacket-and-trouser or shirt-and-jean pairing in contrasting washes. Hard-wearing, ages with the room, and reads as honest blue-collar craft dressed up.<br><br>Leave the cave, leave the planet — and the first colour you see looking back from space is blue: Earth as a single pale blue dot in the dark. Indigo is the most universal, grounding colour we know — the blue of work, of water, of distance, of home.</p>
+      <div class="dir-shots four">
+        <figure><img src="Imageries/IMG_3305.jpg" alt="Denim texture close-up">
+          <figcaption>01 · Texture &amp; wash detail</figcaption></figure>
+        <figure><img src="Imageries/417df54c3f225c99d032cddad87baa13%20(1).jpg" alt="Denim-on-denim short-sleeve full body front view">
+          <figcaption>02 · Short-sleeve · front</figcaption></figure>
+        <figure><img src="Uniform/denim_92a1f850.jpg" alt="Denim-on-denim back view">
+          <figcaption>03 · Back · mid body</figcaption></figure>
+        <figure><img src="Imageries/baad4b9a8de0ee78df54bb621b70ca06.jpg" alt="Denim vest for a more casual look">
+          <figcaption>04 · Vest · a more casual look</figcaption></figure>
+      </div>
+    </div>
+
+    <!-- Direction 2: Miner jumpsuit -->
+    <div class="uniform-dir">
+      <div class="dir-head"><span class="dir-n">DIRECTION 02</span><span class="dir-t">Miner-Style Jumpsuit</span></div>
+      <p>A utilitarian one-piece — coverall, boiler suit or bib overall — the literal cave-and-ore, working-the-seam reference. Oversized and rugged: cinched waists, buckle straps, patch and cargo pockets, across charcoal, black, indigo and brown. Worn over a tee, sleeves cut or pushed up. The seal sits on the chest tab and bold across the back.</p>
+      <div class="dir-shots four">
+        <figure><img src="Imageries/8902bea0c787fd14a768689a61689ab7.jpg" alt="Sleeveless utility coverall with cargo pockets">
+          <figcaption>01 · Sleeveless utility coverall</figcaption></figure>
+        <figure><img src="Imageries/9ff531f6d65300b173cd68216ea7e3ab.jpg" alt="Black short-sleeve boiler suit, full body front">
+          <figcaption>02 · Short-sleeve boiler suit</figcaption></figure>
+        <figure><img src="Imageries/d1558a6d8c44baee55ea8c09242adde9.jpg" alt="Indigo denim bib overall, mid body">
+          <figcaption>03 · Denim bib · mid body</figcaption></figure>
+        <figure><div class="zoom-frame"><img class="detail" src="Imageries/f7963d38ac052b46dac7bb5629224df3.jpg" alt="Charcoal utility dungarees fabric, zip and buckle detail"></div>
+          <figcaption>04 · Fabric, zip &amp; buckle detail</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="sub-head"><span class="sec-num">B</span><h3>Merch</h3></div>
+    <div class="merch-grid">
+
+      <!-- Back-print crew tee -->
+      <div class="merch-card">
+        <div class="merch-info">
+          <div class="t">Back-Print Crew Tee</div>
+          <div class="d">Oversized tee in bone and oxide-red. The seal blown up as a bold back print — the piece people actually wear out of the cave.</div>
+        </div>
+      </div>
+
+      <!-- Embroidered cap -->
+      <div class="merch-card">
+        <div class="merch-info">
+          <div class="t">Embroidered Cap</div>
+          <div class="d">Low-profile washed cap with the seal embroidered on the front. Quiet branding, all texture — worn long after the night ends.</div>
+        </div>
+      </div>
+
+      <!-- Hoodie -->
+      <div class="merch-card">
+        <div class="merch-info">
+          <div class="t">Heavyweight Hoodie</div>
+          <div class="d">Boxy, heavy-loopback hoodie in ore-black. Tonal seal on the chest, wide-spaced ORUS across the back — the cold-night layer that walks home.</div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
