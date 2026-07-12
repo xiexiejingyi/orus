@@ -1,3 +1,10 @@
 # Internal concept deck — not for public GitHub Pages
 Project59_concepts_orus.pdf
 .DS_Store
+
+# Dependencies
+node_modules/
+
+# Large PDF exports (too big for GitHub)
+ORUS_Visual_Identity_Guide_Landscape.pdf
+ORUS_Visual_Identity_Guide_Portrait.pdf
