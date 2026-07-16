@@ -105,6 +105,36 @@
   .r-dot { width: 12px; height: 12px; border-radius: 50%; }
 
   @media (max-width: 720px) { .r-row { grid-template-columns: 1fr; } .r-head { display: none; } }
+
+  /* ---------- Vision statement ---------- */
+  .vision {
+    max-width: 900px; margin: 8px 0 20px; color: var(--bone);
+    font-size: clamp(1.5rem, 4vw, 2.8rem); font-weight: 700; line-height: 1.18;
+    letter-spacing: -0.02em;
+  }
+  .vision em { color: var(--molten); font-style: normal; }
+  .vision-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 36px 0 8px; }
+  .vision-cols .vc { border-top: 2px solid var(--molten); padding: 14px 4px 0; }
+  .vision-cols .vc strong { display: block; font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; }
+  .vision-cols .vc span { display: block; margin-top: 8px; color: var(--concrete); font-size: 0.86rem; line-height: 1.55; }
+  @media (max-width: 720px) { .vision-cols { grid-template-columns: 1fr; } }
+
+  /* ---------- Moodboard ---------- */
+  .moodboard { columns: 3; column-gap: 14px; margin-top: 12px; }
+  @media (max-width: 900px) { .moodboard { columns: 2; } }
+  @media (max-width: 560px) { .moodboard { columns: 1; } }
+  .mb {
+    break-inside: avoid; margin-bottom: 14px; border: 1px solid var(--line);
+    border-radius: 6px; overflow: hidden; background: rgba(255,255,255,0.015);
+    position: relative;
+  }
+  .mb img { width: 100%; height: auto; display: block; }
+  .mb .cap {
+    padding: 12px 14px 14px; font-size: 0.74rem; color: var(--concrete); line-height: 1.45;
+  }
+  .mb .cap b { color: var(--bone); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 3px; font-size: 0.7rem; }
+  .mb.hero-ref { break-inside: avoid; }
+  .mb.hero-ref .cap b { color: var(--molten); }
 </style>
 </head>
 <body>
@@ -117,6 +147,70 @@
     <div class="detail">Fresh · Young · Bold · Straightforward</div>
   </div>
 </header>
+
+<section id="vision">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">00</span><h2>The Vision</h2></div>
+    <p class="vision">A <em>young, bold and relatable</em> RTD brand — one you grab because it looks fun, and keep because you actually know what's inside.</p>
+    <p class="sec-intro" style="margin-bottom:20px;">Most canned cocktails are either sterile "craft" clones or loud energy-drink knock-offs. ORUS RTD sits in the middle: the <b>confidence and honesty</b> of the bar, translated into packaging that feels like it belongs in a young person's fridge, festival cooler, or on a party table. The references below are the tone we're chasing — and how ORUS can do it our own way.</p>
+
+    <div class="vision-cols">
+      <div class="vc"><strong>Young</strong><span>Playful, unserious energy. Hand-drawn marks, oversized type, saturated colour. It should feel made by people our age, not a legacy distillery.</span></div>
+      <div class="vc"><strong>Bold</strong><span>One idea per can, at maximum scale. The abstracted ORUS Seal becomes a graphic billboard — instant recognition across a crowded shelf or a dark bar.</span></div>
+      <div class="vc"><strong>Relatable</strong><span>Curious names spark the pick-up; plain-language flavour + ABV close the deal. No pretension, no guessing. Honest value, just like the bar.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="references">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">00.1</span><h2>References</h2></div>
+    <p class="sec-intro">The mood we're building from. <b>Strangers Hard Candy</b> is the north star: a name strange enough to spark curiosity, paired with dead-clear flavour call-outs and hazy, saturated gradients. Around it sits a family of brands that get <em>young, bold and relatable</em> right.</p>
+
+    <div class="moodboard">
+      <div class="mb hero-ref">
+        <img src="assets/refs/ref_strangers_single.jpg" alt="Strangers Hard Candy single pack" />
+        <div class="cap"><b>Strangers ★ North Star</b>Curious name + brutally clear flavour ("Mango, Coffee & Guaraná"). Hazy wave gradients feel warm, retro and alive.</div>
+      </div>
+      <div class="mb hero-ref">
+        <img src="assets/refs/ref_strangers_range.jpg" alt="Strangers Hard Candy full range" />
+        <div class="cap"><b>Strangers ★ The System</b>One layout, many flavours. Each SKU gets its own colour haze — a whole range that still reads as one bold family.</div>
+      </div>
+      <div class="mb">
+        <img src="assets/refs/ref_thegood.jpg" alt="The Good drink can" />
+        <div class="cap"><b>Type as graphic</b>Letterforms cropped so huge they become the artwork. This is our cue for exploding the ORUS Seal.</div>
+      </div>
+      <div class="mb">
+        <img src="assets/refs/ref_zerno.jpg" alt="Zerno coffee cans" />
+        <div class="cap"><b>Hand-drawn energy</b>Marker scrawls and a smiley face — unserious, human, young. Personality over polish.</div>
+      </div>
+      <div class="mb">
+        <img src="assets/refs/ref_ghia.jpg" alt="Ghia aperitif cans" />
+        <div class="cap"><b>Confident script</b>A single oversized wordmark on a colour field. Elegant but still fun and grab-able.</div>
+      </div>
+      <div class="mb">
+        <img src="assets/refs/ref_poppi.jpg" alt="Poppi soda cans" />
+        <div class="cap"><b>Relatable & social</b>Bright, friendly, party-ready. Proof that "clearly a good time" outsells "clearly premium".</div>
+      </div>
+      <div class="mb">
+        <img src="assets/refs/ref_libertine.jpg" alt="Libertine Blends cans" />
+        <div class="cap"><b>Clarity of contents</b>Colour-blocked with the exact build spelled out ("Craft Gin + Yuzu"). You always know what you're drinking.</div>
+      </div>
+      <div class="mb">
+        <img src="assets/refs/ref_loam.jpg" alt="LOAM sparkling tea can" />
+        <div class="cap"><b>Blobby, friendly type</b>Soft, playful letterforms + plain benefit call-outs. Approachable and modern.</div>
+      </div>
+      <div class="mb">
+        <img src="assets/refs/ref_nightday.jpg" alt="Night & Day mixer can" />
+        <div class="cap"><b>Retro + graphic</b>Big type, simple circles, nostalgic styling. Bold with almost nothing on the can.</div>
+      </div>
+      <div class="mb">
+        <img src="assets/refs/ref_zerno_wine.jpg" alt="Zerno canned wine" />
+        <div class="cap"><b>Playful shapes</b>Puffy organic forms in candy colours — a reminder our Seal can flex, not just sit still.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section id="positioning">
   <div class="wrap">
