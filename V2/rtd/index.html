@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ORUS — RTD Concepts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@200;300;400;500;600;700;800&family=Unbounded:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ore-black: #0E0E0D;
+    --concrete: #9C958A;
+    --molten: #CF3E17;
+    --oxide: #7A3B2E;
+    --verdigris: #4C8C7A;
+    --sulphur: #F1C40E;
+    --bone: #EDE7DB;
+    --line: rgba(237, 231, 219, 0.14);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ore-black);
+    color: var(--bone);
+    font-family: 'Manrope', sans-serif;
+    font-weight: 300;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* faint cave-grain texture */
+  body::before {
+    content: "";
+    position: fixed; inset: 0; pointer-events: none; z-index: 1; opacity: 0.04;
+    background-image: radial-gradient(var(--bone) 0.5px, transparent 0.5px);
+    background-size: 4px 4px;
+  }
+
+  .wrap { position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; padding: 0 28px; }
+
+  h1, h2, h3 { font-weight: 800; text-transform: uppercase; letter-spacing: 0.02em; line-height: 1.0; }
+  .detail { font-weight: 500; text-transform: uppercase; letter-spacing: 0.28em; font-size: 0.72rem; color: var(--concrete); }
+
+  /* ---------- Hero ---------- */
+  header.hero {
+    position: relative; padding: 120px 0 80px;
+    border-bottom: 1px solid var(--line); overflow: hidden; text-align: center;
+  }
+  .hero h1 {
+    font-weight: 800; font-size: clamp(2.4rem, 8vw, 6rem); letter-spacing: 0.18em;
+    margin: 0 0 0.16em; padding-left: 0.18em; color: var(--bone);
+  }
+  .hero .tagline {
+    font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;
+    font-size: clamp(1rem, 2.4vw, 1.55rem); color: var(--concrete); max-width: 640px;
+    margin: 0 auto 30px;
+  }
+  .hero .tagline em { color: var(--molten); font-style: normal; }
+
+  /* ---------- Section ---------- */
+  section { padding: 92px 0; border-bottom: 1px solid var(--line); }
+  .sec-head { display: flex; align-items: baseline; gap: 18px; margin-bottom: 12px; flex-wrap: wrap; }
+  .sec-num { font-weight: 700; color: var(--molten); font-size: 0.9rem; letter-spacing: 0.1em; }
+  section h2 { font-size: clamp(1.9rem, 5vw, 3.2rem); letter-spacing: 0.04em; }
+  .sec-intro { max-width: 740px; color: var(--concrete); margin: 18px 0 44px; font-size: 1.02rem; }
+  .sec-intro b { color: var(--bone); font-weight: 600; }
+
+  /* ---------- Navigation back ---------- */
+  .back-nav {
+    display: inline-block; padding: 10px 0; color: var(--concrete);
+    text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.7rem; font-weight: 600;
+    text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.2s;
+    margin-bottom: 40px;
+  }
+  .back-nav:hover { color: var(--bone); border-bottom-color: var(--bone); }
+
+  /* ---------- Cards ---------- */
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+  .card { border: 1px solid var(--line); border-radius: 6px; background: rgba(255,255,255,0.015); overflow: hidden; display: flex; flex-direction: column; }
+  .card .stage { display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at 50% 32%, #1b1a18 0%, #0b0b0a 78%); border-bottom: 1px solid var(--line); }
+  .card .stage img { width: 100%; height: auto; display: block; }
+  .card .meta { padding: 24px 26px 28px; }
+  .card .meta .t { font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.82rem; color: var(--molten); margin-bottom: 10px; }
+  .card .meta .d { font-size: 0.9rem; color: var(--concrete); line-height: 1.6; }
+  .card.wide { grid-column: 1 / -1; }
+  .card.wide .stage { max-height: 600px; overflow: hidden; }
+  .card.wide .stage img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+
+  /* Spec tags */
+  .specs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+  .specs span { font-weight: 600; font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--concrete); border: 1px solid var(--line); border-radius: 100px; padding: 5px 12px; }
+
+  /* Roster table */
+  .roster { margin-top: 40px; border: 1px solid var(--line); border-radius: 6px; background: rgba(255,255,255,0.015); overflow: hidden; }
+  .r-row { display: grid; grid-template-columns: 2fr 3fr 1fr; border-bottom: 1px solid var(--line); }
+  .r-row:last-child { border-bottom: none; }
+  .r-head { font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.7rem; color: var(--concrete); padding: 14px 20px; background: rgba(255,255,255,0.02); }
+  .r-cell { padding: 20px; font-size: 0.9rem; }
+  .r-name { font-weight: 800; font-size: 1.1rem; letter-spacing: 0.05em; color: var(--bone); text-transform: uppercase; }
+  .r-ing { color: var(--concrete); margin-top: 4px; }
+  .r-color { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
+  .r-dot { width: 12px; height: 12px; border-radius: 50%; }
+
+  @media (max-width: 720px) { .r-row { grid-template-columns: 1fr; } .r-head { display: none; } }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <a href="../index.html" class="back-nav">← Back to Main Guide</a>
+    <h1>ORUS RTD</h1>
+    <p class="tagline">Taking the <em>Third Space</em> home.</p>
+    <div class="detail">Fresh · Young · Bold · Straightforward</div>
+  </div>
+</header>
+
+<section id="strategy">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">01</span><h2>Strategy & Naming</h2></div>
+    <p class="sec-intro">Ready-to-drink is crowded. To stand out, we rely on the same strategy as the bar: <b>Honest Value and Real Connection</b>. The design is young, bold, and highly graphic, taking the ORUS Seal and exploding its scale so it becomes an abstract geometric pattern wrapping the can. The typography strategy is two-fold: a <b>playful, curious name</b> that sparks conversation, paired immediately with <b>straightforward, clear ingredients</b>.</p>
+    
+    <div class="card wide">
+      <div class="stage">
+        <img src="assets/orus_rtd_can_close.png" alt="Close-up of ORUS RTD can with bold seal graphic and Strangers' Hard Candy text" />
+      </div>
+      <div class="meta">
+        <div class="t">The Layout: Curiosity + Clarity</div>
+        <div class="d"><b>The Graphic:</b> The ORUS Seal is zoomed in 1000%. We only see the curve of the top boundary and the oval negative space. It's bold, modern, and instantly ownable without just pasting a small logo on the front.<br><br><b>The Naming:</b> Lead with intrigue. Names like "Strangers' Hard Candy" or "Liquid Icebreaker" make people want to pick it up. <br><br><b>The Specs:</b> Immediately ground it. Underneath the bold name is the exact flavour profile in clean, utilitarian type: "YUZU & UME SHOCHU SPRITZ - 5.5% VOL". No guessing what you're buying.</div>
+        <div class="specs"><span>Abstracted Seal</span><span>Curious Name</span><span>Utilitarian Specs</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="lineup">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">02</span><h2>The Lineup</h2></div>
+    <p class="sec-intro">Using the core ORUS colour palette (Molten, Verdigris, Sulphur, and Bone) to define a four-can starter series. Each colour represents a different energy and flavour profile, matching the <em>Status Coasters</em> from the main bar.</p>
+
+    <div class="card wide">
+      <div class="stage">
+        <img src="assets/orus_rtd_cans_trio.png" alt="Trio of ORUS RTD cans in Molten, Verdigris, and Sulphur colours" />
+      </div>
+      <div class="meta">
+        <div class="t">The Core Three</div>
+        <div class="d">The sleek aluminum cans let the vibrant ORUS palette do the heavy lifting. The bone-white background provides contrast for the massive coloured seal graphics.</div>
+      </div>
+    </div>
+
+    <div class="roster">
+      <div class="r-row r-head">
+        <div>Concept Name</div>
+        <div>Profile & Ingredients</div>
+        <div>Brand Colour</div>
+      </div>
+      
+      <div class="r-row">
+        <div class="r-cell"><div class="r-name">Strangers' Hard Candy</div></div>
+        <div class="r-cell"><div class="r-ing">Yuzu & Ume Shochu Spritz — Tart, sweet, high energy.</div></div>
+        <div class="r-cell"><div class="r-color"><div class="r-dot" style="background:var(--molten);"></div>Molten Ember</div></div>
+      </div>
+
+      <div class="r-row">
+        <div class="r-cell"><div class="r-name">Liquid Icebreaker</div></div>
+        <div class="r-cell"><div class="r-ing">Calamansi & Mint Gin Soda — Refreshing, crisp, approachable.</div></div>
+        <div class="r-cell"><div class="r-color"><div class="r-dot" style="background:var(--verdigris);"></div>Verdigris Green</div></div>
+      </div>
+
+      <div class="r-row">
+        <div class="r-cell"><div class="r-name">The Wingman</div></div>
+        <div class="r-cell"><div class="r-ing">White Peach & Vodka — Smooth, easy, highly sociable.</div></div>
+        <div class="r-cell"><div class="r-color"><div class="r-dot" style="background:var(--sulphur);"></div>Sulphur Yellow</div></div>
+      </div>
+
+      <div class="r-row">
+        <div class="r-cell"><div class="r-name">Quiet Escape</div></div>
+        <div class="r-cell"><div class="r-ing">Dark Roasted Oolong Highball — Deep, grounding, low ABV.</div></div>
+        <div class="r-cell"><div class="r-color"><div class="r-dot" style="background:var(--ore-black);border:1px solid var(--line);"></div>Ore Black</div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>
