@@ -31,7 +31,6 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* faint cave-grain texture */
   body::before {
     content: "";
     position: fixed; inset: 0; pointer-events: none; z-index: 1; opacity: 0.04;
@@ -44,7 +43,6 @@
   h1, h2, h3 { font-weight: 800; text-transform: uppercase; letter-spacing: 0.02em; line-height: 1.0; }
   .detail { font-weight: 500; text-transform: uppercase; letter-spacing: 0.28em; font-size: 0.72rem; color: var(--concrete); }
 
-  /* ---------- Hero ---------- */
   header.hero {
     position: relative; padding: 120px 0 80px;
     border-bottom: 1px solid var(--line); overflow: hidden; text-align: center;
@@ -60,7 +58,6 @@
   }
   .hero .tagline em { color: var(--molten); font-style: normal; }
 
-  /* ---------- Section ---------- */
   section { padding: 92px 0; border-bottom: 1px solid var(--line); }
   .sec-head { display: flex; align-items: baseline; gap: 18px; margin-bottom: 12px; flex-wrap: wrap; }
   .sec-num { font-weight: 700; color: var(--molten); font-size: 0.9rem; letter-spacing: 0.1em; }
@@ -68,7 +65,6 @@
   .sec-intro { max-width: 740px; color: var(--concrete); margin: 18px 0 44px; font-size: 1.02rem; }
   .sec-intro b { color: var(--bone); font-weight: 600; }
 
-  /* ---------- Navigation back ---------- */
   .back-nav {
     display: inline-block; padding: 10px 0; color: var(--concrete);
     text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.7rem; font-weight: 600;
@@ -76,37 +72,29 @@
     margin-bottom: 40px;
   }
   .back-nav:hover { color: var(--bone); border-bottom-color: var(--bone); }
+  footer.page-end {
+    padding: 72px 0 96px; text-align: center; border-top: 1px solid var(--line);
+  }
+  footer.page-end .back-nav { margin-bottom: 0; font-size: 0.78rem; letter-spacing: 0.2em; }
+  footer.page-end .hint {
+    margin-top: 14px; font-size: 0.82rem; color: var(--concrete);
+  }
 
-  /* ---------- Cards ---------- */
   .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
   .card { border: 1px solid var(--line); border-radius: 6px; background: rgba(255,255,255,0.015); overflow: hidden; display: flex; flex-direction: column; }
-  .card .stage { display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at 50% 32%, #1b1a18 0%, #0b0b0a 78%); border-bottom: 1px solid var(--line); }
+  .card .stage { display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at 50% 32%, #1b1a18 0%, #0b0b0a 78%); border-bottom: 1px solid var(--line); overflow: hidden; }
   .card .stage img { width: 100%; height: auto; display: block; }
+  .card .stage.ref img { height: 200px; object-fit: cover; object-position: center; }
+  .card .stage.ref.cap-focus img { object-position: center 18%; }
   .card .meta { padding: 24px 26px 28px; }
   .card .meta .t { font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.82rem; color: var(--molten); margin-bottom: 10px; }
   .card .meta .d { font-size: 0.9rem; color: var(--concrete); line-height: 1.6; }
+  .card .meta .src { display: block; margin-top: 12px; font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(156,149,138,0.85); }
   .card.wide { grid-column: 1 / -1; }
-  .card.wide .stage { max-height: 600px; overflow: hidden; }
-  .card.wide .stage img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
 
-  /* Spec tags */
   .specs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
   .specs span { font-weight: 600; font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--concrete); border: 1px solid var(--line); border-radius: 100px; padding: 5px 12px; }
 
-  /* Roster table */
-  .roster { margin-top: 40px; border: 1px solid var(--line); border-radius: 6px; background: rgba(255,255,255,0.015); overflow: hidden; }
-  .r-row { display: grid; grid-template-columns: 2fr 3fr 1fr; border-bottom: 1px solid var(--line); }
-  .r-row:last-child { border-bottom: none; }
-  .r-head { font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.7rem; color: var(--concrete); padding: 14px 20px; background: rgba(255,255,255,0.02); }
-  .r-cell { padding: 20px; font-size: 0.9rem; }
-  .r-name { font-weight: 800; font-size: 1.1rem; letter-spacing: 0.05em; color: var(--bone); text-transform: uppercase; }
-  .r-ing { color: var(--concrete); margin-top: 4px; }
-  .r-color { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
-  .r-dot { width: 12px; height: 12px; border-radius: 50%; }
-
-  @media (max-width: 720px) { .r-row { grid-template-columns: 1fr; } .r-head { display: none; } }
-
-  /* ---------- Vision statement ---------- */
   .vision {
     max-width: 900px; margin: 8px 0 20px; color: var(--bone);
     font-size: clamp(1.5rem, 4vw, 2.8rem); font-weight: 700; line-height: 1.18;
@@ -119,7 +107,6 @@
   .vision-cols .vc span { display: block; margin-top: 8px; color: var(--concrete); font-size: 0.86rem; line-height: 1.55; }
   @media (max-width: 720px) { .vision-cols { grid-template-columns: 1fr; } }
 
-  /* ---------- Moodboard ---------- */
   .moodboard { columns: 3; column-gap: 14px; margin-top: 12px; }
   @media (max-width: 900px) { .moodboard { columns: 2; } }
   @media (max-width: 560px) { .moodboard { columns: 1; } }
@@ -133,10 +120,8 @@
     padding: 12px 14px 14px; font-size: 0.74rem; color: var(--concrete); line-height: 1.45;
   }
   .mb .cap b { color: var(--bone); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 3px; font-size: 0.7rem; }
-  .mb.hero-ref { break-inside: avoid; }
   .mb.hero-ref .cap b { color: var(--molten); }
 
-  /* ---------- Signature design spec ---------- */
   .design-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; margin-top: 12px; }
   @media (max-width: 820px) { .design-hero { grid-template-columns: 1fr; } }
   .design-hero .shot { border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: radial-gradient(circle at 50% 32%, #1b1a18 0%, #0b0b0a 78%); }
@@ -151,6 +136,72 @@
   .full-bleed img { width: 100%; height: auto; display: block; }
   .full-bleed .cap { padding: 16px 20px; font-size: 0.82rem; color: var(--concrete); line-height: 1.5; }
   .full-bleed .cap b { color: var(--bone); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+
+  .format-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 20px; }
+  .format-row.four { grid-template-columns: repeat(4, 1fr); }
+  @media (max-width: 900px) { .format-row.four { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 720px) { .format-row, .format-row.four { grid-template-columns: 1fr; } }
+  .format-row figure { margin: 0; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: rgba(255,255,255,0.015); }
+  .format-row img { width: 100%; height: 220px; object-fit: cover; display: block; }
+  .format-row.four img { height: 260px; }
+  .format-row figcaption { padding: 12px 14px 14px; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--concrete); line-height: 1.4; }
+  .ref-label { margin-top: 20px; font-weight: 700; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--bone); }
+
+  .name-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 28px; }
+  @media (max-width: 820px) { .name-duo { grid-template-columns: 1fr; } }
+  .name-opt { border: 1px solid var(--line); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; background: #0b0b0a; }
+  .name-opt .mood {
+    position: relative; min-height: 320px; display: flex; align-items: flex-end;
+    padding: 28px 24px 32px; overflow: hidden;
+  }
+  .name-opt .mood::before {
+    content: ""; position: absolute; inset: 0;
+    background-size: cover; background-position: center; z-index: 0;
+  }
+  .name-opt.otd .mood::before {
+    background-image: url("assets/naming/mood_otd.jpg");
+    background-position: 28% 45%;
+  }
+  .name-opt.more .mood::before {
+    background-image: url("assets/naming/mood_one_more.jpg");
+    background-position: 50% 40%;
+  }
+  .name-opt.more .mood::after {
+    background: linear-gradient(180deg, rgba(14,14,13,0.08) 0%, rgba(40,20,45,0.2) 35%, rgba(14,14,13,0.9) 100%);
+  }
+  .name-opt .mood::after {
+    content: ""; position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(180deg, rgba(14,14,13,0.15) 0%, rgba(14,14,13,0.55) 45%, rgba(14,14,13,0.92) 100%);
+  }
+  .name-opt.otd .mood::after {
+    background: linear-gradient(180deg, rgba(14,14,13,0.05) 0%, rgba(14,14,13,0.25) 40%, rgba(14,14,13,0.88) 100%);
+  }
+  .name-opt .mood-inner { position: relative; z-index: 2; width: 100%; }
+  .name-opt .opt {
+    font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(237,231,219,0.7);
+    font-weight: 700; margin-bottom: 12px;
+  }
+  .name-opt .word { line-height: 0.9; color: var(--bone); margin-bottom: 10px; }
+  .name-opt.otd .word {
+    font-family: 'Unbounded', sans-serif; font-weight: 800;
+    font-size: clamp(3.4rem, 7vw, 5rem); letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .name-opt.more .word {
+    font-family: 'Manrope', sans-serif; font-weight: 800;
+    font-size: clamp(2.8rem, 5.5vw, 3.8rem); letter-spacing: -0.04em; text-transform: lowercase;
+  }
+  .name-opt .sub {
+    font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--molten);
+    font-weight: 600;
+  }
+  .name-opt .body { padding: 22px 24px 26px; border-top: 1px solid var(--line); }
+  .name-opt.otd .body { background: #101112; }
+  .name-opt.more .body { background: #16110f; border-top-color: rgba(207,62,23,0.3); }
+  .name-opt .blurb { font-size: 0.88rem; color: var(--concrete); line-height: 1.55; }
+  .name-opt .blurb b { color: var(--bone); font-weight: 600; }
+  .name-opt .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line); }
+  .name-opt .pair strong { display: block; font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--molten); margin-bottom: 4px; }
+  .name-opt .pair span { display: block; font-size: 0.76rem; color: var(--concrete); line-height: 1.45; }
 </style>
 </head>
 <body>
@@ -160,81 +211,135 @@
     <a href="../index.html" class="back-nav">← Back to Main Guide</a>
     <h1>ORUS RTD</h1>
     <p class="tagline">Taking the <em>Third Space</em> home.</p>
-    <div class="detail">Fresh · Young · Bold · Straightforward</div>
+    <div class="detail">Flat Glass · Fresh · Bold · Straightforward</div>
   </div>
 </header>
 
 <section id="vision">
   <div class="wrap">
     <div class="sec-head"><span class="sec-num">00</span><h2>The Vision</h2></div>
-    <p class="vision">A <em>young, bold and relatable</em> RTD brand — one you grab because it looks fun, and keep because you actually know what's inside.</p>
-    <p class="sec-intro" style="margin-bottom:20px;">Most canned cocktails are either sterile "craft" clones or loud energy-drink knock-offs. ORUS RTD sits in the middle: the <b>confidence and honesty</b> of the bar, translated into packaging that feels like it belongs in a young person's fridge, festival cooler, or on a party table. The inspirations below are the tone we're chasing — and how ORUS can do it our own way.</p>
+    <p class="vision">A <em>young, bold and relatable</em> RTD line in a <em>flat glass bottle</em> — one you grab because it looks sharp, and keep because you actually know what's inside.</p>
+    <p class="sec-intro" style="margin-bottom:20px;">We're locking the format as a <b>flat, flask-style glass bottle</b> — not a can. Clear (or tinted) glass that shows the liquid, a short neck, a metal screw cap, and a label that owns the flat face. Premium enough for a fridge door, portable enough for a party table. The inspirations below are all built on that form factor — and show how ORUS can do it our own way.</p>
 
     <div class="vision-cols">
-      <div class="vc"><strong>Young</strong><span>Playful, unserious energy. Hand-drawn marks, oversized type, saturated colour. It should feel made by people our age, not a legacy distillery.</span></div>
-      <div class="vc"><strong>Bold</strong><span>One idea per can, at maximum scale. The abstracted ORUS Seal becomes a graphic billboard — instant recognition across a crowded shelf or a dark bar.</span></div>
+      <div class="vc"><strong>Young</strong><span>Playful, unserious energy. Bold type on a flat face, saturated liquid colour showing through glass. It should feel made by people our age, not a legacy distillery.</span></div>
+      <div class="vc"><strong>Bold</strong><span>One idea per bottle, at maximum scale. The flat face is a billboard — the ORUS Seal, a mood name, or a colour field — instant recognition on a shelf or a bar top.</span></div>
       <div class="vc"><strong>Relatable</strong><span>Curious names spark the pick-up; plain-language flavour + ABV close the deal. No pretension, no guessing. Honest value, just like the bar.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="naming">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">01</span><h2>The Name — Two Suggestions</h2></div>
+    <p class="sec-intro"><b>命名方向 (Naming Direction)</b><br>Two line-name candidates — type + RTD mood only. Imagery shows the drink occasion (flat glass, pour, another round) without locking a label design. Feel the name first.</p>
+
+    <div class="name-duo">
+      <article class="name-opt otd">
+        <div class="mood">
+          <div class="mood-inner">
+            <div class="opt">Option A</div>
+            <div class="word">OTD</div>
+            <div class="sub">Orus · To · Drink</div>
+          </div>
+        </div>
+        <div class="body">
+          <p class="blurb">Swap the “R” in Ready-To-Drink for ORUS’s <b>O</b>. Category becomes brand — reads like <b>OOTD</b>: young, social, postable.</p>
+          <div class="pair">
+            <div><strong>Strength</strong><span>Ownable acronym; ladders to ORUS.</span></div>
+            <div><strong>Watch</strong><span>Needs a beat to teach — not spoken yet.</span></div>
+          </div>
+        </div>
+      </article>
+      <article class="name-opt more">
+        <div class="mood">
+          <div class="mood-inner">
+            <div class="opt">Option B</div>
+            <div class="word">one more</div>
+            <div class="sub">The line people say</div>
+          </div>
+        </div>
+        <div class="body">
+          <p class="blurb">Last round, one more hour, one more story — maps to <b>Stay</b>. Instant spoken name: “grab a One More.”</p>
+          <div class="pair">
+            <div><strong>Strength</strong><span>Human, memorable — no decode needed.</span></div>
+            <div><strong>Watch</strong><span>Keep SKU names distinct from the line.</span></div>
+          </div>
+        </div>
+      </article>
     </div>
   </div>
 </section>
 
 <section id="references">
   <div class="wrap">
-    <div class="sec-head"><span class="sec-num">00.1</span><h2>Inspirations</h2></div>
-    <p class="sec-intro">The mood we're building from. <b>Strangers Hard Candy</b> is the north star: a name strange enough to spark curiosity, paired with dead-clear flavour call-outs and hazy, saturated gradients. Around it sits a family of brands that get <em>young, bold and relatable</em> right.</p>
+    <div class="sec-head"><span class="sec-num">00.1</span><h2>Inspirations — Flat Glass</h2></div>
+    <p class="sec-intro">The format north star: a <b>flat, rectangular glass bottle</b> (flask / hip-flask silhouette) with a metal screw cap. Liquid colour does half the branding; the label does the rest — big name, clear flavour, ownable graphic. These references replace the old can moodboard.</p>
 
     <div class="moodboard">
       <div class="mb hero-ref">
-        <img src="assets/refs/ref_strangers_single.jpg" alt="Strangers Hard Candy single pack" />
-        <div class="cap"><b>Strangers ★ North Star</b>Curious name + brutally clear flavour ("Mango, Coffee & Guaraná"). Hazy wave gradients feel warm, retro and alive.</div>
+        <img src="assets/glass/28ea8f8b60e11172fc4ae0b8e0de4626.jpg" alt="Flat glass cocktail flask range on metal" />
+        <div class="cap"><b>★ Format · Flat Flask Range</b>Clear flat glass, silver ribbed caps, short labels at the base. Liquid colour = SKU colour. The form factor we're locking.</div>
       </div>
       <div class="mb hero-ref">
-        <img src="assets/refs/ref_strangers_range.jpg" alt="Strangers Hard Candy full range" />
-        <div class="cap"><b>Strangers ★ The System</b>One layout, many flavours. Each SKU gets its own colour haze — a whole range that still reads as one bold family.</div>
+        <img src="assets/glass/85247cf92dbf05ec3a7344e2256de0be.jpg" alt="Flat glass bottled cocktails with bold wrap labels" />
+        <div class="cap"><b>★ Label · Bold Wrap Face</b>Full-width wrap on the flat face: giant cocktail name, small craft marks, batch fields. Type does the talking.</div>
       </div>
       <div class="mb">
-        <img src="assets/refs/ref_thegood.jpg" alt="The Good drink can" />
-        <div class="cap"><b>Type as graphic</b>Letterforms cropped so huge they become the artwork. This is our cue for exploding the ORUS Seal.</div>
+        <img src="assets/glass/925a97c5420a9d633366a315345650c0.jpg" alt="Flat glass coffee brew bottles with minimal white labels" />
+        <div class="cap"><b>Minimal White Face</b>Matte white label, lowercase brand mark, liquid visible above. Clean, modern, fridge-ready.</div>
       </div>
       <div class="mb">
-        <img src="assets/refs/ref_zerno.jpg" alt="Zerno coffee cans" />
-        <div class="cap"><b>Hand-drawn energy</b>Marker scrawls and a smiley face — unserious, human, young. Personality over polish.</div>
+        <img src="assets/glass/3c415db50bf6925c431c132bcea89997.jpg" alt="Amber flat glass rum bottles with yellow accent label" />
+        <div class="cap"><b>Tinted Glass + Colour Block</b>Amber flask + white label + one loud colour field. Premium silhouette, playful accent.</div>
       </div>
       <div class="mb">
-        <img src="assets/refs/ref_ghia.jpg" alt="Ghia aperitif cans" />
-        <div class="cap"><b>Confident script</b>A single oversized wordmark on a colour field. Elegant but still fun and grab-able.</div>
+        <img src="assets/glass/4dc26a911a7c5bc3c67c6ac96f0fa556.jpg" alt="Handheld flat glass bottle with graphic wrap label" />
+        <div class="cap"><b>In the Hand</b>The flat bottle is portable and photogenic — a hip-flask scale that photographs as a lifestyle object.</div>
       </div>
       <div class="mb">
-        <img src="assets/refs/ref_poppi.jpg" alt="Poppi soda cans" />
-        <div class="cap"><b>Relatable & social</b>Bright, friendly, party-ready. Proof that "clearly a good time" outsells "clearly premium".</div>
+        <img src="assets/glass/53d495f177749c9851d961c0360dc7ce.jpg" alt="Flat glass bottle inspiration" />
+        <div class="cap"><b>Shelf Blocking</b>Repeated flat faces create a billboard when lined up — stronger than round bottles or cans.</div>
       </div>
       <div class="mb">
-        <img src="assets/refs/ref_libertine.jpg" alt="Libertine Blends cans" />
-        <div class="cap"><b>Clarity of contents</b>Colour-blocked with the exact build spelled out ("Craft Gin + Yuzu"). You always know what you're drinking.</div>
+        <img src="assets/glass/29764d6480875ce6eeecc269f18e40c1.jpg" alt="Flat glass bottle inspiration" />
+        <div class="cap"><b>Liquid as Colour</b>Clear glass lets the drink itself carry Status Colour — Molten, Verdigris, Sulphur, Ore Black.</div>
       </div>
       <div class="mb">
-        <img src="assets/refs/ref_loam.jpg" alt="LOAM sparkling tea can" />
-        <div class="cap"><b>Blobby, friendly type</b>Soft, playful letterforms + plain benefit call-outs. Approachable and modern.</div>
+        <img src="assets/glass/0d3d116e5adaf3fe90327c13e77a278d.jpg" alt="Flat glass bottle inspiration" />
+        <div class="cap"><b>Metal Cap Detail</b>Ribbed screw cap + tamper strip — small craft cues that lift a cheap-price SKU.</div>
       </div>
       <div class="mb">
-        <img src="assets/refs/ref_nightday.jpg" alt="Night & Day mixer can" />
-        <div class="cap"><b>Retro + graphic</b>Big type, simple circles, nostalgic styling. Bold with almost nothing on the can.</div>
+        <img src="assets/glass/055a02e6893e977a7e9fbed3be79ea90.jpg" alt="Flat glass bottle inspiration" />
+        <div class="cap"><b>Short Neck · Tall Face</b>Maximum label real estate on the flat front — room for the Seal, the mood name, and the clarity line.</div>
       </div>
       <div class="mb">
-        <img src="assets/refs/ref_zerno_wine.jpg" alt="Zerno canned wine" />
-        <div class="cap"><b>Playful shapes</b>Puffy organic forms in candy colours — a reminder our Seal can flex, not just sit still.</div>
+        <img src="assets/glass/e8b07170395dbd713e2013a836cb0121.jpg" alt="Flat glass bottle inspiration" />
+        <div class="cap"><b>Range Rhythm</b>Same bottle, swapped liquids and label colours — one system, many flavours.</div>
       </div>
       <div class="mb">
-        <img src="assets/refs/ref_oeno.jpg" alt="Oeno Vineyard canned wine range" />
-        <div class="cap"><b>Colour-block + hero graphic</b>One bold single-object graphic per SKU on a flat colour field, with the flavour spelled out plain. A whole range that reads instantly on shelf.</div>
+        <img src="assets/glass/5c955ac2a397fc116da1833a363a1a2c.jpg" alt="Flat glass bottle inspiration" />
+        <div class="cap"><b>Graphic Face</b>Illustration / motif on the flat plane — our cue for planting the ORUS Seal as the hero graphic.</div>
       </div>
       <div class="mb">
-        <img src="assets/refs/ref_fomo.jpg" alt="FOMO canned cocktails" />
-        <div class="cap"><b>Editorial &amp; provocative</b>Stark white, giant type and a one-liner attitude ("The flavour picks you"). Confident, tongue-in-cheek, unmistakably young.</div>
+        <img src="assets/glass/b06cd6c0cde4a85a187f699e78becad8.jpg" alt="Flat glass bottle inspiration" />
+        <div class="cap"><b>Premium Minimal</b>Less type, more glass. Quiet luxury lane for a higher SKU or limited drop.</div>
       </div>
       <div class="mb">
-        <img src="assets/refs/ref_ohbelly.jpg" alt="Oh Belly can poured over ice" />
-        <div class="cap"><b>Fun &amp; refreshing</b>A cheeky character mark and a fresh pour over ice — proof that a light, playful drink can still feel crafted and grab-able.</div>
+        <img src="assets/glass/2b018be8a833b3ab65566798f4626792.jpg" alt="Flat glass bottle inspiration" />
+        <div class="cap"><b>Stacked Display</b>Flat bottles stack and fan cleanly for retail and bar backbar.</div>
+      </div>
+      <div class="mb">
+        <img src="assets/glass/f158ec43a9f61fc0bb4bf99d1f7f9875.jpg" alt="Flat glass bottle inspiration" />
+        <div class="cap"><b>Colour Field Labels</b>Full-bleed colour wraps — Status Colours as the whole face of the bottle.</div>
+      </div>
+      <div class="mb">
+        <img src="assets/glass/9e7ee5ff5e27c329287baab96b9f35ae.jpg" alt="Flat glass bottle inspiration" />
+        <div class="cap"><b>Detail &amp; Finish</b>Paper vs. film labels, emboss, foil — finish options that still read ORUS.</div>
+      </div>
+      <div class="mb">
+        <img src="assets/glass/7d347b22b2b5c3e51bde36de4be20003.jpg" alt="Flat glass bottle inspiration" />
+        <div class="cap"><b>Lifestyle Context</b>The bottle should look right on a table, in a bag, or next to a coaster — not only on a shelf planogram.</div>
       </div>
     </div>
   </div>
@@ -242,142 +347,134 @@
 
 <section id="signature">
   <div class="wrap">
-    <div class="sec-head"><span class="sec-num">00.2</span><h2>Signature Design</h2></div>
-    <p class="sec-intro">Pulling the inspirations together into one recommended direction. The move: take the two ideas that make Strangers work — <b>hazy airbrushed gradient waves</b> and a <b>bold, say-it-out-loud name</b> — and swap their generic candy graphic for our own asset: the <b>ORUS Seal, exploded</b>. Cropped this large, the seal reads as a giant "O" — the start of ORUS and the shape of an open mouth, an open door, a portal. It's unmistakably ours without ever printing the full logo.</p>
+    <div class="sec-head"><span class="sec-num">00.2</span><h2>Signature Design — Flat Glass Stickers</h2></div>
+    <p class="sec-intro">The can RTD label system — <b>hazy Status Colour waves + exploded Seal "O" + mood name + clarity line</b> — moves onto glass as a <b>full-face matte sticker</b> on the flat flask. Same artwork, same hierarchy; the surface changes from aluminium to glass. Volume line updates to glass format (e.g. 200ML).</p>
 
     <div class="design-hero">
       <div class="shot">
-        <img src="assets/orus_rtd_signature_design.png" alt="ORUS RTD signature can design — Hot & Bothered" />
+        <img src="assets/glass_labels/glass_hot_bothered.png" alt="Hot & Bothered sticker on flat glass bottle" />
       </div>
       <div>
         <ul class="spec-list">
-          <li><span class="n">The Graphic</span><span class="v"><b>Exploded Seal.</b> One crop of the seal, blown up until it bleeds off every edge. Doubles as the "O" of ORUS. This is the hero — no small logo needed.</span></li>
-          <li><span class="n">The Backdrop</span><span class="v"><b>Hazy gradient waves</b> (borrowed from Strangers) in a single Status Colour fading to bone. Warm, retro, alive — softens the hard geometry of the seal.</span></li>
-          <li><span class="n">The Name</span><span class="v"><b>A mood, said out loud.</b> Set big in the lower third in a slightly retro condensed sans. "Hot &amp; Bothered", "Slow Hands" — cheeky, memorable, human.</span></li>
-          <li><span class="n">The Clarity Line</span><span class="v"><b>Plain flavour + ABV</b> directly under the name: "YUZU &amp; UME SHOCHU SPRITZ · 5.5% · 330ML". Utilitarian type. You always know exactly what you're drinking.</span></li>
-          <li><span class="n">The Wordmark</span><span class="v"><b>ORUS</b>, small and confident at the top. The seal carries recognition; the wordmark just signs it.</span></li>
-          <li><span class="n">Finish</span><span class="v"><b>Matte body, spot-gloss seal.</b> Colour does the shouting; the tactile contrast makes it feel premium in the hand.</span></li>
+          <li><span class="n">Carry-over from cans</span><span class="v">The locked label system stays: <b>ORUS</b> top · giant Seal <b>O</b> · mood name · flavour + ABV. Only the substrate changes — flat glass instead of a can wrap.</span></li>
+          <li><span class="n">Sticker format</span><span class="v"><b>Full-face matte panel</b> on the flat front (with optional wrap to the sides). Spot-gloss on the Seal O for the tactile hit.</span></li>
+          <li><span class="n">Status Colours</span><span class="v"><b>Molten</b> Hot &amp; Bothered · <b>Verdigris</b> Open Tab · <b>Sulphur</b> Slow Hands · <b>Ore Black</b> Left on Read — same four-SKU family.</span></li>
+          <li><span class="n">The Name</span><span class="v">Cheeky mood names stay: Hot &amp; Bothered, Open Tab, Slow Hands, Left on Read.</span></li>
+          <li><span class="n">Clarity Line</span><span class="v">Plain flavour + ABV + volume under the name — e.g. YUZU &amp; UME SHOCHU SPRITZ · 5.5% · 200ML.</span></li>
+          <li><span class="n">Finish</span><span class="v"><b>Matte body sticker, spot-gloss Seal</b> — glass reads premium; colour still shouts.</span></li>
         </ul>
       </div>
     </div>
 
+    <div class="ref-label" style="margin-top:28px;">Label system · from the can board (source)</div>
+    <div class="full-bleed" style="margin-top:10px;">
+      <img src="assets/glass_labels/orus_rtd_system_board.png" alt="ORUS RTD label unroll design system" />
+      <div class="cap"><b>Source —</b> the can label unroll system. Same four skins become glass-face stickers below.</div>
+    </div>
+
+    <div class="ref-label" style="margin-top:28px;">On glass · four SKUs</div>
+    <div class="format-row four">
+      <figure>
+        <img src="assets/glass_labels/glass_hot_bothered.png" alt="Hot & Bothered on glass" />
+        <figcaption>Hot &amp; Bothered · Molten</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/glass_labels/glass_open_tab.png" alt="Open Tab on glass" />
+        <figcaption>Open Tab · Verdigris</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/glass_labels/glass_slow_hands.png" alt="Slow Hands on glass" />
+        <figcaption>Slow Hands · Sulphur</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/glass_labels/glass_left_on_read.png" alt="Left on Read on glass" />
+        <figcaption>Left on Read · Ore Black</figcaption>
+      </figure>
+    </div>
+
     <div class="full-bleed">
-      <img src="assets/orus_rtd_system_board.png" alt="ORUS RTD four-can label design system, unrolled" />
-      <div class="cap"><b>The system, unrolled —</b> one template, four Status Colours. Because the seal and layout stay fixed while only the colour + name + flavour change, the range reads as one bold family on the shelf and scales to endless seasonal drops.</div>
+      <img src="assets/glass_labels/glass_rtd_lineup.png" alt="ORUS RTD flat glass bottle lineup" />
+      <div class="cap"><b>Range on shelf —</b> one mould, one sticker template. Status Colour + name + flavour change; the flat faces block as a family.</div>
     </div>
   </div>
 </section>
 
 <section id="toolkit">
   <div class="wrap">
-    <div class="sec-head"><span class="sec-num">00.3</span><h2>Seal Toolkit</h2></div>
-    <p class="sec-intro">The exploded "O" is the hero, but the seal is a flexible asset — it can be cropped, cut, tiled, pressed or split. Here are more ways to build a can around it, so the range never feels one-note and can flex across flavours, limited editions and premium tiers.</p>
+    <div class="sec-head"><span class="sec-num">00.3</span><h2>Seal on Glass — Toolkit</h2></div>
+    <p class="sec-intro">The Seal is still the flexible asset — now designed for a <b>flat glass face</b>, not a curved can. Same motif logic; different surface. Three production-friendly cues on the <b>same flat flask form</b> — embossed glass skipped as a cost tier we don’t need.</p>
 
     <div class="grid">
       <div class="card">
-        <div class="stage"><img src="assets/orus_seal_window.png" alt="Seal-as-window can concept" /></div>
+        <div class="stage ref">
+          <img src="assets/toolkit/ex_face.jpg" alt="Flat glass flask — seal as large face graphic" />
+        </div>
         <div class="meta">
-          <div class="t">01 · The Window</div>
-          <div class="d">The seal's oval hole becomes a <b>peephole</b> onto macro photography of the actual ingredients — limes, mint, splashing soda. Instantly appetising and tells you the flavour without reading a word. Great for the fruit-forward SKUs.</div>
+          <div class="t">01 · Seal as Face Graphic</div>
+          <div class="d">Crop the Seal large across the flat label so it reads as a giant <b>"O"</b> — portal / cave mouth / open door. Hero for the core line.</div>
+          <span class="src">Flat flask · face owns the panel</span>
         </div>
       </div>
-
       <div class="card">
-        <div class="stage"><img src="assets/orus_seal_pattern.png" alt="Seal-as-pattern can concept" /></div>
+        <div class="stage ref">
+          <img src="assets/toolkit/ex_window.jpg" alt="Flat glass flask — circular die-cut window in label showing liquid" />
+        </div>
         <div class="meta">
-          <div class="t">02 · The Monogram</div>
-          <div class="d">The seal tiled into an <b>all-over tonal pattern</b> — logomania, but subtle. Adds tactile texture and a premium, ownable "house print" that works on cans, coasters, tees and totes alike.</div>
+          <div class="t">02 · Seal as Window</div>
+          <div class="d">Die-cut or transparent oval in the label so the <b>liquid colour</b> (or macro fruit) shows through the Seal's aperture. Flavour you can see.</div>
+          <span class="src">Flat flask · aperture = product reveal</span>
         </div>
       </div>
-
       <div class="card">
-        <div class="stage"><img src="assets/orus_seal_emboss.png" alt="Seal-as-emboss can concept" /></div>
+        <div class="stage ref cap-focus">
+          <img src="assets/toolkit/ex_cap.jpg" alt="Flat glass flask — seal stamp on screw cap" />
+        </div>
         <div class="meta">
-          <div class="t">03 · The Emboss</div>
-          <div class="d">On bare brushed aluminum, the seal is <b>physically pressed into the metal</b> — no ink, tone-on-tone, catching the light. The quiet, premium end of the range for a limited or top-tier release.</div>
+          <div class="t">03 · Seal as Cap Stamp</div>
+          <div class="d">Small Seal on the <b>cap sticker / neck seal</b> — quiet craft cue that ties every SKU back to ORUS even when the body label flexes.</div>
+          <span class="src">Flat flask · seal on the cap</span>
         </div>
       </div>
-
     </div>
 
-    <p class="sec-intro" style="margin:32px 0 0;"><b>More levers to explore —</b> the seal as a die-cut <b>can-tab / lid stamp</b>; stretched tall to <b>elongate</b> the can; used as a <b>progress meter</b> where the oval fills up with colour by ABV or flavour intensity; or turned into a <b>scratch-panel / QR frame</b> on the back linking to a playlist or the bar. One shape, endless system.</p>
+    <p class="sec-intro" style="margin:32px 0 0;"><b>More levers —</b> Status Colour as full-bleed wrap; Seal as a small circular stamp over bold type (like the "for the love of the mix" marks in the refs); neck collar with ABV; back-face QR / playlist. One flat bottle, endless system.</p>
   </div>
 </section>
 
 <section id="positioning">
   <div class="wrap">
-    <div class="sec-head"><span class="sec-num">01</span><h2>Positioning & Scenarios</h2></div>
-    <p class="sec-intro"><b>产品定位与消费场景 (Product Positioning & Scenarios)</b><br>The RTD line extends ORUS's "Third Space" philosophy beyond the physical bar. It's designed to be a catalyst for connection in any setting, translating the bar's energy into a portable format.</p>
+    <div class="sec-head"><span class="sec-num">02</span><h2>Positioning & Scenarios</h2></div>
+    <p class="sec-intro"><b>产品定位与消费场景 (Product Positioning & Scenarios)</b><br>The RTD line extends ORUS's "Third Space" philosophy beyond the physical bar — a flat glass bottle that feels like a keepable object, not a disposable can.</p>
     
     <div class="grid">
       <div class="card">
         <div class="meta">
           <div class="t">Single Drinking (单人饮用)</div>
-          <div class="d">For winding down at home or creative work sessions. Low-ABV or tea-based options (like <em>Left On Read</em>) that offer complex flavors without the heavy hit.</div>
+          <div class="d">For winding down at home or creative work sessions. Low-ABV or tea-based options (like <em>Left On Read</em>) that offer complex flavours without the heavy hit — glass that looks good on a desk.</div>
         </div>
       </div>
       <div class="card">
         <div class="meta">
           <div class="t">Party & Social (聚会场景)</div>
-          <div class="d">High-energy, conversation-starting cans to bring to a dinner party or house gathering. The bold names act as literal icebreakers.</div>
+          <div class="d">High-energy, conversation-starting bottles to bring to a dinner or house gathering. The bold names act as icebreakers; the flat flask passes around cleanly.</div>
         </div>
       </div>
       <div class="card">
         <div class="meta">
           <div class="t">Retail Display (零售陈列)</div>
-          <div class="d">Designed for shelf impact. When lined up in a fridge or retail shelf, the massive geometric shapes and vibrant ORUS brand colors create a striking, billboard-like blocking effect.</div>
+          <div class="d">Designed for shelf impact. Lined up, the flat faces and Status Colours create a striking billboard block — stronger silhouette than round glass or cans.</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="graphics">
+<footer class="page-end">
   <div class="wrap">
-    <div class="sec-head"><span class="sec-num">02</span><h2>Colours & The Seal</h2></div>
-    <p class="sec-intro"><b>Status Colours 与 Seal 的应用 (Application of Status Colours & Seal)</b><br>We do not just stamp the ORUS logo on the can. Instead, we use the brand's core visual assets as architectural building blocks for the packaging art.</p>
-
-    <div class="design-hero" style="margin-top:28px;">
-      <div class="shot">
-        <img src="assets/orus_seal_status_key.png" alt="ORUS seal status colour map — On Fire, Open, Waiting, Do Not Disturb" />
-      </div>
-      <div>
-        <ul class="spec-list">
-          <li><span class="n">Exploding the Motif</span><span class="v"><b>The seal, zoomed in 1000%.</b> We keep only the outer curve and the oval negative space, so it reads as a giant "O" — instantly ownable, no full logo needed.</span></li>
-          <li><span class="n">Molten · On Fire</span><span class="v">The high-energy spritz. Loud, flirty, the life of the room.</span></li>
-          <li><span class="n">Verdigris · Open</span><span class="v">The refreshing icebreaker. Cool, approachable, down for anything.</span></li>
-          <li><span class="n">Sulphur · Waiting</span><span class="v">The easy social sipper. Sweet, sunny, no rush.</span></li>
-          <li><span class="n">Ore Black · DND</span><span class="v">The low-ABV wind-down. Deep, grounding, in your own world.</span></li>
-          <li><span class="n">Why it works</span><span class="v"><b>One seal, four states, instant clarity.</b> The same logic as the bar's Status Coasters — the colour tells you the mood before you even read the name.</span></li>
-        </ul>
-      </div>
-    </div>
+    <a href="../index.html" class="back-nav">← Back to ORUS Branding</a>
+    <p class="hint">Return to the main visual identity guide</p>
   </div>
-</section>
-
-<section id="naming">
-  <div class="wrap">
-    <div class="sec-head"><span class="sec-num">03</span><h2>The Name · OTD</h2></div>
-    <p class="sec-intro"><b>命名方向 (Naming Direction)</b><br>What if the line isn't "ORUS RTD" but <b>OTD — Orus·To·Drink</b>? It turns a generic category label into ownable brand language. The idea, with its upsides and the risks to keep in mind.</p>
-
-    <div class="design-hero" style="margin-top:28px;">
-      <div class="shot" style="display:flex;align-items:center;justify-content:center;background:var(--ore-black);border-radius:12px;padding:48px 24px;">
-        <div style="text-align:center;">
-          <div style="font-weight:800;font-size:4.5rem;letter-spacing:0.04em;line-height:1;color:var(--bone);">OTD</div>
-          <div style="margin-top:12px;font-size:0.8rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--molten);">Orus · To · Drink</div>
-        </div>
-      </div>
-      <div>
-        <ul class="spec-list">
-          <li><span class="n">The Idea</span><span class="v"><b>OTD = Orus·To·Drink.</b> Swap the "R" of the generic "Ready-To-Drink" for the "O" of ORUS — the line names itself after the brand.</span></li>
-          <li><span class="n">Ownable</span><span class="v">"RTD" is a category every competitor uses. "OTD" is <em>ours</em> — brand language, not a spec-sheet term.</span></li>
-          <li><span class="n">On-culture</span><span class="v">Reads like <b>OOTD</b> ("outfit of the day") — young, social, postable. Sounds like something people share, not something on a shelf tag.</span></li>
-          <li><span class="n">Ladders to ORUS</span><span class="v">The O-for-R swap is a clean, logical tie back to the master brand — subtle and wearable.</span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+</footer>
 
 </body>
 </html>

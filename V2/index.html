@@ -401,15 +401,68 @@
   @media (max-width: 760px) { .renditions { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 440px) { .renditions { grid-template-columns: 1fr; } }
 
-  /* ---------- Refinement — clean O + wordmark options ---------- */
-  .o-options { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
-  .o-options .lv svg { max-width: 130px; margin: 4px auto 0; }
-  .wordmarks { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
-  .wordmarks .lv { min-height: 132px; justify-content: center; gap: 6px; }
+  .seal-glass { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 14px; }
+  @media (max-width: 760px) { .seal-glass { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 440px) { .seal-glass { grid-template-columns: 1fr; } }
+  .seal-glass figure { margin: 0; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: rgba(255,255,255,0.015); }
+  .seal-glass img { width: 100%; height: 280px; object-fit: cover; display: block; }
+  .seal-glass figcaption { padding: 12px 12px 14px; }
+  .seal-glass .sg-label { display: block; font-weight: 700; font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--molten); margin-bottom: 4px; }
+  .seal-glass .sg-name { display: block; font-size: 0.78rem; font-weight: 700; color: var(--bone); margin-bottom: 3px; }
+  .seal-glass .sg-desc { display: block; font-size: 0.7rem; color: var(--concrete); line-height: 1.4; }
+  .pin-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 14px 0 6px; }
+  @media (max-width: 760px) { .pin-strip { grid-template-columns: repeat(2, 1fr); } }
+  .pin-strip figure { margin: 0; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .pin-strip img { width: 100%; height: 140px; object-fit: cover; display: block; filter: contrast(1.04); }
+  .pin-strip figcaption { padding: 8px 10px 10px; font-size: 0.56rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--concrete); line-height: 1.35; }
+
+  /* ---------- Logo options — uniform choice grid ---------- */
+  .logo-options { display: flex; flex-direction: column; gap: 14px; margin-top: 18px; }
+  .logo-options .lo-row { display: grid; gap: 14px; }
+  .logo-options .lo-row.three { grid-template-columns: repeat(3, 1fr); }
+  .logo-options .lo-row.two { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 720px) {
+    .logo-options .lo-row.three,
+    .logo-options .lo-row.two { grid-template-columns: 1fr; }
+  }
+  .lo {
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: rgba(255,255,255,0.015);
+    padding: 16px 14px 14px;
+    display: flex;
+    flex-direction: column;
+    min-height: 220px;
+  }
+  .lo.light {
+    background: #FFFFFF;
+    border-color: #e4ddd0;
+  }
+  .lo.light .lo-name { color: #1A1714; }
+  .lo.light .lo-desc { color: #6B6153; }
+  .lo.light .logo-choice { color: #CF3E17; }
+  .lo .logo-choice { margin-bottom: 6px; }
+  .lo .lo-stage {
+    flex: 1;
+    min-height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 6px;
+  }
+  .lo .lo-stage img { width: 100%; max-height: 88px; object-fit: contain; display: block; }
+  .lo .lo-stage svg { width: 100%; max-height: 100px; display: block; }
+  .lo .lo-name {
+    font-weight: 700; font-size: 0.78rem; letter-spacing: 0.04em;
+    color: var(--bone); margin: 4px 0 4px; line-height: 1.25;
+  }
+  .lo .lo-desc {
+    font-size: 0.7rem; color: var(--concrete); line-height: 1.4; margin: 0;
+  }
   .wm { color: var(--bone); line-height: 1; display: block; text-align: center; }
-  .wm-wide   { font-family: 'Manrope', sans-serif; font-weight: 300; font-size: 1.9rem; letter-spacing: 0.52em; padding-left: 0.52em; }
-  .wm-fashion{ font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 1.85rem; letter-spacing: 0.06em; padding-left: 0.06em; }
-  .wm-serif  { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 2.7rem; letter-spacing: 0.14em; padding-left: 0.14em; }
+  .wm-wide   { font-family: 'Manrope', sans-serif; font-weight: 300; font-size: 1.55rem; letter-spacing: 0.42em; padding-left: 0.42em; }
+  .wm-fashion{ font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 1.5rem; letter-spacing: 0.06em; padding-left: 0.06em; }
+  .wm-serif  { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 2.1rem; letter-spacing: 0.12em; padding-left: 0.12em; }
   .refine-note { border-left: 3px solid var(--verdigris); background: rgba(76,140,122,0.05); padding: 14px 18px; border-radius: 4px; margin-top: 18px; font-size: 0.86rem; color: var(--concrete); line-height: 1.6; }
   .refine-note b { color: var(--bone); font-weight: 600; }
 
@@ -419,10 +472,14 @@
   .altmark h4 { font-family: 'Manrope', sans-serif; font-size: 0.95rem; font-weight: 700; color: #1A1714; margin: 0 0 3px; letter-spacing: 0.02em; }
   .altmark > p { font-size: 0.75rem; color: #5A5248; line-height: 1.5; margin: 0; }
   .altmark svg { width: 100%; height: auto; display: block; margin-top: 4px; }
+  .logo-choice { display: inline-block; font-weight: 700; font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--molten); margin-bottom: 8px; }
+  .altmark .logo-choice { color: #CF3E17; }
+  .lv .logo-choice { margin-bottom: 10px; }
 
   .oicons { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 16px; }
   @media (max-width: 720px) { .oicons { grid-template-columns: repeat(2, 1fr); } }
   .oicon { border-radius: 8px; overflow: hidden; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); }
+  .oicon .logo-choice { display: block; padding: 10px 12px 0; margin-bottom: 0; }
   .oicon .sw { aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center; }
   .oicon .sw svg { width: 62%; height: 62%; display: block; }
   .oicon .cap { display: block; padding: 10px 12px 12px; font-size: 0.72rem; color: var(--concrete); line-height: 1.45; }
@@ -779,36 +836,96 @@
 <section id="logo">
   <div class="wrap">
     <div class="sec-head"><span class="sec-num">03</span><h2>Logo &amp; Brand Motif</h2></div>
-    <p class="sec-intro">The mark is entering its <b>next refinement stage</b>. The raw, hand-hewn version below reads authentic — but a touch heavy and ragged for a premium, all-day lifestyle brand. We're keeping the logo <b>simple: the ORUS wordmark, no separate icon</b> — so the only decision is the <b>type</b>. Clean options to visualise below.</p>
+    <p class="sec-intro">The mark is entering its <b>next refinement stage</b>. Below are <b>8 logo options</b> — listed at the same scale so you can compare and pick one as the primary. Includes clean type wordmarks, custom refined marks, the current raw hand-hewn mark, and the Cave-Mouth Ring icon+wordmark.</p>
 
-    <div class="sub-head"><span class="sec-num">01</span><h3>Refinement — Clean &amp; Sleek Directions</h3></div>
+    <div class="sub-head"><span class="sec-num">01</span><h3>Logo Options — Choose One</h3></div>
+    <p class="sec-intro" style="margin-top:6px;max-width:760px;">Same card size, same hierarchy: option number · mark · name · one-line read. Pick <b>one</b>.</p>
 
-    <div class="bp-label" style="margin-top:18px;">The Wordmark — Typography Options</div>
-    <p class="sec-intro" style="margin-top:6px;max-width:720px;">The same word, <b>ORUS</b>, set in three clean type voices — from airy luxury to editorial serif — so the wordmark can feel <b>premium and lifestyle</b> rather than rugged.</p>
-    <div class="logo-variations wordmarks">
-      <div class="lv">
-        <span class="wm wm-wide">ORUS</span>
-        <span class="cap">01 · Wide Light — airy, spa-luxe (Manrope 300)</span>
+    <div class="logo-options">
+
+      <div class="lo-row three">
+        <div class="lo">
+          <span class="logo-choice">Option 01</span>
+          <div class="lo-stage"><span class="wm wm-wide">ORUS</span></div>
+          <div class="lo-name">Wide Light</div>
+          <p class="lo-desc">Airy, spa-luxe wordmark (Manrope 300).</p>
+        </div>
+        <div class="lo">
+          <span class="logo-choice">Option 02</span>
+          <div class="lo-stage"><span class="wm wm-fashion">ORUS</span></div>
+          <div class="lo-name">Geometric Display</div>
+          <p class="lo-desc">Circular, fashion-forward (Unbounded).</p>
+        </div>
+        <div class="lo">
+          <span class="logo-choice">Option 03</span>
+          <div class="lo-stage"><span class="wm wm-serif">ORUS</span></div>
+          <div class="lo-name">High-Contrast Serif</div>
+          <p class="lo-desc">Editorial, lifestyle (Cormorant).</p>
+        </div>
       </div>
-      <div class="lv">
-        <span class="wm wm-fashion">ORUS</span>
-        <span class="cap">02 · Geometric Display — circular, fashion-forward (Unbounded)</span>
+
+      <div class="lo-row three">
+        <div class="lo light">
+          <span class="logo-choice">Option 04</span>
+          <div class="lo-stage"><img src="Logo/refined/orus_stencil.png" alt="ORUS Stencil Mark" /></div>
+          <div class="lo-name">The Stencil Mark</div>
+          <p class="lo-desc">One hidden circle cuts through every letter.</p>
+        </div>
+        <div class="lo light">
+          <span class="logo-choice">Option 05</span>
+          <div class="lo-stage"><img src="Logo/refined/orus_pin.png" alt="ORUS Pin Mark" /></div>
+          <div class="lo-name">The Pin Mark</div>
+          <p class="lo-desc">Rounded grotesque + molten bar under the O.</p>
+        </div>
+        <div class="lo light">
+          <span class="logo-choice">Option 06</span>
+          <div class="lo-stage"><img src="Logo/refined/orus_marker.png" alt="ORUS Marker Mark" /></div>
+          <div class="lo-name">The Marker Mark</div>
+          <p class="lo-desc">Hand-drawn letters with a molten O.</p>
+        </div>
       </div>
-      <div class="lv">
-        <span class="wm wm-serif">ORUS</span>
-        <span class="cap">04 · High-Contrast Serif — editorial, lifestyle (Cormorant)</span>
+
+      <div class="lo-row two">
+        <div class="lo">
+          <span class="logo-choice">Option 07</span>
+          <div class="lo-stage">
+            <svg viewBox="35 68 245 92" role="img" aria-label="ORUS Raw Contrast Mark">
+              <defs><filter id="loRaw" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G"/></filter></defs>
+              <text x="115" y="135" font-size="68" font-weight="800" letter-spacing="4" fill="#EDE7DB" filter="url(#loRaw)">RUS</text>
+              <path d="M 70,80 C 95,77 105,95 102,120 C 98,140 75,143 55,135 C 40,125 42,95 50,85 C 58,75 65,82 70,80 Z M 72,100 C 68,105 68,120 75,123 C 82,125 88,110 82,103 C 78,97 75,95 72,100 Z" fill="#EDE7DB" filter="url(#loRaw)" />
+              <path d="M 108,82 C 113,80 116,84 114,89 C 111,94 104,93 103,87 C 101,82 104,83 108,82 Z" fill="#CF3E17" filter="url(#loRaw)" />
+            </svg>
+          </div>
+          <div class="lo-name">Raw Contrast Mark</div>
+          <p class="lo-desc">Fully hand-hewn ORUS + molten spark.</p>
+        </div>
+        <div class="lo">
+          <span class="logo-choice">Option 08</span>
+          <div class="lo-stage">
+            <svg viewBox="40 20 150 210" role="img" aria-label="ORUS Cave-Mouth Ring">
+              <defs><filter id="loRing" x="-25%" y="-25%" width="150%" height="150%"><feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G"/></filter></defs>
+              <circle cx="115" cy="100" r="52" fill="none" stroke="#EDE7DB" stroke-width="14" filter="url(#loRing)" />
+              <circle cx="152" cy="64" r="7" fill="#CF3E17" filter="url(#loRing)" />
+              <text x="115" y="200" text-anchor="middle" font-size="28" font-weight="800" fill="#EDE7DB" textLength="120" lengthAdjust="spacingAndGlyphs">ORUS</text>
+            </svg>
+          </div>
+          <div class="lo-name">Cave-Mouth Ring</div>
+          <p class="lo-desc">Icon + wordmark — imperfect ring, dawn spark.</p>
+        </div>
       </div>
+
     </div>
 
-    <div class="refine-note"><b>Next step —</b> the logo is simply the <b>ORUS wordmark</b> — no separate icon, kept clean and simple. Pick one type direction above and we lock it as the primary, with the raw hand-hewn version below kept as the expressive, textured alt for merch, stamps and social.</div>
+    <div class="refine-note"><b>Choose one of Options 01–08</b> as the primary ORUS logo. The Seal (below) stays the secondary motif — not a logo option.</div>
 
-    <div class="bp-label" style="margin-top:32px;">Refined Marks — Annotated</div>
-    <p class="sec-intro" style="margin-top:6px;max-width:720px;">Two more custom-drawn directions for the wordmark, annotated. Both keep <b>ORUS</b> clean and modern while carrying a single ember accent — proof the mark can feel premium without going fully raw.</p>
+    <div class="bp-label" style="margin-top:40px;">Anatomy — Options 04–06 · Refined Custom Marks</div>
+    <p class="sec-intro" style="margin-top:6px;max-width:720px;">Closer look at the three custom-drawn directions — annotated for decision detail.</p>
 
     <div class="altmarks">
 
       <!-- Stencil mark -->
       <div class="altmark" style="grid-column:1 / -1;">
+        <span class="logo-choice">Option 04</span>
         <h4>The Stencil Mark</h4>
         <p>Built on <b>one hidden circle</b> — a single ring threads through and cuts every letter, connecting O·R·U·S invisibly. That unseen link is our <b>hospitality</b>: everyone in the same circle.</p>
         <svg viewBox="0 0 900 300" role="img" aria-label="Annotated stencil ORUS wordmark">
@@ -833,6 +950,7 @@
 
       <!-- Pin / bar mark -->
       <div class="altmark">
+        <span class="logo-choice">Option 05</span>
         <h4>The Pin Mark</h4>
         <p>A bold rounded grotesque anchored by a molten bar beneath the 'O' — a warm "you-are-here" signature.</p>
         <svg viewBox="0 0 900 300" role="img" aria-label="Annotated pin ORUS wordmark">
@@ -857,8 +975,9 @@
 
       <!-- Marker / hand-drawn mark -->
       <div class="altmark">
+        <span class="logo-choice">Option 06</span>
         <h4>The Marker Mark</h4>
-        <p>Loose, hand-drawn letters with a single <b>molten 'O'</b> — the warmest, most human and playful route, and the natural bridge to the raw mark below.</p>
+        <p>Loose, hand-drawn letters with a single <b>molten 'O'</b> — the warmest, most human and playful route, and the natural bridge to the raw mark.</p>
         <svg viewBox="0 0 900 300" role="img" aria-label="Annotated hand-drawn ORUS wordmark">
           <image href="Logo/refined/orus_marker.png" x="10" y="45" width="520" height="232" />
 
@@ -881,39 +1000,12 @@
 
     </div>
 
-    <div class="bp-label" style="margin-top:32px;">The 'O' — Icon Studies</div>
-    <p class="sec-intro" style="margin-top:6px;max-width:720px;">A standalone <b>O</b> mark for the app icon, stamp, coaster and social avatar. The 'O' opens ORUS and reads as a <b>ring, a cave-mouth, a stone</b> — here explored as a shape in its own right, including the <b>negative-space tile</b> where the O is carved out of a solid block.</p>
-
-    <div class="oicons">
-
-      <div class="oicon">
-        <div class="sw" style="background:#EDE7DB;">
-          <svg viewBox="0 0 100 100"><path fill="#1A1714" fill-rule="evenodd" d="M20,16 Q50,13 80,16 Q84,50 80,84 Q50,87 20,84 Q16,50 20,16 Z M50,27 C63,26 69,39 69,50 C69,62 61,73 50,73 C38,73 31,61 31,49 C31,38 38,28 50,27 Z"/></svg>
-        </div>
-        <span class="cap"><b>Negative-Space Tile</b>The O carved out of a solid, hand-cut block — a stamp/app-icon.</span>
-      </div>
-
-      <div class="oicon">
-        <div class="sw" style="background:#CF3E17;">
-          <svg viewBox="0 0 100 100"><path fill="#EDE7DB" fill-rule="evenodd" d="M20,16 Q50,13 80,16 Q84,50 80,84 Q50,87 20,84 Q16,50 20,16 Z M50,27 C63,26 69,39 69,50 C69,62 61,73 50,73 C38,73 31,61 31,49 C31,38 38,28 50,27 Z"/></svg>
-        </div>
-        <span class="cap"><b>Ember Tile</b>Same block in molten ember — the warm, promo / social version.</span>
-      </div>
-
-      <div class="oicon">
-        <div class="sw" style="background:#1A1714;">
-          <svg viewBox="0 0 100 100"><path fill="#CF3E17" fill-rule="evenodd" d="M84.4,63.7 Q77.4,77.4 63.7,83.8 Q50.0,90.1 35.8,84.3 Q21.6,78.4 17.0,64.2 Q12.4,50.0 18.2,37.0 Q23.9,23.9 37.0,17.2 Q50.0,10.5 63.1,17.1 Q76.2,23.8 83.8,36.9 Q91.4,50.0 84.4,63.7 Z M50.0,32.7 L63.6,29.9 L70.8,41.5 L69.2,53.8 L68.5,67.1 L56.4,72.9 L43.0,74.9 L32.6,66.1 L26.2,54.4 L27.7,40.8 L38.9,33.7 Z"/></svg>
-        </div>
-        <span class="cap"><b>Rough Ore</b>A hand-hewn ring with rough rock cuts inside — the most natural, cave-like O.</span>
-      </div>
-
-    </div>
-
-    <div class="sub-head" style="margin-top:38px;"><span class="sec-num">A</span><h3>The Current Raw Mark — ORUS</h3></div>
+    <div class="bp-label" style="margin-top:40px;">Anatomy — Option 07 · Raw Contrast Mark</div>
+    <p class="sec-intro" style="margin-top:6px;max-width:720px;">The current raw hand-hewn wordmark — fully in the choice set as <b>Option 07</b>.</p>
 
     <!-- Concept 01 — The Contrast Mark -->
     <div class="blueprint">
-      <div class="bp-head"><span class="type">Primary Logo · Contrast Wordmark</span><h3>The Contrast Mark</h3></div>
+      <div class="bp-head"><span class="type">Option 07 · Contrast Wordmark</span><h3>The Raw Contrast Mark</h3></div>
       <p class="bp-sub">Read as one word — <b>ORUS</b>, never split. Every letter is <b>rough-hewn, wobbly, and organic</b> — carved as if pulled straight from raw stone. The whole wordmark shares one hand-made texture, grounded by the geometric structure beneath and accented by a single molten spark.</p>
       <div class="bp-grid">
         <div class="bp-anatomy">
@@ -989,7 +1081,7 @@
     </div>
 
     <!-- Logo variations -->
-    <div class="bp-label" style="margin-top:34px;">Approved Variations</div>
+    <div class="bp-label" style="margin-top:34px;">Option 07 · Colour Applications</div>
     <div class="logo-variations">
       <div class="lv">
         <svg viewBox="35 68 245 92" role="img" aria-label="ORUS primary logo">
@@ -1011,12 +1103,12 @@
       </div>
     </div>
 
-    <div class="sub-head"><span class="sec-num">B</span><h3>Icon Direction — The Cave-Mouth Ring</h3></div>
-    <p class="sec-intro" style="margin-top:2px;">One icon-led route, drawn to be <b>instantly memorable and unmistakably ours</b> — a raw, hand-made form rather than a typeface alone. A standalone mark that still reads back to <b>ORUS</b>.</p>
+    <div class="bp-label" style="margin-top:40px;">Anatomy — Option 08 · Cave-Mouth Ring</div>
+    <p class="sec-intro" style="margin-top:6px;max-width:720px;">Icon + wordmark — fully in the choice set as <b>Option 08</b>. A raw, hand-made form that still reads back to <b>ORUS</b>.</p>
 
     <!-- Exploration 04 — Cave-Mouth Ring -->
     <div class="blueprint">
-      <div class="bp-head"><span class="type">Exploration 04 · Icon + Wordmark</span><h3>Cave-Mouth Ring</h3></div>
+      <div class="bp-head"><span class="type">Option 08 · Icon + Wordmark</span><h3>Cave-Mouth Ring</h3></div>
       <p class="bp-sub">A single wobbly, hand-drawn ring — the <b>imperfect 'O'</b>, the mouth of the cave — with a molten dot breaking on the rim like dawn. The most <b>ownable standalone icon</b>: works as an app avatar, a stamp, a charm. Rooted in marks like <i>Club Soft</i> and <i>RG</i>.</p>
       <div class="bp-grid">
         <div class="bp-anatomy">
@@ -1090,12 +1182,13 @@
     <div class="refine-note"><b>Takeaway —</b> the goal isn't <i>clean vs. raw</i> — it's <b>raw, done with intent</b>. Keep the texture; control the materials, spacing and light around it. That's where rugged becomes premium.</div>
 
 
-    <div class="sub-head"><span class="sec-num">C</span><h3>The Brand Motif — The Seal</h3></div>
+    <div class="sub-head"><span class="sec-num">C</span><h3>Motif — The Seal</h3></div>
+    <p class="sec-intro" style="margin-top:2px;">Not a logo option — the secondary <b>brand motif</b> that lives alongside whichever wordmark is chosen. One motif, several skins.</p>
 
     <!-- Brand Motif — The Seal -->
     <div class="blueprint">
-      <div class="bp-head"><span class="type">Brand Motif · Ink-Seal Stamp</span><h3>The Seal</h3></div>
-      <p class="bp-sub">Not the logo — a secondary <b>motif</b> that lives alongside the wordmark. A refined, geometric take on the traditional hanko stamp: a clean ore-stone with a soft aperture, grounded by a bar. Made for physical texture: apparel, cap patches, coasters, napkins and door seals.</p>
+      <div class="bp-head"><span class="type">Motif · Ink-Seal Stamp</span><h3>The Seal</h3></div>
+      <p class="bp-sub">A refined, geometric take on the traditional hanko stamp: a clean ore-stone with a soft aperture, grounded by a bar. Made for physical texture: apparel, cap patches, coasters, napkins and door seals.</p>
       <div class="bp-grid">
         <div class="bp-anatomy">
           <div class="bp-label">Anatomy & Symbolism</div>
@@ -1150,10 +1243,11 @@
     </div>
 
     <!-- Motif renditions -->
-    <div class="bp-label" style="margin-top:34px;">Motif Renditions</div>
+    <div class="bp-label" style="margin-top:34px;">Motif Renditions — The Seal</div>
     <p class="sec-intro" style="margin-top:6px;">One motif, six skins — the same clean ore-stone seal holds up across warm, tonal, single-ink, <b>cool-patina</b> and loud <b>promo</b> treatments. The <b>Tonal · oxide</b> rendition is the more stylised, softer version; the <b>Verdigris</b> stamp is where the palette's cool signature earns its place on the mark (coasters, cap patches, door seals); and the <b>Sulphur</b> stamp is the high-key version reserved for event &amp; social — never the interior.</p>
     <div class="logo-variations renditions">
       <div class="lv">
+        <span class="logo-choice">Motif · Primary</span>
         <svg viewBox="0 0 160 160" role="img" aria-label="Seal bone on molten">
           <circle cx="80" cy="80" r="70" fill="#CF3E17" />
           <g transform="translate(80,80) scale(1.52) translate(-50,-50)">
@@ -1164,9 +1258,10 @@
             <ellipse cx="53" cy="37" rx="6.5" ry="5" fill="#CF3E17" transform="rotate(-10 53 37)" />
           </g>
         </svg>
-        <span class="cap">Primary · bone on molten</span>
+        <span class="cap">Bone on molten</span>
       </div>
       <div class="lv">
+        <span class="logo-choice">Motif · Tonal</span>
         <svg viewBox="0 0 160 160" role="img" aria-label="Seal oxide tonal">
           <circle cx="80" cy="80" r="70" fill="#CF3E17" />
           <g transform="translate(80,80) scale(1.52) translate(-50,-50)">
@@ -1177,9 +1272,10 @@
             <ellipse cx="53" cy="37" rx="6.5" ry="5" fill="#CF3E17" transform="rotate(-10 53 37)" />
           </g>
         </svg>
-        <span class="cap">Tonal · oxide on molten (stylised)</span>
+        <span class="cap">Oxide on molten (stylised)</span>
       </div>
       <div class="lv light">
+        <span class="logo-choice">Motif · Knockout</span>
         <svg viewBox="0 0 160 160" role="img" aria-label="Seal black on white">
           <circle cx="80" cy="80" r="70" fill="#FFFFFF" />
           <g transform="translate(80,80) scale(1.52) translate(-50,-50)">
@@ -1190,9 +1286,10 @@
             <ellipse cx="53" cy="37" rx="6.5" ry="5" fill="#FFFFFF" transform="rotate(-10 53 37)" />
           </g>
         </svg>
-        <span class="cap">Knockout · black on white</span>
+        <span class="cap">Black on white</span>
       </div>
       <div class="lv light">
+        <span class="logo-choice">Motif · Mono</span>
         <svg viewBox="0 0 160 160" role="img" aria-label="Seal single-ink on paper">
           <circle cx="80" cy="80" r="70" fill="#7A3B2E" />
           <g transform="translate(80,80) scale(1.52) translate(-50,-50)">
@@ -1203,9 +1300,10 @@
             <ellipse cx="53" cy="37" rx="6.5" ry="5" fill="#7A3B2E" transform="rotate(-10 53 37)" />
           </g>
         </svg>
-        <span class="cap">Mono · single-ink on paper</span>
+        <span class="cap">Single-ink on paper</span>
       </div>
       <div class="lv">
+        <span class="logo-choice">Motif · Patina</span>
         <svg viewBox="0 0 160 160" role="img" aria-label="Seal verdigris patina">
           <circle cx="80" cy="80" r="70" fill="#4C8C7A" />
           <g transform="translate(80,80) scale(1.52) translate(-50,-50)">
@@ -1216,9 +1314,10 @@
             <ellipse cx="53" cy="37" rx="6.5" ry="5" fill="#4C8C7A" transform="rotate(-10 53 37)" />
           </g>
         </svg>
-        <span class="cap">Patina · verdigris stamp (cool)</span>
+        <span class="cap">Verdigris stamp (cool)</span>
       </div>
       <div class="lv">
+        <span class="logo-choice">Motif · Sulphur</span>
         <svg viewBox="0 0 160 160" role="img" aria-label="Seal sulphur promo stamp">
           <circle cx="80" cy="80" r="70" fill="#F1C40E" />
           <g transform="translate(80,80) scale(1.52) translate(-50,-50)">
@@ -1229,111 +1328,48 @@
             <ellipse cx="53" cy="37" rx="6.5" ry="5" fill="#F1C40E" transform="rotate(-10 53 37)" />
           </g>
         </svg>
-        <span class="cap">Sulphur · promo / event stamp</span>
+        <span class="cap">Promo / event stamp</span>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ============ IMAGERY ============ -->
-<section id="imagery">
-  <div class="wrap">
-    <div class="sec-head"><span class="sec-num">04</span><h2>Brand Imagery Guide</h2></div>
-    <p class="sec-intro">Imagery should feel like a secret you descended into — dark, intimate and romantic, with one warm light doing all the work. The mood: a tribe hiding out in the cave, away from the bright corporate surface.</p>
+    <!-- Exploration — O Icon Studies (things tried) -->
+    <div class="sub-head" style="margin-top:48px;"><span class="sec-num">D</span><h3>Exploration — The 'O' Icon Studies</h3></div>
+    <p class="sec-intro" style="margin-top:2px;max-width:720px;">Not a logo choice — a record of <b>directions tried</b> while exploring a standalone <b>O</b> for app icon, stamp, coaster and social avatar. Kept here as demonstration of the process: the 'O' as a <b>ring, a cave-mouth, a stone</b>, including the <b>negative-space tile</b> carved out of a solid block.</p>
 
-    <div class="img-grid">
-      <div class="do-dont">
-        <div class="dd-card do">
-          <h4>Style — Do</h4>
-          <ul>
-            <li>Grainy 35mm / analog film aesthetic — honest, tactile, never clinical.</li>
-            <li>Macro texture: raw ore, stone coasters, mineral veins, wet glass.</li>
-            <li>Candid, close, intimate human moments — couples, small tribes in the dark.</li>
-            <li>One <b>cool verdigris counter-note</b> against the warm beam — oxidised copper, mineral-green glass, wet patina on metal — so the palette's teal reads even in photos.</li>
-          </ul>
+    <div class="oicons">
+
+      <div class="oicon">
+        <span class="logo-choice">Exploration · 01</span>
+        <div class="sw" style="background:#EDE7DB;">
+          <svg viewBox="0 0 100 100"><path fill="#1A1714" fill-rule="evenodd" d="M20,16 Q50,13 80,16 Q84,50 80,84 Q50,87 20,84 Q16,50 20,16 Z M50,27 C63,26 69,39 69,50 C69,62 61,73 50,73 C38,73 31,61 31,49 C31,38 38,28 50,27 Z"/></svg>
         </div>
+        <span class="cap"><b>Negative-Space Tile</b>The O carved out of a solid, hand-cut block — a stamp/app-icon.</span>
       </div>
-      <div class="do-dont">
-        <div class="dd-card dont">
-          <h4>Style — Don't</h4>
-          <ul>
-            <li>Staged lifestyle stock photography or fake smiles.</li>
-            <li>Over-saturated neon party clichés or rainbow club lighting.</li>
-            <li>Clip-art icons or busy layouts that crowd out the breathing room.</li>
-          </ul>
+
+      <div class="oicon">
+        <span class="logo-choice">Exploration · 02</span>
+        <div class="sw" style="background:#CF3E17;">
+          <svg viewBox="0 0 100 100"><path fill="#EDE7DB" fill-rule="evenodd" d="M20,16 Q50,13 80,16 Q84,50 80,84 Q50,87 20,84 Q16,50 20,16 Z M50,27 C63,26 69,39 69,50 C69,62 61,73 50,73 C38,73 31,61 31,49 C31,38 38,28 50,27 Z"/></svg>
         </div>
+        <span class="cap"><b>Ember Tile</b>Same block in molten ember — the warm, promo / social version.</span>
       </div>
-    </div>
 
-    <div class="emotion-tags" style="margin-bottom: 30px;">
-      <span class="tag">Intimate</span>
-      <span class="tag">Mysterious</span>
-      <span class="tag">Romantic</span>
-      <span class="tag">Raw</span>
-      <span class="tag">Grounded</span>
-      <span class="tag">Belonging</span>
-      <span class="tag">Anticipation</span>
-    </div>
-
-    <div class="gallery-legend">
-      <span>Monochrome &amp; Dark · top</span>
-      <span class="bar"></span>
-      <span>Stone &amp; Shadow</span>
-      <span class="bar"></span>
-      <span>Molten Red · bottom</span>
-    </div>
-
-    <div class="gallery-wrap">
-      <div class="gallery-col">
-        <img src="Imageries/6da644d220620097b5a8fcbacd183813.jpg" alt="Brand Imagery">
-        <img src="Imageries/9020d30129926f2214152b8ca1d58226.jpg" alt="Brand Imagery">
-        <img src="Imageries/b296b75bd575041141a472554e714dc2.jpg" alt="Brand Imagery">
-        <img src="Imageries/beca8d08d6f33efd938c3753883585aa.jpg" alt="Brand Imagery">
-        <img src="Imageries/bd9ddef34deac9a2f940b95b52923c2e.jpg" alt="Brand Imagery">
-        <img src="Imageries/2e02fbad78443eeb610ecdd5f6b0a1a2.jpg" alt="Brand Imagery">
-        <img src="Imageries/95328f5a0397504c5f978a70e1689cf0.jpg" alt="Brand Imagery">
-        <img src="Imageries/fcb871088dcb2becdb01f6f9cc937ecb.jpg" alt="Brand Imagery">
-        <img src="Imageries/936c93debbc41ce3497ad61f04708083.jpg" alt="Brand Imagery">
-        <img src="Imageries/a26ed06f868d8d98fbebb9a1ac4b3b7b.jpg" alt="Brand Imagery">
-        <img src="Imageries/db89e3a1abf5ea58e33854cdd9843aa6.jpg" alt="Brand Imagery">
+      <div class="oicon">
+        <span class="logo-choice">Exploration · 03</span>
+        <div class="sw" style="background:#1A1714;">
+          <svg viewBox="0 0 100 100"><path fill="#CF3E17" fill-rule="evenodd" d="M84.4,63.7 Q77.4,77.4 63.7,83.8 Q50.0,90.1 35.8,84.3 Q21.6,78.4 17.0,64.2 Q12.4,50.0 18.2,37.0 Q23.9,23.9 37.0,17.2 Q50.0,10.5 63.1,17.1 Q76.2,23.8 83.8,36.9 Q91.4,50.0 84.4,63.7 Z M50.0,32.7 L63.6,29.9 L70.8,41.5 L69.2,53.8 L68.5,67.1 L56.4,72.9 L43.0,74.9 L32.6,66.1 L26.2,54.4 L27.7,40.8 L38.9,33.7 Z"/></svg>
+        </div>
+        <span class="cap"><b>Rough Ore</b>A hand-hewn ring with rough rock cuts inside — the most natural, cave-like O.</span>
       </div>
-      <div class="gallery-col">
-        <img src="Imageries/d1c78f9978de60b3c59f2ba8b704b021.jpg" alt="Brand Imagery">
-        <img src="Imageries/0154acc5bd4582aa62f79042e18b3d4c.jpg" alt="Brand Imagery">
-        <img src="Imageries/518e50d0b1f07bab441b30b4355db726.jpg" alt="Brand Imagery">
-        <img src="Imageries/6ed500bc70b33a1981e50d7a2e360956.jpg" alt="Brand Imagery">
-        <img src="Imageries/4e7e24ab66c8a3569b9fe5c106814b15.jpg" alt="Brand Imagery">
-        <img src="Imageries/e02bd4a8b86404a5ed6c66627a94ca4f.jpg" alt="Brand Imagery">
-        <img src="Imageries/e04ae960af98b58748d96900b2c41556.jpg" alt="Brand Imagery">
-        <img src="Imageries/25f1ed9c937a510100d8c97db108471e.jpg" alt="Brand Imagery">
-        <img src="Imageries/a193a00c855d27e0f37655201161cff7.jpg" alt="Brand Imagery">
-        <img src="Imageries/8edfea947015e0e3742e7548be404a74.jpg" alt="Brand Imagery">
-      </div>
-      <div class="gallery-col">
-        <img src="Imageries/66d1a1c45a6f0f16686367eced483446.jpg" alt="Brand Imagery">
-        <img src="Imageries/34d5624002684f26c3273c95c745e45a.jpg" alt="Brand Imagery">
-        <img src="Imageries/e7702df46f5660c1d90978828daf0f7f.jpg" alt="Brand Imagery">
-        <img src="Imageries/805b1dad349f7d35403ab3319e0880d0.jpg" alt="Brand Imagery">
-        <img src="Imageries/7cbb7f51629eaa3c0d18d4af593ede6c.jpg" alt="Brand Imagery">
-        <img src="Imageries/9e041493202530190839589761619412.jpg" alt="Brand Imagery">
-        <img src="Imageries/afecf1b2311547c96dbfd71c20545a95.jpg" alt="Brand Imagery">
-        <img src="Imageries/488135f7dfd8c16fa814493ad77844b7.jpg" alt="Brand Imagery">
-        <img src="Imageries/1b1c95e0b6b59a70b278af1516cc0789.jpg" alt="Brand Imagery">
-        <img src="Imageries/a8c30bb3e24dd51c6132e6bdbab4848e.jpg" alt="Brand Imagery">
-        <img src="Imageries/152429710c4e3ac960baf9891d73082b.jpg" alt="Brand Imagery">
-      </div>
-    </div>
 
-    <p class="sec-intro" style="margin-top:40px;font-size:0.92rem;">
-      <b>Emotion to evoke:</b> We set our price low but we do not have to look cheap. The feeling of descending out of the bright, plastic, over-digitised city into something dark, permanent and real — then finding your people there. Mysterious but warm, raw but designed. If an image looks like a glossy ad, it's wrong. If it feels like a single beam of light catching a moment inside a cave, it's right.
-    </p>
+    </div>
   </div>
 </section>
 
 <!-- ============ COLLATERAL & TOUCHPOINTS ============ -->
 <section id="collateral">
   <div class="wrap">
-    <div class="sec-head"><span class="sec-num">05</span><h2>Collateral &amp; Touchpoints</h2></div>
+    <div class="sec-head"><span class="sec-num">04</span><h2>Collateral &amp; Touchpoints</h2></div>
     <p class="sec-intro">Where the brand meets the space. Every physical touchpoint should feel tactile and deliberate — raw surfaces, deep shadow, one warm accent. Cheap on price, never cheap to the touch. Collateral designs are in progress; the direction below sets the tone.</p>
 
     <div class="collateral-grid">
@@ -1638,7 +1674,7 @@
       <!-- RTD Exploration Link -->
       <div class="coll-note" style="margin-top:24px; border-left-color:var(--verdigris); background:rgba(76,140,122,0.04);">
         <h4 style="color:var(--verdigris);">Sub-Brand Exploration</h4>
-        <p>The "Ready to Drink" category on the menu has potential to become a standalone lifestyle product line. We have built out a separate concept presentation focusing on fresh, bold can designs and cheeky mood-driven naming (like <em>"Hot &amp; Bothered"</em> and <em>"Slow Hands"</em>) using extreme close-ups of the ORUS Seal.</p>
+        <p>The "Ready to Drink" category on the menu has potential to become a standalone lifestyle product line. We have built out a separate concept presentation focused on a <b>flat glass bottle</b> format — not cans — with cheeky mood-driven naming (like <em>"Hot &amp; Bothered"</em> and <em>"Slow Hands"</em>) and the ORUS Seal on the flat face.</p>
         <a href="rtd/index.html" style="display:inline-block; margin-top:16px; padding:12px 24px; background:var(--verdigris); color:var(--ore-black); text-decoration:none; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; border-radius:4px; font-size:0.8rem;">Explore RTD Concepts →</a>
       </div>
 
