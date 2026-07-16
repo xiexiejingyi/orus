@@ -65,6 +65,15 @@
     margin: 0.18em 0 0.16em; padding-left: 0.18em;
   }
   .hero-logo { display: block; width: clamp(220px, 30vw, 340px); height: auto; margin: 18px auto 8px; }
+  .hero-wordmark {
+    margin: 0 auto 22px;
+    padding-left: 0.22em;
+    color: var(--bone);
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0.22em;
+  }
   .hero .tagline {
     font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;
     font-size: clamp(1rem, 2.4vw, 1.55rem); color: var(--concrete); max-width: 640px;
@@ -96,6 +105,50 @@
   .shift .row + .row { margin-top: 9px; }
   .shift .col.was .row { color: var(--concrete); }
   @media (max-width: 620px) { .shift { grid-template-columns: 1fr; } .shift .col + .col { border-left: none; border-top: 1px solid var(--line); } }
+  .belief-line {
+    max-width: 880px; margin: 20px 0 34px; color: var(--bone);
+    font-size: clamp(1.7rem, 4.6vw, 3.6rem); font-weight: 700; line-height: 1.12;
+    letter-spacing: -0.025em;
+  }
+  .belief-line em { color: var(--molten); font-style: normal; }
+  /* typographic third-space story: first / second / third place */
+  .ts-story { margin: 34px 0 40px; border-top: 1px solid var(--line); }
+  .ts-place {
+    display: flex; align-items: baseline; gap: clamp(16px, 4vw, 48px);
+    padding: 20px 0 18px; border-bottom: 1px solid var(--line);
+  }
+  .ts-num {
+    flex: 0 0 auto; width: clamp(96px, 15vw, 150px);
+    font-weight: 700; text-transform: uppercase; letter-spacing: 0.24em;
+    font-size: clamp(0.6rem, 1.4vw, 0.72rem); color: var(--concrete);
+  }
+  .ts-word {
+    font-weight: 800; text-transform: uppercase; line-height: 0.9;
+    letter-spacing: -0.01em; font-size: clamp(2.4rem, 9vw, 6rem);
+  }
+  .ts-place.muted .ts-word { color: rgba(237,231,219,0.24); }
+  .ts-place.muted .ts-note { color: rgba(237,231,219,0.24); }
+  .ts-place.core { border-bottom: none; align-items: baseline; }
+  .ts-place.core .ts-num { color: var(--molten); }
+  .ts-place.core .ts-word {
+    color: var(--bone); font-size: clamp(3.2rem, 15vw, 9.5rem); letter-spacing: 0.02em;
+  }
+  .ts-place.core .ts-word em { color: var(--molten); font-style: normal; }
+  .ts-note {
+    margin-left: auto; align-self: center; text-align: right; max-width: 260px;
+    font-size: 0.82rem; line-height: 1.4; color: var(--concrete);
+  }
+  @media (max-width: 640px) {
+    .ts-place { flex-wrap: wrap; gap: 4px 20px; }
+    .ts-note { margin-left: 0; text-align: left; flex-basis: 100%; }
+  }
+  .belief-pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 38px; }
+  .belief-pillar { border-top: 2px solid var(--molten); padding: 15px 4px 0; }
+  .belief-pillar strong { display: block; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; }
+  .belief-pillar span { display: block; margin-top: 6px; color: var(--concrete); font-size: 0.82rem; line-height: 1.45; }
+  @media (max-width: 720px) {
+    .belief-pillars { grid-template-columns: 1fr; }
+  }
   .daynight { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 16px; }
   .dp { border: 1px solid var(--line); border-radius: 4px; padding: 22px 20px 24px; }
   .dp.day { background: rgba(237, 231, 219, 0.05); }
@@ -319,6 +372,24 @@
   .ref-strip figcaption { margin-top: 7px; font-size: 0.58rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--concrete); line-height: 1.35; }
   @media (max-width: 900px) { .coaster-gallery { grid-template-columns: 1fr; } }
 
+  /* ---------- Status coasters ---------- */
+  .status-coasters { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .sc { margin: 0; text-align: center; }
+  .status-coasters .sc svg {
+    width: 100%; max-width: 150px; height: auto !important; aspect-ratio: 1 / 1;
+    display: block; margin: 0 auto 12px;
+  }
+  .sc .st-name { font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.74rem; }
+  .sc .st-sig { display: block; margin-top: 3px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.56rem; color: var(--concrete); }
+  .sc .st-desc { margin-top: 8px; font-size: 0.76rem; line-height: 1.48; color: var(--concrete); }
+  .sc .st-desc b { color: var(--bone); font-weight: 600; }
+  .status-caddy-image {
+    width: 100%; max-height: 560px; object-fit: cover; display: block;
+    margin-top: 28px; border-radius: 4px;
+  }
+  @media (max-width: 720px) { .status-coasters { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 420px) { .status-coasters { grid-template-columns: 1fr; } }
+
   /* ---------- Logo variations ---------- */
   .logo-variations { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px; margin-top: 14px; }
   .lv { border: 1px solid var(--line); border-radius: 6px; background: rgba(255,255,255,0.015); padding: 24px 18px 16px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; }
@@ -434,9 +505,10 @@
     position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(120%);
     background: var(--molten); color: var(--ore-black); font-weight: 600; font-size: 0.76rem;
     letter-spacing: 0.1em; text-transform: uppercase; padding: 12px 22px; border-radius: 4px;
-    z-index: 50; transition: transform 0.3s ease;
+    z-index: 50; opacity: 0; visibility: hidden; pointer-events: none;
+    transition: transform 0.3s ease, opacity 0.2s ease, visibility 0.2s ease;
   }
-  #toast.show { transform: translateX(-50%) translateY(0); }
+  #toast.show { transform: translateX(-50%) translateY(0); opacity: 1; visibility: visible; }
 
   /* ---------- The Open Name framework ---------- */
   .open-name { margin-top: 40px; border: 1px solid var(--line); border-radius: 6px; padding: 28px 30px; background: rgba(255,255,255,0.015); }
@@ -485,12 +557,8 @@
 
 <header class="hero">
   <div class="wrap hero-inner">
-    <svg class="hero-logo" viewBox="0 0 240 300" role="img" aria-label="ORUS logo">
-      <defs><filter id="heroRough" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G"/></filter></defs>
-      <circle cx="120" cy="112" r="64" fill="none" stroke="#EDE7DB" stroke-width="18" filter="url(#heroRough)" />
-      <circle cx="167" cy="66" r="9" fill="#CF3E17" filter="url(#heroRough)" />
-      <text x="120" y="256" text-anchor="middle" font-size="58" font-weight="800" fill="#EDE7DB" textLength="150" lengthAdjust="spacingAndGlyphs" filter="url(#heroRough)">ORUS</text>
-    </svg>
+    <img class="hero-logo" src="Logo/orus_portal_platform_02_transparent.png" alt="ORUS portal and platform logo" />
+    <div class="hero-wordmark" aria-label="ORUS">ORUS</div>
     <p class="tagline">Why choose <em>OR</em> when you can choose <em>US</em>?</p>
     <div class="meta detail">Grounded · Singapore · Raw</div>
   </div>
@@ -499,58 +567,60 @@
 <!-- ============ BRAND DESCRIPTION ============ -->
 <section id="brand">
   <div class="wrap">
-    <div class="sec-head"><span class="sec-num">—</span><h2>The Brand</h2></div>
-    <p class="sec-intro" style="font-size:clamp(1.15rem,2.7vw,1.6rem);line-height:1.5;color:var(--bone);max-width:840px;margin-bottom:18px;"><b>ORUS</b> is an all-day urban cave in Singapore — part café &amp; workspace, part sundowner lounge, part pre-drinks den. One dark, warm room that re-lights itself for the hour, built on two things the nightlife scene forgot: <b>honest value</b> and <b>real connection</b>.</p>
-    <p class="sec-intro" style="margin-top:0;">Why choose OR when you can choose US?</em> Just a grounded, raw, human place to drop the day, lean in, and stay a little longer than you planned.</p>
-    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;">
-      <span class="tag">Singapore</span>
-      <span class="tag">All-day · café to night</span>
-      <span class="tag">The Third Space</span>
-      <span class="tag">Accessible luxury</span>
-      <span class="tag">Grounded · Raw · Human</span>
-    </div>
+    <div class="sec-head"><h2>The Brand</h2></div>
+    <p class="sec-intro" style="font-size:clamp(1.15rem,2.7vw,1.6rem);line-height:1.5;color:var(--bone);max-width:840px;margin-bottom:18px;"><b>ORUS</b> is an all-day portal out of routine and into connection — part café &amp; workspace, part sundowner lounge, part pre-drinks den. One dark, warm room that re-lights itself for the hour: a shared <b>platform where people cross paths, lower their guard and become part of US</b>.</p>
+    <p class="sec-intro" style="margin-top:0;">Step through alone or arrive together. ORUS makes space for the first hello, the table that grows, and the night that lasts a little longer — grounded in <b>honest value</b> and <b>real connection</b>. Why choose OR when you can choose US?</p>
   </div>
 </section>
 
 <!-- ============ THE NAME / CONCEPT ============ -->
 <section id="concept">
   <div class="wrap">
-    <div class="sec-head"><span class="sec-num">00</span><h2>The Belief — The Third Space</h2></div>
-    <p class="sec-intro">The missing room between <b>home</b> and <b>work</b> — an all-day, hyper-inclusive <b>Third Space</b>. An urban cave where the luxury isn't the price or the guest list, but <b>belonging</b>.
+    <div class="sec-head"><span class="sec-num">00</span><h2>The Third Space</h2></div>
+    <div class="belief-line">Not home. Not work.<br><em>A portal to US.</em></div>
 
-    <div class="shift">
-      <div class="col was">
-        <div class="lbl">The industry bets on</div>
-        <div class="row">Evening exclusivity</div>
-        <div class="row">Alcohol as the whole point</div>
-        <div class="row">Night-only, fast-paced</div>
+    <div class="ts-story" aria-label="ORUS is the third place between home and work">
+      <div class="ts-place muted">
+        <div class="ts-num">First place</div>
+        <div class="ts-word">Home</div>
+        <div class="ts-note">where you rest.</div>
       </div>
-      <div class="col now">
-        <div class="lbl">ORUS bets on the shift</div>
-        <div class="row">All-day flexibility</div>
-        <div class="row">Social decompression</div>
-        <div class="row">Community first</div>
+      <div class="ts-place muted">
+        <div class="ts-num">Second place</div>
+        <div class="ts-word">Work</div>
+        <div class="ts-note">where you perform.</div>
+      </div>
+      <div class="ts-place core">
+        <div class="ts-num">Third place</div>
+        <div class="ts-word">OR<em>US</em></div>
+        <div class="ts-note">where you belong — a portal into connection, open all day.</div>
       </div>
     </div>
 
-    <p class="sec-intro" style="margin-top:38px;"><b>One room, three lives</b> — the same cave, re-lit for the hour.</p>
+    <div class="belief-pillars">
+      <div class="belief-pillar"><strong>All-day</strong><span>One room evolves with the hour.</span></div>
+      <div class="belief-pillar"><strong>Open to all</strong><span>Premium hospitality without the gatekeeping.</span></div>
+      <div class="belief-pillar"><strong>Connection by design</strong><span>A shared platform where strangers become US.</span></div>
+    </div>
+
+    <p class="sec-intro" style="margin:0 0 12px;"><b>One platform, three modes.</b></p>
     <div class="daynight">
       <div class="dp day">
         <div class="time">08:00 — 16:00 · Day</div>
         <div class="mode">Café &amp; Workspace</div>
-        <p>Workspaces with cozy food — the productive sanctuary.</p>
+        <p>Focus, settle in, feel held.</p>
         <div class="tags"><span class="tag">Cozy food</span><span class="tag">Wi-Fi + power</span><span class="tag">Deep-work calm</span></div>
       </div>
       <div class="dp dusk">
         <div class="time">16:00 — 19:00 · Golden Hour</div>
         <div class="mode">Sundowner Lounge</div>
-        <p>Laptops close, first molten light, spritz &amp; snacks — the wind-down.</p>
+        <p>Close the laptop. Open the evening.</p>
         <div class="tags"><span class="tag">Spritz &amp; low-ABV</span><span class="tag">Small plates</span><span class="tag">Bridge to night</span></div>
       </div>
       <div class="dp night">
         <div class="time">19:00 — Late · Night</div>
         <div class="mode">Pre-Drinks Den</div>
-        <p>The room deepens — the wingman line turns strangers into <em>us</em>.</p>
+        <p>Easy pours. Real connection.</p>
         <div class="tags"><span class="tag">Fast, easy pours</span><span class="tag">OR / US connection</span><span class="tag">Pre-club warm-up</span></div>
       </div>
     </div>
@@ -584,8 +654,8 @@
       <div class="value-row">
         <div class="value-head"><span class="value-ini" style="display:inline-block;transform:rotate(-9deg);">U</span><span class="value-word">nplug</span></div>
         <div class="vbody">
-          <p>Check the group chat at the door. No doomscroll, no blue light, no "let me just reply to this" — the only notifications down here are a fresh round landing and someone new pulling up a stool. The most radical move these days is being fully, unapologetically <em>here</em>.</p>
-          <span class="vline">Phones down · fully here</span>
+          <p>Here's the joke, and we're committing to it: the back wall is a grid of power sockets — and the one thing you switch <em>off</em> is <em>you</em>. Flick the group chat to OFF, dock the phone in the wall, and the only notifications left are a fresh round landing and someone new pulling up a stool. The most radical move these days is being fully, unapologetically <em>here</em>.</p>
+          <span class="vline">Flip yourself to OFF · fully here</span>
         </div>
       </div>
 
@@ -600,7 +670,7 @@
 
     <div class="open-name">
       <div class="bp-label">The Open Name — What's Your ORUS?</div>
-      <p class="sec-intro" style="margin:10px 0 20px;max-width:740px;">ORUS is a <b>made-up word</b> — which makes it a blank everyone gets to fill. We lock the <b>form</b> (the mark, the colours, the four letters, the <b>OR / US</b> pivot) and open the <b>meaning</b>. <em>Open · Relate · Unplug · Stay</em> is <b>our</b> answer — not the only one. Every guest, every regular, every season writes their own.</p>
+      <p class="sec-intro" style="margin:10px 0 20px;max-width:740px;">A blank everyone gets to fill. <em>Open · Relate · Unplug · Stay</em> is <b>our</b> answer — not the only one. Every guest, every regular, every season writes their own.</p>
       <div class="fill-grid">
         <div class="fill"><div class="ltr">O</div><div class="ln"></div><div class="hint">your word</div></div>
         <div class="fill"><div class="ltr">R</div><div class="ln"></div><div class="hint">your word</div></div>
@@ -614,42 +684,8 @@
         <div class="d"><em>O</em>pen <em>R</em>oom, <em>U</em>nited by <em>S</em>pirits</div>
         <div class="d"><em>O</em>rdinary <em>R</em>ituals, <em>U</em>nforgettable <em>S</em>tories</div>
       </div>
-      <p class="sec-intro" style="margin-top:20px;font-size:0.9rem;"><b>The rule — fixed form, free meaning:</b> never change the letters or the mark, only the words behind them. The name becomes a <b>living acrostic</b> guests co-author on coasters, on the wall, and across seasons — the brand belongs to <em>us</em>, not just to ORUS.</p>
     </div>
 
-    <div class="ref-label" style="margin-top:38px;">The Memory Wall — the Open Name, on display</div>
-    <p class="sec-intro" style="margin-top:6px;max-width:780px;">Where the Open Name becomes a <b>place</b>. Guests' filled-in <b>"What's your ORUS?"</b> coasters and cards get clipped up alongside <b>polaroids, receipts, ticket stubs and quick snaps</b> — a growing, guest-built archive of what ORUS meant that night. Free UGC, deeply community-first, and <b>impossible to copy</b> because it's made of your people. <b>Build it into the kitchen window / pass</b> — the serving hatch becomes the frame, backlit so the wall glows like the cave mouth. Run it on a <b>steel mesh grid + clips</b> so it flips straight into a <b>merch wall</b> for drops — tees, caps and totes on the very same hooks.</p>
-    <div class="coaster-gallery memory-wall">
-      <figure><img src="backbar/009692366037103b01f8dd5b03b54b8f.jpg" alt="Mesh grid pinned with polaroids, coasters, receipts and a takeaway bag"><figcaption>Clipped grid · polaroids, coasters, receipts</figcaption></figure>
-      <figure><img src="backbar/47f44441cd53585324da76b3b6d6480f.jpg" alt="Polaroids taped to a raw wall with handwritten names"><figcaption>Taped polaroids · names of the night</figcaption></figure>
-      <figure><img src="backbar/6a21621beac26244f54df751052fdb90.jpg" alt="Polaroids clipped with handwritten cards"><figcaption>Snaps + handwritten "your ORUS" cards</figcaption></figure>
-      <figure><img src="backbar/2395bbde12f55b911c301e71bfa77071.jpg" alt="Wall of photobooth strips beside a free photo kiosk"><figcaption>Free photo booth · the UGC engine</figcaption></figure>
-      <figure><img src="backbar/52fd5af82bb1c78dbff6fbafc8d8097c.jpg" alt="Steel mesh grid covered in polaroids"><figcaption>Steel mesh grid · the flexible system</figcaption></figure>
-      <figure><img src="backbar/c32d441dead74833a8f85d72d35f7b3f.jpg" alt="The same mesh grid repurposed as a merchandise wall"><figcaption>Repurposed · same grid as a merch wall</figcaption></figure>
-    </div>
-
-    <!-- Projected light & visuals -->
-    <div class="collateral-grid" style="margin-top:30px;">
-      <div class="coll-card wide proj">
-        <div class="stage">
-          <div class="proj-gallery">
-            <img src="In-store/00f409ade2196ea9204f18274b17611f.jpg" alt="Projected visuals on a bar wall">
-            <img src="In-store/d6c7442ec56faee33caa5604b7a995cf.jpg" alt="Film projected onto a lounge wall">
-            <img src="In-store/79c46201e20c661b0cd60eff927946c3.jpg" alt="Large projection on raw concrete">
-            <img src="In-store/7530eb97199762ce2e200d38daa85f72.jpg" alt="Forest visuals projected in an industrial space">
-            <img src="In-store/c8953cac6a5c2e1f72600da9a606382f.jpg" alt="Vintage film projected for an event">
-            <img src="In-store/b0ffeb1b951b6f82390de4d74d2212f7.jpg" alt="Cinematic projection above the bar">
-            <img src="In-store/36d5d2ed508f122794491079785aa772.jpg" alt="Projection on a quarry wall during an event buyout">
-            <img src="In-store/ad0d49e5f0a1992d5428b8acaee5d08c.jpg" alt="Projected visuals setting the mood in the space">
-          </div>
-        </div>
-        <div class="meta">
-          <div class="t">Projected Light &amp; Visuals</div>
-          <div class="d">A <b>secondary, re-skinnable layer</b> that wraps around the hero back bar: a single projector throwing light, film grain and texture across the stone — the cave mouth becomes whatever the night calls for. This keeps the space flexible: seasonal artwork, archival film, slow abstract loops, or a fully custom takeover. It is also the more <b>sustainable choice</b> — no reprints, no waste — and lets the venue be re-skinned instantly for private <b>event buyouts</b>.</div>
-          <div class="coll-spec"><span>Projection Mapping</span><span>Seasonal Visuals</span><span>Event Buyouts</span><span>Low-Waste</span></div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -739,67 +775,10 @@
   </div>
 </section>
 
-<!-- ============ TYPOGRAPHY ============ -->
-<section id="type">
-  <div class="wrap">
-    <div class="sec-head"><span class="sec-num">03</span><h2>Typography System</h2></div>
-    <p class="sec-intro">The concept deck is explicit: ORUS should read as <b>one bespoke, geometric sans-serif</b> with letters spaced widely apart to evoke vast space and breathing room. <b>Manrope</b> delivers exactly that — a clean, modern geometric sans — so it carries the entire system.</p>
-
-    <div class="type-stack">
-
-      <div class="type-card">
-        <div class="label"><span class="role">Display · Wordmark</span><span class="font">Manrope — 800 ExtraBold</span></div>
-        <div class="specimen-head spaced">O R U S</div>
-        <div class="rules">
-          <b>Use for:</b> The logo, hero statements, poster headlines. &nbsp;·&nbsp;
-          <b>Rules:</b> UPPERCASE. For the wordmark, very wide tracking (+0.5em) for "vast space." For headlines, +2–4%. Tight leading (1.0). Always add left padding equal to the tracking so it stays optically centered.
-        </div>
-      </div>
-
-      <div class="type-card">
-        <div class="label"><span class="role">Headings</span><span class="font">Manrope — 800</span></div>
-        <div class="specimen-head">Leave the OR behind</div>
-        <div class="rules">
-          <b>Use for:</b> Section titles, campaign headlines. &nbsp;·&nbsp;
-          <b>Rules:</b> UPPERCASE, tracking +2–4%. Let one headline dominate a view. Pair the molten accent on a single keyword (e.g. <span style="color:var(--molten);">US</span>).
-        </div>
-      </div>
-
-      <div class="type-card">
-        <div class="label"><span class="role">Subheadings · Labels</span><span class="font">Manrope — 700</span></div>
-        <div class="specimen-sub">WE ALL CAME DOWN HERE FOR A REASON</div>
-        <div class="rules">
-          <b>Use for:</b> Menu sections, navigation, callouts, coaster text. &nbsp;·&nbsp;
-          <b>Rules:</b> UPPERCASE with generous tracking (+0.12em). The spacing keeps the geometric, architectural feel consistent with the wordmark.
-        </div>
-      </div>
-
-      <div class="type-card">
-        <div class="label"><span class="role">Body</span><span class="font">Manrope — 300 / 400 / 600</span></div>
-        <div class="specimen-body">Leave behind the endless choices, the corporate binaries, the "this or that" anxiety of daily life. Descend into the cave and just be part of us — the collective hiding out in the dark, with great music and great drinks.</div>
-        <div class="rules">
-          <b>Use for:</b> Body copy, web text, descriptions. &nbsp;·&nbsp;
-          <b>Rules:</b> Sentence case for a warm, level tone. Weight 300 default, 600 for inline emphasis. Line-height 1.6–1.75. Max line length ~70 characters.
-        </div>
-      </div>
-
-      <div class="type-card">
-        <div class="label"><span class="role">Detail · Fine Print</span><span class="font">Manrope — 500</span></div>
-        <div class="specimen-detail">5PM TILL YOUR EXCUSES RUN OUT · OR / US · SINGAPORE</div>
-        <div class="rules">
-          <b>Use for:</b> Hours, tags, addresses, captions, the "OR / US" stamp. &nbsp;·&nbsp;
-          <b>Rules:</b> UPPERCASE, very wide tracking (+0.28em), small sizes. Keeps technical details feeling architectural and intentional within a single-typeface system.
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
 <!-- ============ LOGO ============ -->
 <section id="logo">
   <div class="wrap">
-    <div class="sec-head"><span class="sec-num">04</span><h2>Logo &amp; Brand Motif</h2></div>
+    <div class="sec-head"><span class="sec-num">03</span><h2>Logo &amp; Brand Motif</h2></div>
     <p class="sec-intro">The mark is entering its <b>next refinement stage</b>. The raw, hand-hewn version below reads authentic — but a touch heavy and ragged for a premium, all-day lifestyle brand. We're keeping the logo <b>simple: the ORUS wordmark, no separate icon</b> — so the only decision is the <b>type</b>. Clean options to visualise below.</p>
 
     <div class="sub-head"><span class="sec-num">01</span><h3>Refinement — Clean &amp; Sleek Directions</h3></div>
@@ -1259,7 +1238,7 @@
 <!-- ============ IMAGERY ============ -->
 <section id="imagery">
   <div class="wrap">
-    <div class="sec-head"><span class="sec-num">05</span><h2>Brand Imagery Guide</h2></div>
+    <div class="sec-head"><span class="sec-num">04</span><h2>Brand Imagery Guide</h2></div>
     <p class="sec-intro">Imagery should feel like a secret you descended into — dark, intimate and romantic, with one warm light doing all the work. The mood: a tribe hiding out in the cave, away from the bright corporate surface.</p>
 
     <div class="img-grid">
@@ -1354,7 +1333,7 @@
 <!-- ============ COLLATERAL & TOUCHPOINTS ============ -->
 <section id="collateral">
   <div class="wrap">
-    <div class="sec-head"><span class="sec-num">06</span><h2>Collateral &amp; Touchpoints</h2></div>
+    <div class="sec-head"><span class="sec-num">05</span><h2>Collateral &amp; Touchpoints</h2></div>
     <p class="sec-intro">Where the brand meets the space. Every physical touchpoint should feel tactile and deliberate — raw surfaces, deep shadow, one warm accent. Cheap on price, never cheap to the touch. Collateral designs are in progress; the direction below sets the tone.</p>
 
     <div class="collateral-grid">
@@ -1378,20 +1357,122 @@
         </div>
       </div>
 
-      <!-- Coasters & glass charms — built-in wingman -->
+      <!-- Projected light & visuals -->
       <div class="coll-card wide proj">
         <div class="stage">
-          <div class="coaster-gallery four">
-            <figure><img src="Coaster/ref_best_before_charms.png" alt="Reusable silicone glass charms with playful Best Before lines"><figcaption>Reusable silicone glass charms</figcaption></figure>
-            <figure><img src="Coaster/ref_quote_coasters.png" alt="Recyclable board coasters with bold one-line typography"><figcaption>Recyclable board coasters</figcaption></figure>
-            <figure><img src="Coaster/ref_flirt_oneliner.png" alt="Round coaster reading Life is short, flirt with me"><figcaption>Flirty one-liner</figcaption></figure>
-            <figure><img src="Coaster/ref_double_sided.png" alt="Double-sided printed board coasters with a playlist and line-art"><figcaption>Double-sided · playlist &amp; art</figcaption></figure>
+          <div class="proj-gallery">
+            <img src="In-store/00f409ade2196ea9204f18274b17611f.jpg" alt="Projected visuals on a bar wall">
+            <img src="In-store/d6c7442ec56faee33caa5604b7a995cf.jpg" alt="Film projected onto a lounge wall">
+            <img src="In-store/79c46201e20c661b0cd60eff927946c3.jpg" alt="Large projection on raw concrete">
+            <img src="In-store/7530eb97199762ce2e200d38daa85f72.jpg" alt="Forest visuals projected in an industrial space">
+            <img src="In-store/c8953cac6a5c2e1f72600da9a606382f.jpg" alt="Vintage film projected for an event">
+            <img src="In-store/b0ffeb1b951b6f82390de4d74d2212f7.jpg" alt="Cinematic projection above the bar">
+            <img src="In-store/36d5d2ed508f122794491079785aa772.jpg" alt="Projection on a quarry wall during an event buyout">
+            <img src="In-store/ad0d49e5f0a1992d5428b8acaee5d08c.jpg" alt="Projected visuals setting the mood in the space">
           </div>
         </div>
         <div class="meta">
-          <div class="t">Coasters &amp; Glass Charms — Wingman + Blank Canvas</div>
-          <div class="d">In a dark, intimate cave room, ORUS is a prime spot for first dates — so the coaster does the flirting. It comes as a pair: one reads <b>"OR…"</b>, the other <b>"…US"</b>. A date glances down and the line writes itself — "another one here… <b>OR US</b> heading back?" The name becomes an instant, low-key conversation starter. Extend it with a playful <b>"BEST BEFORE…"</b> series — flirting, last call, dancing, commitment — that regulars want to collect.<br><br><b>The fill-in coaster — "What's your ORUS?"</b> A second coaster prints the four letters as blanks — <b>O__ R__ U__ S__</b> — and hands the meaning back to the guest. Two ways in: a <b>deckle-edge meaning card</b> to write your ORUS and take home as a keepsake, and a <b>chalk / wax pencil on the stone coaster</b> to scrawl one for the night and wipe clean. Filled coasters get clipped to a wall (or projected) — a living archive of what ORUS means to the room. Free UGC, and a reason to stay a little longer.<br><br>Format leans <b>sustainable</b>, not disposable: <b>reusable silicone glass charms</b> that live on the stem and go home with regulars, <b>recycled-board coasters</b> in soy ink, and durable <b>re-writable stone</b>. Cheap on price, low on waste, never cheap to the touch.</div>
-          <div class="coll-spec"><span>OR… / …US Pair</span><span>What's Your ORUS? Card</span><span>Chalk-on-Stone</span><span>Wall Archive</span><span>Reusable &amp; Recycled</span></div>
+          <div class="t">Projected Light &amp; Visuals</div>
+          <div class="d">A <b>secondary, re-skinnable layer</b> that wraps around the hero back bar: a single projector throwing light, film grain and texture across the stone — the cave mouth becomes whatever the night calls for. This keeps the space flexible: seasonal artwork, archival film, slow abstract loops, or a fully custom takeover. It is also the more <b>sustainable choice</b> — no reprints, no waste — and lets the venue be re-skinned instantly for private <b>event buyouts</b>.</div>
+          <div class="coll-spec"><span>Projection Mapping</span><span>Seasonal Visuals</span><span>Event Buyouts</span><span>Low-Waste</span></div>
+        </div>
+      </div>
+
+      <!-- Memory Wall — the Open Name, on display -->
+      <div class="coll-card wide proj">
+        <div class="stage">
+          <div class="coaster-gallery">
+            <figure><img src="backbar/orus_flexible_wall.png" alt="Photos clipped to a fluted metal wall — a flexible display system"><figcaption>Steel mesh grid · the flexible system</figcaption></figure>
+            <figure><img src="backbar/009692366037103b01f8dd5b03b54b8f.jpg" alt="Mesh grid pinned with polaroids, coasters, receipts and a takeaway bag"><figcaption>Clipped grid · polaroids, coasters, receipts</figcaption></figure>
+            <figure><img src="backbar/47f44441cd53585324da76b3b6d6480f.jpg" alt="Polaroids taped to a raw wall with handwritten names"><figcaption>Taped polaroids · names of the night</figcaption></figure>
+            <figure><img src="backbar/6a21621beac26244f54df751052fdb90.jpg" alt="Polaroids clipped with handwritten cards"><figcaption>Snaps + handwritten "your ORUS" cards</figcaption></figure>
+            <figure><img src="backbar/2395bbde12f55b911c301e71bfa77071.jpg" alt="Wall of photobooth strips beside a free photo kiosk"><figcaption>Free photo booth · the UGC engine</figcaption></figure>
+            <figure><img src="backbar/c32d441dead74833a8f85d72d35f7b3f.jpg" alt="The same mesh grid repurposed as a merchandise wall"><figcaption>Repurposed · same grid as a merch wall</figcaption></figure>
+          </div>
+        </div>
+        <div class="meta">
+          <div class="t">The Memory Wall — the Open Name, on display</div>
+          <div class="d">Where the Open Name becomes a place. Guests' filled-in "What's your ORUS?" coasters and cards get clipped up alongside polaroids, receipts, ticket stubs and quick snaps — a growing, guest-built archive of what ORUS meant that night.<br><br>Free UGC, deeply community-first. Build on the kitchen window / pass (where customers usually stand while queuing for the toilet) — run it on a stainless steel magnetic board or mesh grid + clips so it flips straight into a merch wall for drops — tees, caps and totes on the very same hooks.</div>
+          <div class="coll-spec"><span>Guest UGC</span><span>Kitchen Window / Pass</span><span>Magnetic Board / Mesh Grid</span><span>Flips to Merch Wall</span></div>
+        </div>
+      </div>
+
+      <!-- Status coaster — read the room -->
+      <div class="coll-card wide proj">
+        <div class="stage">
+          <div class="status-coasters">
+
+            <figure class="sc">
+              <svg viewBox="0 0 160 160" role="img" aria-label="White coaster, black seal — do not disturb">
+                <circle cx="80" cy="80" r="74" fill="#EDE7DB" />
+                <circle cx="80" cy="80" r="64" fill="none" stroke="rgba(14,14,13,0.18)" stroke-width="2" />
+                <g transform="translate(80,80) scale(1.52) translate(-50,-50)">
+                  <g fill="#0E0E0D">
+                    <rect x="33" y="23" width="35" height="31" rx="13" transform="rotate(-10 50 38)" />
+                    <rect x="28" y="60" width="35" height="12" rx="6" transform="rotate(-4 45 66)" />
+                  </g>
+                  <ellipse cx="53" cy="37" rx="6.5" ry="5" fill="#EDE7DB" transform="rotate(-10 53 37)" />
+                </g>
+              </svg>
+              <div class="st-name" style="color:#EDE7DB;">White · Do Not Disturb<span class="st-sig">Heads down</span></div>
+              <div class="st-desc"><b>Leave us be.</b> Deep talk, a first date going well, or just here to decompress solo.</div>
+            </figure>
+
+            <figure class="sc">
+              <svg viewBox="0 0 160 160" role="img" aria-label="Molten coaster, bone seal — on fire">
+                <circle cx="80" cy="80" r="74" fill="#CF3E17" />
+                <circle cx="80" cy="80" r="64" fill="none" stroke="rgba(237,231,219,0.35)" stroke-width="2" />
+                <g transform="translate(80,80) scale(1.52) translate(-50,-50)">
+                  <g fill="#EDE7DB">
+                    <rect x="33" y="23" width="35" height="31" rx="13" transform="rotate(-10 50 38)" />
+                    <rect x="28" y="60" width="35" height="12" rx="6" transform="rotate(-4 45 66)" />
+                  </g>
+                  <ellipse cx="53" cy="37" rx="6.5" ry="5" fill="#CF3E17" transform="rotate(-10 53 37)" />
+                </g>
+              </svg>
+              <div class="st-name" style="color:#CF3E17;">Molten · On Fire<span class="st-sig">Hit me up now</span></div>
+              <div class="st-desc"><b>Buzzing and open.</b> Come say hi <em>now</em> — singles on the pull, groups happy to merge tables.</div>
+            </figure>
+
+            <figure class="sc">
+              <svg viewBox="0 0 160 160" role="img" aria-label="Verdigris coaster, bone seal — open">
+                <circle cx="80" cy="80" r="74" fill="#4C8C7A" />
+                <circle cx="80" cy="80" r="64" fill="none" stroke="rgba(237,231,219,0.3)" stroke-width="2" />
+                <g transform="translate(80,80) scale(1.52) translate(-50,-50)">
+                  <g fill="#EDE7DB">
+                    <rect x="33" y="23" width="35" height="31" rx="13" transform="rotate(-10 50 38)" />
+                    <rect x="28" y="60" width="35" height="12" rx="6" transform="rotate(-4 45 66)" />
+                  </g>
+                  <ellipse cx="53" cy="37" rx="6.5" ry="5" fill="#4C8C7A" transform="rotate(-10 53 37)" />
+                </g>
+              </svg>
+              <div class="st-name" style="color:#4C8C7A;">Verdigris · Open<span class="st-sig">Say hello</span></div>
+              <div class="st-desc"><b>Open to a hello.</b> Approach gently — a new face is welcome to pull up a stool.</div>
+            </figure>
+
+            <figure class="sc">
+              <svg viewBox="0 0 160 160" role="img" aria-label="Sulphur coaster, black seal — waiting">
+                <circle cx="80" cy="80" r="74" fill="#F1C40E" />
+                <circle cx="80" cy="80" r="64" fill="none" stroke="rgba(14,14,13,0.25)" stroke-width="2" />
+                <g transform="translate(80,80) scale(1.52) translate(-50,-50)">
+                  <g fill="#0E0E0D">
+                    <rect x="33" y="23" width="35" height="31" rx="13" transform="rotate(-10 50 38)" />
+                    <rect x="28" y="60" width="35" height="12" rx="6" transform="rotate(-4 45 66)" />
+                  </g>
+                  <ellipse cx="53" cy="37" rx="6.5" ry="5" fill="#F1C40E" transform="rotate(-10 53 37)" />
+                </g>
+              </svg>
+              <div class="st-name" style="color:#F1C40E;">Sulphur · Waiting<span class="st-sig">Warming up</span></div>
+              <div class="st-desc"><b>Saving seats.</b> Waiting on someone, or still warming up — check back in a bit.</div>
+            </figure>
+
+          </div>
+          <img class="status-caddy-image" src="Coaster/coaster_caddy_casper_exact_seal.png" alt="Four status coaster stacks in a compact stainless-steel holder on an ORUS bar table">
+        </div>
+        <div class="meta">
+          <div class="t">The Status Coaster — Read the Room</div>
+          <div class="d">A social cue hidden inside our own mark. The seal comes in <b>four colours</b>, and each one signals your vibe for the night. Every table gets the <b>full set in a small stand</b> with a legend card; after you order, you pick the coaster that matches your mood and the <b>server slides it under your glass as they serve</b> — no app, no awkward opener, just a colour. Swap it the moment the night changes. Staff read the whole room at a glance, and singles or groups get a low-stakes way to say <em>come over</em> — or <em>not tonight</em>. It turns the ORUS mark itself into the icebreaker.</div>
+          <div class="coll-spec"><span>Singles &amp; Groups</span><span>Pick Your Signal</span><span>Server-Placed on Serve</span><span>Swap Anytime</span><span>Built on the Seal</span></div>
         </div>
       </div>
 
@@ -1551,98 +1632,6 @@
             <p>Each drink gets its own mock nutrition / ingredients label, riffing on the cold juices, purée highballs, matcha and tomato foam.<br><br>The drinks and categories <b>are named</b> after label language (a "100% Fresh Purée", the "% Daily Fun" section), with clean carton typography, servings and a big calorie-style price. Tongue-in-cheek wellness — looks healthy, drinks like a party.</p>
             <div class="ex">Drink names / categories:<br>100% Fresh Purée · Matcha · Serving: 1 · Tomato Foam · % Daily Fun</div>
           </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============ UNIFORM & MERCH ============ -->
-<section id="merch">
-  <div class="wrap">
-    <div class="sec-head"><span class="sec-num">07</span><h2>Uniform &amp; Merch</h2></div>
-    <p class="sec-intro">The team and the tribe wear the same mark. Two uniform directions are on the table — references below are high-fashion inspiration, to be re-cut in ORUS colours and branding.</p>
-
-    <div class="sub-head"><span class="sec-num">A</span><h3>Uniform — Two Directions</h3></div>
-
-    <!-- Direction 1: Denim on denim -->
-    <div class="uniform-dir">
-      <div class="dir-head"><span class="dir-n">DIRECTION 01</span><span class="dir-t">Denim on Denim</span></div>
-      <p>Head-to-toe indigo — a jacket-and-trouser or shirt-and-jean pairing in contrasting washes. Hard-wearing, ages with the room, and reads as honest blue-collar craft dressed up.<br><br>Leave the cave, leave the planet — and the first colour you see looking back from space is blue: Earth as a single pale blue dot in the dark. Indigo is the most universal, grounding colour we know — the blue of work, of water, of distance, of home.</p>
-      <div class="dir-shots four">
-        <figure><img src="Imageries/IMG_3305.jpg" alt="Denim texture close-up">
-          <figcaption>01 · Texture &amp; wash detail</figcaption></figure>
-        <figure><img src="Imageries/417df54c3f225c99d032cddad87baa13%20(1).jpg" alt="Denim-on-denim short-sleeve full body front view">
-          <figcaption>02 · Short-sleeve · front</figcaption></figure>
-        <figure><img src="Uniform/denim_92a1f850.jpg" alt="Denim-on-denim back view">
-          <figcaption>03 · Back · mid body</figcaption></figure>
-        <figure><img src="Imageries/baad4b9a8de0ee78df54bb621b70ca06.jpg" alt="Denim vest for a more casual look">
-          <figcaption>04 · Vest · a more casual look</figcaption></figure>
-      </div>
-    </div>
-
-    <!-- Direction 2: Miner jumpsuit -->
-    <div class="uniform-dir">
-      <div class="dir-head"><span class="dir-n">DIRECTION 02</span><span class="dir-t">Miner-Style Jumpsuit</span></div>
-      <p>A utilitarian one-piece — coverall, boiler suit or bib overall — the literal cave-and-ore, working-the-seam reference. Oversized and rugged: cinched waists, buckle straps, patch and cargo pockets, across charcoal, black, indigo and brown. Worn over a tee, sleeves cut or pushed up. The seal sits on the chest tab and bold across the back.</p>
-      <div class="dir-shots four">
-        <figure><img src="Imageries/8902bea0c787fd14a768689a61689ab7.jpg" alt="Sleeveless utility coverall with cargo pockets">
-          <figcaption>01 · Sleeveless utility coverall</figcaption></figure>
-        <figure><img src="Imageries/9ff531f6d65300b173cd68216ea7e3ab.jpg" alt="Black short-sleeve boiler suit, full body front">
-          <figcaption>02 · Short-sleeve boiler suit</figcaption></figure>
-        <figure><img src="Imageries/d1558a6d8c44baee55ea8c09242adde9.jpg" alt="Indigo denim bib overall, mid body">
-          <figcaption>03 · Denim bib · mid body</figcaption></figure>
-        <figure><div class="zoom-frame"><img class="detail" src="Imageries/f7963d38ac052b46dac7bb5629224df3.jpg" alt="Charcoal utility dungarees fabric, zip and buckle detail"></div>
-          <figcaption>04 · Fabric, zip &amp; buckle detail</figcaption></figure>
-      </div>
-    </div>
-
-    <div class="sub-head"><span class="sec-num">B</span><h3>Merch</h3></div>
-    <div class="merch-grid">
-
-      <!-- Back-print crew tee -->
-      <div class="merch-card wide">
-        <div class="tee-examples five">
-          <figure><img src="Merchs/tee/tee_social_lubricant.png" alt="Back-print tee with a witty line and small illustration"><figcaption>Witty line + small line-art</figcaption></figure>
-          <figure><img src="Merchs/tee/tee_roasted_toasted.png" alt="Back-print tee with arched type and collab lockup"><figcaption>Arched type + collab lockup</figcaption></figure>
-          <figure><img src="Merchs/tee/tee_night_market.png" alt="Back-print tee with circular night-market badge"><figcaption>Circular badge / local crest</figcaption></figure>
-          <figure><img src="Merchs/tee/tee_plantastic.png" alt="Back-print tee with a bold organic graphic in oxide-red"><figcaption>Bold oxide-red graphic</figcaption></figure>
-          <figure><img src="Merchs/tee/tee_mascot_duo.png" alt="Two back-print tees with a walking food mascot in oxide-red"><figcaption>Playful mascot · cream & red</figcaption></figure>
-        </div>
-        <div class="merch-info">
-          <div class="t">Back-Print Crew Tee</div>
-          <div class="d">Oversized tee in bone and oxide-red. Reference examples for the back-print direction — playful one-liners, arched type, a circular crest, and a single bold graphic. ORUS prints would carry the seal and wordmark in this same tongue-in-cheek, local-print spirit.</div>
-        </div>
-      </div>
-
-      <!-- Embroidered cap -->
-      <div class="merch-card wide">
-        <div class="cap-examples">
-          <figure><img src="Merchs/cap/cap_produce_tray.png" alt="Cap packaged in a produce tray like supermarket fruit"><figcaption>Produce-tray packaging</figcaption></figure>
-          <figure><img src="Merchs/cap/cap_front_logo.png" alt="Washed cap with small front embroidery"><figcaption>Small front embroidery</figcaption></figure>
-          <figure><img src="Merchs/cap/cap_net_pack.png" alt="Caps bagged in a produce net like fruit"><figcaption>Net-bag packaging</figcaption></figure>
-          <figure><img src="Merchs/cap/cap_colour_range.png" alt="Row of washed caps in a range of colours"><figcaption>Washed colour range</figcaption></figure>
-          <figure><img src="Merchs/cap/cap_script_embroidery.png" alt="Stack of caps with script embroidery in multiple colours"><figcaption>Script embroidery · colourways</figcaption></figure>
-        </div>
-        <div class="merch-info">
-          <div class="t">Embroidered Cap</div>
-          <div class="d">Low-profile washed cap with the seal embroidered on the front. Reference examples for direction — small front mark, washed colourways, script options, plus playful market-style packaging (produce tray, net bag) that ties caps back to ORUS's wet-market, value spirit.</div>
-        </div>
-      </div>
-
-      <!-- Hoodie -->
-      <div class="merch-card wide">
-        <div class="tee-examples five">
-          <figure><img src="Merchs/hoodie/hoodie_tonal_back.png" alt="Black hoodie with large tonal back-print typography"><figcaption>Tonal tone-on-tone back-print</figcaption></figure>
-          <figure><img src="Merchs/hoodie/hoodie_front_type.png" alt="Cream hoodie with playful question-style front type"><figcaption>Front type · one-liner</figcaption></figure>
-          <figure><img src="Merchs/hoodie/hoodie_hood_embroidery.png" alt="Navy hoodie with tonal embroidery on the hood"><figcaption>Tonal hood embroidery</figcaption></figure>
-          <figure><img src="Merchs/hoodie/hoodie_back_line.png" alt="Pink hoodie with bold red back-print one-liner"><figcaption>Bold back-print line</figcaption></figure>
-          <figure><img src="Merchs/hoodie/hoodie_back_crest.png" alt="Cream hoodie with circular back crest and big letter"><figcaption>Circular back crest</figcaption></figure>
-        </div>
-        <div class="merch-info">
-          <div class="t">Heavyweight Hoodie</div>
-          <div class="d">Boxy, heavy-loopback hoodie in ore-black. Reference examples for direction — a cheeky front one-liner, tonal hood embroidery, a bold oxide-red back line, and a circular crest. ORUS hoodies would carry the seal on the chest and wide-spaced wordmark across the back in this same tone.</div>
         </div>
       </div>
 
